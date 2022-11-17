@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="aPane" onMouseDragged="#onMouseDrag" prefHeight="1000.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.YadPbController">
+   <children>
+      <VBox style="-fx-background-color: white;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox fx:id="hbox" alignment="BASELINE_CENTER" spacing="5.0">
+               <children>
+                  <Label fx:id="lblTitle" text="Yad Project Builder">
+                     <font>
+                        <Font name="System Bold" size="36.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblVersion" alignment="CENTER" text="Label" />
+               </children>
+            </HBox>
+            <HBox spacing="4.0">
+               <children>
+                  <MenuButton mnemonicParsing="false" prefWidth="100.0" text="File">
+                    <items>
+                      <MenuItem fx:id="mbtnOpenProject" mnemonicParsing="false" onAction="#onOpenProject" style="-fx-font-size: 14px;" text="Open Project" />
+                      <MenuItem fx:id="mbtnNewProject" mnemonicParsing="false" onAction="#onNewProject" style="-fx-font-size: 14px;" text="New Project" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem fx:id="mbtnQuit" mnemonicParsing="false" onAction="#onQuit" style="-fx-font-size: 14px;" text="Quit" />
+                    </items>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </MenuButton>
+                  <MenuButton mnemonicParsing="false" prefWidth="100.0" text="Manage">
+                    <items>
+                      <MenuItem fx:id="mbtnSettings" mnemonicParsing="false" onAction="#onSettings" style="-fx-font-size: 14px;" text="Settings" />
+                      <MenuItem fx:id="mbtnBackups" mnemonicParsing="false" onAction="#onBackups" style="-fx-font-size: 14px;" text="Backups" />
+                    </items>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </MenuButton>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <MenuButton mnemonicParsing="false" prefWidth="100.0" text="Help">
+                    <items>
+                      <MenuItem fx:id="mbtnHelp" mnemonicParsing="false" onAction="#onHelp" style="-fx-font-size: 14px;" text="Help" visible="false" />
+                        <SeparatorMenuItem mnemonicParsing="false" visible="false" />
+                      <MenuItem fx:id="mbtnAbout" mnemonicParsing="false" onAction="#onAbout" style="-fx-font-size: 14px;" text="About" />
+                    </items>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </MenuButton>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+               <children>
+                  <HBox prefHeight="581.0" prefWidth="1272.0" spacing="4.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <VBox minWidth="250.0" prefWidth="250.0">
+                           <children>
+                              <Label text="Projects">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font></Label>
+                              <ListView fx:id="lstProjects" prefHeight="300.0" prefWidth="200.0">
+                                 <tooltip>
+                                    <Tooltip text="Right click for context emnu.">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font></Tooltip>
+                                 </tooltip></ListView>
+                              <HBox spacing="4.0">
+                                 <children>
+                                    <Label prefWidth="75.0" text="Dialogs">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <Label text="(Name,Dialog)">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <ListView fx:id="lstDialogs" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                                 <tooltip>
+                                    <Tooltip text="Right click for context menu.">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font></Tooltip>
+                                 </tooltip></ListView>
+                           </children>
+                        </VBox>
+                        <VBox HBox.hgrow="ALWAYS">
+                           <children>
+                              <HBox>
+                                 <children>
+                                    <Label text="Edit Dialog">
+                                       <font>
+                                          <Font name="System Bold" size="14.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <StackPane fx:id="stackPane" alignment="TOP_LEFT" />
+                                 </children>
+                              </HBox>
+                              <HBox spacing="4.0">
+                                 <children>
+                                    <HBox HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <Label text="Project Data">
+                                             <font>
+                                                <Font name="System Bold" size="14.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </padding>
+                              </HBox>
+                              <HBox prefHeight="400.0" spacing="4.0">
+                                 <children>
+                                    <TextArea fx:id="taData" editable="false" prefHeight="200.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                       <font>
+                                          <Font name="Courier New" size="14.0" />
+                                       </font></TextArea>
+                                 </children>
+                                 <padding>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </padding>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </VBox.margin>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

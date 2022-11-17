@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="aPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ListController">
+   <children>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <Label text="List" textFill="BLUE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="btnGeneral" mnemonicParsing="false" onAction="#doGeneral" text="General">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <TableView fx:id="tblColumns" editable="true" prefHeight="200.0" prefWidth="375.0">
+                    <columns>
+                      <TableColumn fx:id="colName" prefWidth="200.0" text="Name" />
+                      <TableColumn fx:id="colType" prefWidth="150.0" text="Type" />
+                    </columns>
+                  </TableView>
+                  <VBox prefWidth="275.0" spacing="4.0">
+                     <children>
+                        <Label text="Name:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtColumnName">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Column name." />
+                           </tooltip>
+                        </TextField>
+                        <Label text="Type:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <HBox spacing="4.0">
+                           <children>
+                              <ComboBox fx:id="cbColumnType" prefWidth="225.0" style="-fx-font-size: 14px;" />
+                              <Button fx:id="btnColumnHelp" mnemonicParsing="false" onAction="#doColumnType" prefWidth="35.0" text="?">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                        <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="4.0" VBox.vgrow="ALWAYS">
+                           <children>
+                              <Button fx:id="btnColumnAdd" mnemonicParsing="false" onAction="#doColumnAdd" prefWidth="110.0" text="Add">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnColumnDelete" mnemonicParsing="false" onAction="#doColumnDelete" prefWidth="110.0" text="Delete">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                           <padding>
+                              <Insets bottom="4.0" />
+                           </padding>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="4.0" right="4.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Label prefWidth="115.0" text="Separator:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtSeparator" alignment="CENTER" onKeyTyped="#onSeparator" prefWidth="40.0" text="|">
+                     <tooltip>
+                        <Tooltip text="Set output separator characters." />
+                     </tooltip>
+                  </TextField>
+                  <Label text="GridL Lines:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cbGridLines" onAction="#doGridLines" prefWidth="100.0" style="-fx-font-size: 14px;">
+                     <tooltip>
+                        <Tooltip text="Draw grid lines of type TYPE in list dialog." />
+                     </tooltip>
+                  </ComboBox>
+                  <Label text="Print Col:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtPrintCol" onKeyTyped="#onPrintCol" prefWidth="50.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label text="Hide:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtHide" onKeyTyped="#onHide" prefWidth="50.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label text="Expand:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtExpand" onKeyTyped="#onExpand" prefWidth="50.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Label prefWidth="115.0" text="Search Column:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtSearchCol" onKeyTyped="#onSearchCol" prefWidth="50.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label text="Tooltip:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtTooltip" onKeyTyped="#onTooltip" prefWidth="50.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label text="Sep Column:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtSepCol" onKeyTyped="#onSepCol" prefWidth="50.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label text="Sep value:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtSepValue" onKeyTyped="#onSepValue" prefWidth="75.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Empty TooltipSet  the  TEXT as a row separator value. This feature highly depends on your current GTK+ theme and may not work properly." />
+                     </tooltip>
+                  </TextField>
+                  <Label text="Precision:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtPrecision" onKeyTyped="#onPrecision" prefWidth="50.0" text="3">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Label prefWidth="115.0" text="Limit:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtLimit" onKeyTyped="#onLimit" prefWidth="50.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label text="Wrap Width:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtWrapWidth" onKeyTyped="#onWrapWidth" prefWidth="50.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label text="Wrap Columns:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtWrapCols" onKeyTyped="#onWrapCols" prefWidth="300.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Set the list of wrapped columns. LIST must be a string of numbers separated by comma." />
+                     </tooltip>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Label prefWidth="115.0" text="Ellipsize:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cbEllipsize" onAction="#doEllipsize" prefWidth="150.0" style="-fx-font-size: 14px;">
+                     <tooltip>
+                        <Tooltip text="Set ellipsize mode for text columns." />
+                     </tooltip>
+                  </ComboBox>
+                  <Label text="Ellipsize Columns:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtEllipsizeCols" onKeyTyped="#onEllipsizeCols" prefWidth="250.0">
+                     <tooltip>
+                        <Tooltip text="Set the list of ellipsized columns. LIST must be a string of numbers separated by comma." />
+                     </tooltip>
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+               <children>
+                  <Label prefWidth="115.0" text="DClick Action:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtDClickAction" onKeyTyped="#onDClickAction" prefWidth="600.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Set  the CMD as a double-click command." />
+                     </tooltip>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+               <children>
+                  <Label prefWidth="115.0" text="Select Action:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtSelectAction" onKeyTyped="#onSelectAction" prefWidth="600.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Set the CMD as a action when selection is changed." />
+                     </tooltip>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+               <children>
+                  <Label prefWidth="115.0" text="Add Action:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtAddAction" onKeyTyped="#onAddAction" prefWidth="600.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Set the CMD as a action when new row is added from a context menu." />
+                     </tooltip>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+               <children>
+                  <Label prefWidth="115.0" text="Editable Cols:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtEditableCols" onKeyTyped="#onEditableCols" prefWidth="600.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Set the list of editable columns. LIST must be a string of numbers separated by comma." />
+                     </tooltip>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+               <children>
+                  <ToggleButton fx:id="btnRadioList" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Radio List">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Use radio toggle for first column." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnNoRulesHint" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="No Rules Hint">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Don't  draw  even  and odd rows by a different colors. This option depends on your current gtk theme and may not work." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnNoClick" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="No Click">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Disable sorting of column content by clicking on its header." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnNoHeaders" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="No Heders">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Do not show column headers." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnEditable" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Editable">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text=" Allow changes to text." />
+                     </tooltip>
+                  </ToggleButton>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+               <children>
+                  <ToggleButton fx:id="btnTail" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Tail">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Autoscroll to the end of the list when a new row will be added." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnRegexSearch" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Regex Search">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Empty TooltipUse regular expressions in search for text fields." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnQuotedOutput" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Quoted Output">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Empty TooltipOutput values will be shell-style quoted." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnAddOnTop" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Add On Top">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Empty TooltipAdd new records at the top of the list." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnIecFormat" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="IEC Format">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Empty TooltipUse IEC (base 1024) units with for size values. With this option values will have suffixes KiB, MiB, GiB." />
+                     </tooltip>
+                  </ToggleButton>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+               <children>
+                  <ToggleButton fx:id="btnNoSelection" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="No Selection">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Empty TooltipDisable selection in list." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnPrintAll" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Print All">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Empty TooltipPrint all data from the list." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnMultiple" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Multiple">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Allow multiple rows to be selected." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnCheckList" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Check List">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Use check boxes for first column." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnListen" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Listen">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </ToggleButton>
+               </children>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

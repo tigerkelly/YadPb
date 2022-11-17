@@ -1,0 +1,690 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefWidth="1000.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.GeneralSettingsController">
+   <children>
+      <VBox spacing="4.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Label prefWidth="75.0" text="Title:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtTitle" prefWidth="600.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Set the dialog title." />
+                     </tooltip>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Label prefWidth="75.0" text="Image:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtImage" editable="false" prefWidth="300.0" style="-fx-background-color: #eeeeee;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Set the dialog image which appears on the left side of dialog." />
+                     </tooltip>
+                  </TextField>
+                  <Button fx:id="btnImage" mnemonicParsing="false" onAction="#doImage" text="^">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label prefWidth="50.0" text="Width:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtWidth" prefWidth="60.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label prefWidth="50.0" text="Height:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtHeight" prefWidth="60.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Label prefWidth="75.0" text="Icon:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtIcon" editable="false" prefWidth="300.0" style="-fx-background-color: #eeeeee;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Use specified GTK icon theme instead of default." />
+                     </tooltip>
+                  </TextField>
+                  <Button fx:id="btnIcon" mnemonicParsing="false" onAction="#doIcon" text="^">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label prefWidth="50.0" text="Pos X:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtPosX" prefWidth="60.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Label prefWidth="50.0" text="Pos Y:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtPosY" prefWidth="60.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox>
+               <children>
+                  <TitledPane animated="false" collapsible="false" prefHeight="300.0" text="Buttons">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <content>
+                        <AnchorPane>
+                           <children>
+                              <HBox spacing="4.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                                 <children>
+                                    <TableView fx:id="tblButtons" editable="true" onMouseClicked="#onMouseClicked" prefWidth="675.0">
+                                      <columns>
+                                        <TableColumn fx:id="colButtonId" editable="false" prefWidth="50.0" text="ID" />
+                                        <TableColumn fx:id="colButtonText" prefWidth="150.0" text="Text" />
+                                          <TableColumn fx:id="colButtonIcon" prefWidth="150.0" text="Icon" />
+                                          <TableColumn fx:id="colButtonTooltip" prefWidth="250.0" text="Tooltip" />
+                                      </columns>
+                                       <tooltip>
+                                          <Tooltip text="Double click to edit cell.">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font></Tooltip>
+                                       </tooltip>
+                                    </TableView>
+                                    <VBox spacing="4.0">
+                                       <children>
+                                          <Label text="Text:">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="txtButtonText" promptText="Enter button text.">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font></TextField>
+                                          <HBox>
+                                             <children>
+                                                <VBox>
+                                                   <children>
+                                                      <Label text="Icon:">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <HBox spacing="4.0">
+                                                         <children>
+                                                            <ComboBox fx:id="cbButtonIcon" prefWidth="175.0" style="-fx-font-size: 14px;" HBox.hgrow="ALWAYS" />
+                                                            <Button fx:id="btnIconHelp" mnemonicParsing="false" onAction="#doIconHelp" prefWidth="35.0" text="?">
+                                                               <font>
+                                                                  <Font size="14.0" />
+                                                               </font>
+                                                            </Button>
+                                                         </children>
+                                                         <padding>
+                                                            <Insets left="4.0" right="4.0" />
+                                                         </padding>
+                                                      </HBox>
+                                                   </children>
+                                                </VBox>
+                                                <VBox>
+                                                   <children>
+                                                      <Label text="ID:">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                      </Label>
+                                                      <TextField fx:id="txtButtonId" text="0">
+                                                         <font>
+                                                            <Font size="14.0" />
+                                                         </font>
+                                                         <tooltip>
+                                                            <Tooltip text="ID is an exit code or command.&#10; 0    = The user has pressed OK button&#10; 1    = The user has pressed Cancel button&#10;70   = The dialog has been closed because the timeout has been reached.&#10;252  = The dialog has been closed by pressing Esc or used the window functions to close the dialog" />
+                                                         </tooltip>
+                                                      </TextField>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </HBox>
+                                          <VBox spacing="4.0" VBox.vgrow="ALWAYS">
+                                             <children>
+                                                <Label text="Tooltip:">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Label>
+                                                <TextField fx:id="txtButtonTooltip" promptText="Enter button tooltip.">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                             </children>
+                                          </VBox>
+                                          <HBox alignment="CENTER_RIGHT" spacing="4.0">
+                                             <children>
+                                                <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#doAdd" prefWidth="110.0" text="Add">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Button>
+                                                <Button fx:id="btnDelete" mnemonicParsing="false" onAction="#doDelete" prefWidth="110.0" text="Delete">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Button>
+                                             </children>
+                                             <padding>
+                                                <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                             </padding>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </TitledPane>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Label prefWidth="110.0" text="Dialog Text:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtDialogText" prefWidth="575.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Set the dialog text." />
+                     </tooltip>
+                  </TextField>
+                  <ComboBox fx:id="cbTextAlign" prefWidth="125.0" style="-fx-font-size: 14px;">
+                     <tooltip>
+                        <Tooltip text="Set type of dialog text justification." />
+                     </tooltip></ComboBox>
+                  <ComboBox fx:id="cbButtonLayout" prefWidth="125.0" style="-fx-font-size: 14px;">
+                     <tooltip>
+                        <Tooltip text="Set buttons layout type." />
+                     </tooltip></ComboBox>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Label prefWidth="110.0" text="Timeout Secs:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtTimeoutSecs" prefWidth="75.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Set the dialog timeout in seconds." />
+                     </tooltip>
+                  </TextField>
+                  <Label text="TabNum:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtTabNum" prefWidth="75.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Set the tab number for plugged dialog." />
+                     </tooltip>
+                  </TextField>
+                  <Label text="Expander Text:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtExpanderText" prefWidth="200.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="TEXT is an optional argument with expander's label." />
+                     </tooltip>
+                  </TextField>
+                  <ToggleButton fx:id="btnExpander" mnemonicParsing="false" prefWidth="110.0" text="Expander">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Hide main widget with expander." />
+                     </tooltip>
+                  </ToggleButton>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Label prefWidth="110.0" text="Plug:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtPlug" prefWidth="100.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Run dialog in plug mode for swallow as a notebook tab." />
+                     </tooltip>
+                  </TextField>
+                  <Label text="Image Path:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtImagePath" editable="false" prefWidth="500.0" style="-fx-background-color: #eeeeee;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Add specified  path to the standard list of directories for looking for icons." />
+                     </tooltip>
+                  </TextField>
+                  <Button fx:id="btnIamgePath" mnemonicParsing="false" onAction="#doImagePath" text="^">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label text="Borders:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtBorders" prefWidth="75.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Set dialog window borders." />
+                     </tooltip>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Label prefWidth="110.0" text="Rest:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtRest" editable="false" prefWidth="450.0" style="-fx-background-color: #eeeeee;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text=" Read extra arguments from given file instead of command line." />
+                     </tooltip>
+                  </TextField>
+                  <Button fx:id="btnRest" mnemonicParsing="false" onAction="#doRest" text="^">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Label text="Response:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtResponse" prefWidth="50.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Set default exit code to NUMBER instead of 0." />
+                     </tooltip>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Label prefWidth="110.0" text="Gtkrc:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtGtkrc" editable="false" prefWidth="450.0" style="-fx-background-color: #eeeeee;">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Read and parse additional GTK+ settings from given file." />
+                     </tooltip>
+                  </TextField>
+                  <Button fx:id="btnGtkrc" mnemonicParsing="false" onAction="#doGtkrc" text="^">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0" style="-fx-font-size: 14px;">
+               <children>
+                  <Label prefWidth="110.0" text="H Scroll Policy:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cbHScrollPolicy" prefWidth="100.0">
+                     <tooltip>
+                        <Tooltip text="Set the policy type for horizontal scrollbars." />
+                     </tooltip></ComboBox>
+                  <Label text="V Scroll Policy:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cbVScrollPolicy" prefWidth="100.0">
+                     <tooltip>
+                        <Tooltip text="Set the policy type for vertical scrollbars." />
+                     </tooltip></ComboBox>
+                  <Label text="Spell Lang:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtSpellLang" prefWidth="200.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Set spell checking language to LANGUAGE. By default language guesses from current  locale." />
+                     </tooltip>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="TOP_CENTER" VBox.vgrow="ALWAYS">
+               <children>
+                  <FlowPane hgap="5.0" maxWidth="1280.0" prefWrapLength="650.0" vgap="8.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <ToggleButton fx:id="btnUndecorated" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Undecorated">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Make window undecorated (remove title and window borders)." />
+                           </tooltip>
+                        </ToggleButton>
+                        <ToggleButton fx:id="btnFullScreen" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Full Screen">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Run dialog in fullscreen mode." />
+                           </tooltip>
+                        </ToggleButton>
+                        <ToggleButton fx:id="btnNoEscape" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="No Escape">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Don't close dialog if Escape was pressed." />
+                           </tooltip>
+                        </ToggleButton>
+                        <ToggleButton fx:id="btnKillParent" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Kill Parent">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Send SIGNAL to parent process." />
+                           </tooltip>
+                        </ToggleButton>
+                        <ComboBox fx:id="cbKillSignal" prefWidth="135.0" promptText="SIGTERM" style="-fx-font-size: 14px;" />
+                        <ToggleButton fx:id="btnEscapeOk" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Escape OK">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Escape acts like pressing OK button." />
+                           </tooltip>
+                        </ToggleButton>
+                        <ToggleButton fx:id="btnOnTop" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="On Top">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Place window over other windows." />
+                           </tooltip>
+                        </ToggleButton>
+                        <ToggleButton fx:id="btnSticky" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Sticky">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Make window visible on all desktops." />
+                           </tooltip>
+                        </ToggleButton>
+                        <ToggleButton fx:id="btnNoMarkup" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="No Markup">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Don't use pango markup in dialog's text." />
+                           </tooltip>
+                        </ToggleButton>
+                        <ToggleButton fx:id="btnNoButtons" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="No Buttons">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Don't show buttons." />
+                           </tooltip>
+                        </ToggleButton>
+                        <ToggleButton fx:id="btnSplash" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Splash">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Open  window with &quot;splashscreen&quot; window hints." />
+                           </tooltip>
+                        </ToggleButton>
+                        <ToggleButton fx:id="btnNoFocus" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="No Focus">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Dialog window never take focus." />
+                           </tooltip>
+                        </ToggleButton>
+                        <ToggleButton fx:id="btnCenterWindow" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Center Window">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Place window on center of screen." />
+                           </tooltip>
+                        </ToggleButton>
+                        <ToggleButton fx:id="btnSkipTaskbar" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Skip Taskbar">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Don't show window in taskbar and pager" />
+                           </tooltip>
+                        </ToggleButton>
+                        <ToggleButton fx:id="btnCloseOnFocus" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Close On Focus">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Close the dialog window when it loose the focus." />
+                           </tooltip>
+                        </ToggleButton>
+                        <ToggleButton fx:id="btnEnableSpell" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Enable Spell">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Enable spell checking in textview widgets" />
+                           </tooltip>
+                        </ToggleButton>
+                        <ToggleButton fx:id="btnMaximized" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Maximized">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Run dialog window maximized." />
+                           </tooltip>
+                        </ToggleButton>
+                        <ToggleButton fx:id="btnSelectable" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Selectable">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="If set, user can select dialog's text and copy it to clipboard." />
+                           </tooltip>
+                        </ToggleButton>
+                        <ToggleButton fx:id="btnMouse" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Mouse">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Place window under mouse position." />
+                           </tooltip>
+                        </ToggleButton>
+                        <ToggleButton fx:id="btnFixed" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Fixed">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Make window fixed width and height." />
+                           </tooltip>
+                        </ToggleButton>
+                        <ToggleButton fx:id="btnAlwaysPrint" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Always Print">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                           <tooltip>
+                              <Tooltip text="Print result for aby of the return codes." />
+                           </tooltip>
+                        </ToggleButton>
+                        <ComboBox fx:id="cbTimeoutPosition" prefWidth="135.0" promptText="Default" style="-fx-font-size: 14px;">
+                           <tooltip>
+                              <Tooltip text="Show  timeout  indicator in given position." />
+                           </tooltip></ComboBox>
+                     </children>
+                     <padding>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </padding>
+                  </FlowPane>
+               </children>
+            </HBox>
+            <HBox spacing="4.0">
+               <children>
+                  <Button fx:id="btnReset" mnemonicParsing="false" onAction="#doReset" prefWidth="150.0" text="Rest" visible="false">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="btnSave" mnemonicParsing="false" onAction="#doSave" prefWidth="150.0" text="Save">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#doCancel" prefWidth="150.0" text="Cancel">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

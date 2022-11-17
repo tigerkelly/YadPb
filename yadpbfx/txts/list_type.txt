@@ -1,0 +1,17 @@
+Set the column header. Types are TEXT, NUM, SZ, FLT, CHK, RD, BAR, IMG, HD or TIP.
+   TEXT type is default.
+   Use NUM for integers and FLT for double values.
+   TIP is used for define tooltip column.
+   SZ size column type.
+     Works exactly like NUM column but shows human readable sizes instead of numbers.
+   CHK (checkboxes) and RD (radio toggle) are a boolean columns.
+   BAR is a progress bar column. Value must be between 0 and 100. If value is outside
+     is range it will be croped to neares legal value.
+   HD type means a hidden column. Such columns are not displayes in the list, only in output.
+   IMG may be path to image or icon name from currnet GTK+ icon theme.
+
+Size of icons may  be  set  in  gtk  config file at GTK_ICON_SIZE_MENU position of gtk-icon-sizes.
+Image field prints as empty value.
+
+Special column names @fore@, @back@ and @font@ sets corresponding rows  attributes.
+Values  of  those  columns don't show in results.

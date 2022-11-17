@@ -1,0 +1,22 @@
+/* JavaFX CSS - Leave this comment until you have at least create one rule which uses -fx-Property */
+
+.table-view .table-cell {
+	-fx-font-size: 14px;
+}
+
+.list-cell{
+    -fx-font-size:14px;
+}
+
+.view-list-cell{
+    -fx-font-size:14px;
+    -fx-font-family: "Courier New";
+}
+
+.text-area .content {
+   -fx-background-color: Ivory ;
+}
+
+.readonly {
+  -fx-control-inner-background: Ivory;
+}

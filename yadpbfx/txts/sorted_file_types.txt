@@ -1,0 +1,8 @@
+DOC *.doc
+EXE *.exe
+HTML *.htm *.html
+JPEG *.jpg
+LOG *.log
+PDF *.pdf
+PNG *.png
+Text *.txt

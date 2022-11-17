@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="aPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ScaleController">
+   <children>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <Label text="Scale" textFill="BLUE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="btnGeneral" mnemonicParsing="false" onAction="#doGeneral" text="General">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <TableView fx:id="tblMarks" editable="true" prefHeight="250.0" prefWidth="325.0">
+                    <columns>
+                      <TableColumn fx:id="colMarkText" prefWidth="200.0" text="Mark Text" />
+                      <TableColumn fx:id="colMarkValue" prefWidth="100.0" text="Mark Value" />
+                    </columns>
+                  </TableView>
+                  <VBox prefWidth="250.0" spacing="4.0">
+                     <children>
+                        <Label text="Mark Text:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="txtMarkText">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </TextField>
+                        <Label text="Mark Value:">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Label>
+                        <HBox>
+                           <children>
+                              <TextField fx:id="txtMarkValue" prefWidth="65.0" text="0">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </TextField>
+                           </children>
+                        </HBox>
+                        <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="4.0" VBox.vgrow="ALWAYS">
+                           <padding>
+                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                           </padding>
+                           <children>
+                              <Button fx:id="btnMarkAdd" mnemonicParsing="false" onAction="#doMarkAdd" prefWidth="110.0" text="Add">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                              <Button fx:id="btnMarkDelete" mnemonicParsing="false" onAction="#doMarkDelete" prefWidth="110.0" text="Delete">
+                                 <font>
+                                    <Font size="14.0" />
+                                 </font>
+                              </Button>
+                           </children>
+                        </HBox>
+                     </children>
+                     <padding>
+                        <Insets left="4.0" right="4.0" />
+                     </padding>
+                  </VBox>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Label prefWidth="75.0" text="Init Value:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtInitValue" onKeyTyped="#onInitValue" prefWidth="65.0" text="0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Set initial value." />
+                     </tooltip>
+                  </TextField>
+                  <Label text="Min:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtMin" onKeyTyped="#onMin" prefWidth="65.0" text="0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Set minimum value." />
+                     </tooltip>
+                  </TextField>
+                  <Label text="Step:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtStep" onKeyTyped="#onStep" prefWidth="65.0" text="0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Set step size." />
+                     </tooltip>
+                  </TextField>
+                  <Label text="Page:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtPage" onKeyTyped="#onPage" prefWidth="65.0" text="0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Set paging size. By default page value is STEP*10." />
+                     </tooltip>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <ToggleButton fx:id="btnPrintPartial" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Print Partial">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Print partial values." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnIncButtons" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Inc Buttons">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Show buttons on edges of a scale for increasing or decreasing scale value." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnHideValue" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Hide Value">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Hide value." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnVertical" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Vertical">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Show vertical scale." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnInvert" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Invert">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Invert scale direction." />
+                     </tooltip>
+                  </ToggleButton>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>
