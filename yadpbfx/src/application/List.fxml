@@ -130,6 +130,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Specify what column will be printed to standard output.&#10;0 may be used to print all columns (this is default)." />
+                     </tooltip>
                   </TextField>
                   <Label text="Hide:">
                      <font>
@@ -140,6 +143,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Hide a specific column." />
+                     </tooltip>
                   </TextField>
                   <Label text="Expand:">
                      <font>
@@ -150,6 +156,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set the column expandable by default.&#10;0 sets all columns expandable." />
+                     </tooltip>
                   </TextField>
                </children>
                <padding>
@@ -167,6 +176,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set the quick search column. 0 mean to disable searching." />
+                     </tooltip>
                   </TextField>
                   <Label text="Tooltip:">
                      <font>
@@ -177,6 +189,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set the column with popup tooltips." />
+                     </tooltip>
                   </TextField>
                   <Label text="Sep Column:">
                      <font>
@@ -187,6 +202,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set the row separator column." />
+                     </tooltip>
                   </TextField>
                   <Label text="Sep value:">
                      <font>
@@ -210,6 +228,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set precision of floating point numbers." />
+                     </tooltip>
                   </TextField>
                </children>
                <padding>
@@ -227,6 +248,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set the number of rows in list dialog." />
+                     </tooltip>
                   </TextField>
                   <Label text="Wrap Width:">
                      <font>
@@ -237,6 +261,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set the width of column before wrapping to NUMBER." />
+                     </tooltip>
                   </TextField>
                   <Label text="Wrap Columns:">
                      <font>
@@ -371,7 +398,7 @@
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </padding>
                <children>
-                  <ToggleButton fx:id="btnRadioList" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Radio List">
+                  <ToggleButton fx:id="btnRadioList" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Radio List">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -379,7 +406,7 @@
                         <Tooltip text="Use radio toggle for first column." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnNoRulesHint" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="No Rules Hint">
+                  <ToggleButton fx:id="btnNoRulesHint" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="No Rules Hint">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -387,7 +414,7 @@
                         <Tooltip text="Don't  draw  even  and odd rows by a different colors. This option depends on your current gtk theme and may not work." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnNoClick" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="No Click">
+                  <ToggleButton fx:id="btnNoClick" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="No Click">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -395,7 +422,7 @@
                         <Tooltip text="Disable sorting of column content by clicking on its header." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnNoHeaders" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="No Heders">
+                  <ToggleButton fx:id="btnNoHeaders" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="No Heders">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -403,7 +430,7 @@
                         <Tooltip text="Do not show column headers." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnEditable" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Editable">
+                  <ToggleButton fx:id="btnEditable" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Editable">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -418,7 +445,7 @@
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </padding>
                <children>
-                  <ToggleButton fx:id="btnTail" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Tail">
+                  <ToggleButton fx:id="btnTail" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Tail">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -426,7 +453,7 @@
                         <Tooltip text="Autoscroll to the end of the list when a new row will be added." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnRegexSearch" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Regex Search">
+                  <ToggleButton fx:id="btnRegexSearch" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Regex Search">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -434,7 +461,7 @@
                         <Tooltip text="Empty TooltipUse regular expressions in search for text fields." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnQuotedOutput" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Quoted Output">
+                  <ToggleButton fx:id="btnQuotedOutput" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Quoted Output">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -442,7 +469,7 @@
                         <Tooltip text="Empty TooltipOutput values will be shell-style quoted." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnAddOnTop" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Add On Top">
+                  <ToggleButton fx:id="btnAddOnTop" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Add On Top">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -450,7 +477,7 @@
                         <Tooltip text="Empty TooltipAdd new records at the top of the list." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnIecFormat" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="IEC Format">
+                  <ToggleButton fx:id="btnIecFormat" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="IEC Format">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -465,7 +492,7 @@
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </padding>
                <children>
-                  <ToggleButton fx:id="btnNoSelection" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="No Selection">
+                  <ToggleButton fx:id="btnNoSelection" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="No Selection">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -473,7 +500,7 @@
                         <Tooltip text="Empty TooltipDisable selection in list." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnPrintAll" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Print All">
+                  <ToggleButton fx:id="btnPrintAll" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Print All">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -481,7 +508,7 @@
                         <Tooltip text="Empty TooltipPrint all data from the list." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnMultiple" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Multiple">
+                  <ToggleButton fx:id="btnMultiple" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Multiple">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -489,7 +516,7 @@
                         <Tooltip text="Allow multiple rows to be selected." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnCheckList" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Check List">
+                  <ToggleButton fx:id="btnCheckList" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Check List">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -497,10 +524,13 @@
                         <Tooltip text="Use check boxes for first column." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnListen" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Listen">
+                  <ToggleButton fx:id="btnListen" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Listen">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Listen data from stdin even if command-line values was specified." />
+                     </tooltip>
                   </ToggleButton>
                </children>
             </HBox>

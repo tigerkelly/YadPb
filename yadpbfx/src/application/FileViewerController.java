@@ -3,6 +3,8 @@ package application;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -89,6 +91,8 @@ public class FileViewerController implements Initializable {
 						
 					} else if (fileName.endsWith("about.txt")) {
 						
+					} else if (fileName.endsWith("yad_manual.txt")) {
+						
 					}
 				}
 			}
@@ -118,6 +122,8 @@ public class FileViewerController implements Initializable {
 						
 					} else if (fileName.endsWith("about.txt")) {
 						
+					} else if (fileName.endsWith("yad_manual.txt")) {
+						
 					}
 					Stage stage = (Stage) btnCancel.getScene().getWindow();
 					stage.close();
@@ -139,19 +145,41 @@ public class FileViewerController implements Initializable {
 			}
     	}
     	
-    	if (fileName.endsWith("about.txt") == true)
+    	if (fileName.endsWith("about.txt") == true || fileName.endsWith("yad_manual.txt") == true)
     		btnCancel.setText("OK");
     	
     	btnCancel.requestFocus();
     	
     	try {
-			BufferedReader br = new BufferedReader(new FileReader(fileName));
+    		InputStream in = null;
+			if (fileName.charAt(0) == '/')
+    			in = getClass().getResourceAsStream(fileName);
+    		else
+    			in = getClass().getResourceAsStream("/" + fileName);
+			
+			if (in != null) {
+//    			System.out.println(jarFile.getAbsolutePath());
+    		
+				BufferedReader br = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+	
+				String line = null;
+				while ((line = br.readLine()) != null) {
+					lstText.getItems().add(line);
+				}
+				br.close();
+			} else {
+				try {
+					BufferedReader br = new BufferedReader(new FileReader(fileName));
 
-			String line = null;
-			while ((line = br.readLine()) != null) {
-				lstText.getItems().add(line);
+					String line = null;
+					while ((line = br.readLine()) != null) {
+						lstText.getItems().add(line);
+					}
+					br.close();
+				} catch (IOException ex2) {
+					ex2.printStackTrace();
+				}
 			}
-			br.close();
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		}

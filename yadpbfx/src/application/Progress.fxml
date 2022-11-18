@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -32,7 +33,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <Label prefWidth="100.0" text="Progress Text:">
+                  <Label prefWidth="110.0" text="Progress Text:">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -41,6 +42,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set text in progress bar to TEXT." />
+                     </tooltip>
                   </TextField>
                </children>
                <padding>
@@ -49,7 +53,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <Label prefWidth="100.0" text="Percentage:">
+                  <Label prefWidth="110.0" text="Percentage:">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -58,6 +62,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set initial percentage." />
+                     </tooltip>
                   </TextField>
                   <Label text="Log Height:">
                      <font>
@@ -68,6 +75,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set the height of log window." />
+                     </tooltip>
                   </TextField>
                   <Label text="Log Text:">
                      <font>
@@ -78,6 +88,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Optional argument TEXT is a text label for window expander." />
+                     </tooltip>
                   </TextField>
                </children>
                <padding>
@@ -90,21 +103,33 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set Right-To-Left progress bar direction." />
+                     </tooltip>
                   </ToggleButton>
                   <ToggleButton fx:id="btnAutoClose" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Auto Close">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Close dialog when 100% has been reached." />
+                     </tooltip>
                   </ToggleButton>
                   <ToggleButton fx:id="btnAutoKill" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Auto Kill">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Kill parent process if cancel button is pressed." />
+                     </tooltip>
                   </ToggleButton>
                   <ToggleButton fx:id="btnPulsate" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Pulsate">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Pulsate progress bar." />
+                     </tooltip>
                   </ToggleButton>
                </children>
                <padding>
@@ -117,16 +142,25 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Place log window above progress bar." />
+                     </tooltip>
                   </ToggleButton>
                   <ToggleButton fx:id="btnLogExpand" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Log Expand">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Start with expanded log window." />
+                     </tooltip>
                   </ToggleButton>
                   <ToggleButton fx:id="btnEnableLog" mnemonicParsing="false" onAction="#doToggleButton" text="Enable Log">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Show  log  window." />
+                     </tooltip>
                   </ToggleButton>
                </children>
                <padding>

@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -112,13 +113,19 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set the key of the children." />
+                     </tooltip>
                   </TextField>
                   <Label text="Tab Position:">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cbTabPosition" onAction="#doTabPosition" prefWidth="100.0" />
+                  <ComboBox fx:id="cbTabPosition" onAction="#doTabPosition" prefWidth="100.0">
+                     <tooltip>
+                        <Tooltip text="Set the tabs position." />
+                     </tooltip></ComboBox>
                   <Label text="Tab Borders:">
                      <font>
                         <Font size="14.0" />
@@ -128,6 +135,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set the borders width around widget in tabs." />
+                     </tooltip>
                   </TextField>
                   <Label text="Active Tab:">
                      <font>
@@ -138,6 +148,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set active tab." />
+                     </tooltip>
                   </TextField>
                </children>
                <padding>

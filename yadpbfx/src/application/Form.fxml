@@ -132,7 +132,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <Label prefWidth="100.0" text="Item Separator:">
+                  <Label prefWidth="120.0" text="Item Separator:">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -141,6 +141,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set separator character for combo-box or scale values. Default is `!'." />
+                     </tooltip>
                   </TextField>
                   <Label text="Format:">
                      <font>
@@ -151,19 +154,28 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set the format for the date fields (same as in calendar dialog)." />
+                     </tooltip>
                   </TextField>
                   <Label text="Float:">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cbPrecision" onAction="#doPrecision" prefWidth="65.0" style="-fx-font-size: 14px;" />
+                  <ComboBox fx:id="cbPrecision" onAction="#doPrecision" prefWidth="65.0" style="-fx-font-size: 14px;">
+                     <tooltip>
+                        <Tooltip text="Set precision of floating point numbers. By default precision is three digits after point." />
+                     </tooltip></ComboBox>
                   <Label text="Align:">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cbAlign" onAction="#doAlign" prefWidth="95.0" style="-fx-font-size: 14px;" />
+                  <ComboBox fx:id="cbAlign" onAction="#doAlign" prefWidth="95.0" style="-fx-font-size: 14px;">
+                     <tooltip>
+                        <Tooltip text="Set alignment of field labels." />
+                     </tooltip></ComboBox>
                </children>
                <padding>
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -171,7 +183,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <Label prefWidth="100.0" text="Separator:">
+                  <Label prefWidth="120.0" text="Separator:">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -180,13 +192,19 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set output separator character. Default is `|'." />
+                     </tooltip>
                   </TextField>
                   <Label text="Complete:">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cbComplete" onAction="#doComplete" prefWidth="100.0" style="-fx-font-size: 14px;" />
+                  <ComboBox fx:id="cbComplete" onAction="#doComplete" prefWidth="100.0" style="-fx-font-size: 14px;">
+                     <tooltip>
+                        <Tooltip text="Use  specific  type  for extended completion." />
+                     </tooltip></ComboBox>
                   <Label text="Num:">
                      <font>
                         <Font size="14.0" />
@@ -196,6 +214,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Output index of active element instead of text for combo-box fields." />
+                     </tooltip>
                   </TextField>
                   <Label text="Columns:">
                      <font>
@@ -206,6 +227,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set number of columns in form. Fields will be placed from top to bottom." />
+                     </tooltip>
                   </TextField>
                   <Label text="Focus:">
                      <font>
@@ -216,6 +240,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set focused field." />
+                     </tooltip>
                   </TextField>
                </children>
                <padding>
@@ -231,21 +258,33 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Make form scrollable." />
+                     </tooltip>
                   </ToggleButton>
                   <ToggleButton fx:id="btnOutputByRow" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Output by Row">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Output field values row by row if several columns is specified." />
+                     </tooltip>
                   </ToggleButton>
                   <ToggleButton fx:id="btnQuotedOutput" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Quoted Output">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Output values will be in shell-style quotes." />
+                     </tooltip>
                   </ToggleButton>
                   <ToggleButton fx:id="btnCycle" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Cycle">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Cycled reading of stdin data. Sending FormFeed character clears the form. This symbol may be  sent  as  echo  -e '\f'." />
+                     </tooltip>
                   </ToggleButton>
                </children>
             </HBox>

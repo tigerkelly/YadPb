@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -41,11 +42,17 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set  the  initial font. &#10;FONTNAME is a string with font representation in the form &quot;[FAMILY-LIST] [STYLE-OPTIONS] [SIZE]&quot;." />
+                     </tooltip>
                   </TextField>
                   <ToggleButton fx:id="btnPreview" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Preview">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set the preview text." />
+                     </tooltip>
                   </ToggleButton>
                </children>
                <padding>
@@ -63,16 +70,25 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set output separator character. Default is `|'." />
+                     </tooltip>
                   </TextField>
-                  <ToggleButton fx:id="btnQuoted" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Quoted">
+                  <ToggleButton fx:id="btnQuoted" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Quoted">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Output data will be in shell-style quotes." />
+                     </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnSeparateOutput" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Separate Output">
+                  <ToggleButton fx:id="btnSeparateOutput" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Separate Output">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Separate output of selected font description." />
+                     </tooltip>
                   </ToggleButton>
                </children>
                <padding>

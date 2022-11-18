@@ -102,7 +102,10 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cbJustify" prefWidth="100.0" style="-fx-font-size: 14px;" />
+                  <ComboBox fx:id="cbJustify" prefWidth="100.0" style="-fx-font-size: 14px;">
+                     <tooltip>
+                        <Tooltip text="Set justification." />
+                     </tooltip></ComboBox>
                   <Label text="Margins:">
                      <font>
                         <Font size="14.0" />
@@ -112,6 +115,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set text margins to NUMBER." />
+                     </tooltip>
                   </TextField>
                   <Label text="Language:">
                      <font>
@@ -145,7 +151,10 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ColorPicker fx:id="cpUriColor" onAction="#doUriColor" style="-fx-font-size: 14px;" />
+                  <ColorPicker fx:id="cpUriColor" onAction="#doUriColor" style="-fx-font-size: 14px;">
+                     <tooltip>
+                        <Tooltip text="Set color for links. Default is blue." />
+                     </tooltip></ColorPicker>
                </children>
                <padding>
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />

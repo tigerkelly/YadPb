@@ -34,7 +34,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <Label prefWidth="110.0" text="Details:">
+                  <Label prefWidth="125.0" text="Details:">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -43,6 +43,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Read days description from FILENAME." />
+                     </tooltip>
                   </TextField>
                   <Button fx:id="btnArrow" mnemonicParsing="false" onAction="#doFileDialog" text="^">
                      <font>
@@ -56,7 +59,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <Label prefWidth="110.0" text="Date Format:">
+                  <Label prefWidth="125.0" text="Date Format:">
                      <font>
                         <Font size="18.0" />
                      </font>
@@ -65,6 +68,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set the format for the returned date. By default is `%x'. See strftime(3) for more details." />
+                     </tooltip>
                   </TextField>
                </children>
                <padding>
@@ -73,12 +79,15 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <Label prefWidth="110.0" text="Default Date:">
+                  <Label prefWidth="125.0" text="Default Date:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="dpDefaultDate" editable="false" style="-fx-font-size: 14px; -fx-control0inner-background: LemonChiffon;" styleClass="readonly" />
+                  <DatePicker fx:id="dpDefaultDate" editable="false" style="-fx-font-size: 14px; -fx-control0inner-background: LemonChiffon;" styleClass="readonly">
+                     <tooltip>
+                        <Tooltip text="Select init data." />
+                     </tooltip></DatePicker>
                   <ToggleButton fx:id="btnShowWeeks" mnemonicParsing="false" onAction="#doToggleButton" text="Show Weeks">
                      <font>
                         <Font size="14.0" />

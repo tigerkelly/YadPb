@@ -42,6 +42,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Run command when data received." />
+                     </tooltip>
                   </TextField>
                </children>
                <padding>

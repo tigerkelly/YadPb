@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -32,7 +33,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <Label prefWidth="75.0" text="Command:">
+                  <Label prefWidth="85.0" text="Command:">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -41,6 +42,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set the command running when clicked on the icon. Default action is quit if --listen not specified." />
+                     </tooltip>
                   </TextField>
                </children>
                <padding>
@@ -49,7 +53,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <Label prefWidth="75.0" text="Separator:">
+                  <Label prefWidth="85.0" text="Separator:">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -58,6 +62,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set separator character for menu values. Default is |." />
+                     </tooltip>
                   </TextField>
                   <Label text="Item Separator:">
                      <font>
@@ -68,6 +75,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set separator character for menu items. Default is !." />
+                     </tooltip>
                   </TextField>
                </children>
                <padding>
@@ -76,7 +86,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <Label prefWidth="75.0" text="Menu:">
+                  <Label prefWidth="85.0" text="Menu:">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -85,6 +95,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Set initial menu for right-click." />
+                     </tooltip>
                   </TextField>
                </children>
                <padding>
@@ -97,16 +110,25 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Listen for commands on stdin." />
+                     </tooltip>
                   </ToggleButton>
                   <ToggleButton fx:id="btnNoMiddle" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="No Middle">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Disable exit on middle click." />
+                     </tooltip>
                   </ToggleButton>
                   <ToggleButton fx:id="btnHidden" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Hidden">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Doesn't show icon at startup." />
+                     </tooltip>
                   </ToggleButton>
                </children>
                <padding>

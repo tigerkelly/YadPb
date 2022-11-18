@@ -8,6 +8,8 @@ import java.io.FileOutputStream;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -277,14 +279,35 @@ public class YadGlobal {
 	
 	private String getVersion() {
 		String ver = "Unknown";
-
-		File f = new File("vdate.dat");
-		if (f.exists() == true)
+	
 			try {
-				BufferedReader in = new BufferedReader(new FileReader(f));
+				InputStream in = getClass().getResourceAsStream("/vdate.dat");
+				if (in == null) {
+					try {
+						BufferedReader br = new BufferedReader(new FileReader("vdate.dat"));
+
+						String str;
+						ver = null;
+						while ((str = br.readLine()) != null) {
+							str = str.trim();
+							if (str.length() <= 0 || str.charAt(0) == '#')
+								continue;
+
+							if (ver == null)
+								ver = str + " ";
+							else
+								ver += str + " ";
+						}
+						br.close();
+					} catch (IOException ex2) {
+						ex2.printStackTrace();
+					}
+					return ver;
+				}
+				BufferedReader br = new BufferedReader(new InputStreamReader(in, "UTF-8"));
 				String str;
 				ver = null;
-				while ((str = in.readLine()) != null) {
+				while ((str = br.readLine()) != null) {
 					str = str.trim();
 					if (str.length() <= 0 || str.charAt(0) == '#')
 						continue;

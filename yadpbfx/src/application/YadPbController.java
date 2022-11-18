@@ -124,6 +124,47 @@ public class YadPbController implements Initializable, DialogInterface {
     void onHelp(ActionEvent event) {
 
     }
+	
+	@FXML
+    void onYadManual(ActionEvent event) {
+		try {
+		    Stage stage = new Stage();
+		    stage.setTitle("Yad Man Page");
+		    
+		    FXMLLoader loader = new FXMLLoader(getClass().getResource("FileViewer.fxml"));
+		    
+		    stage.initModality(Modality.APPLICATION_MODAL);
+
+		    stage.setScene(new Scene(loader.load()));
+		    FileViewerController controller = loader.<FileViewerController>getController();
+		    controller.setFileName("txts/yad_manual.txt", 1130.0, 900.0, false);
+		    
+		    Stage ps = (Stage) aPane.getScene().getWindow();
+
+			ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
+				double stageWidth = newValue.doubleValue();
+				stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
+			};
+			ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
+				double stageHeight = newValue.doubleValue();
+				stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
+			};
+
+			stage.widthProperty().addListener(widthListener);
+			stage.heightProperty().addListener(heightListener);
+
+			// Once the window is visible, remove the listeners
+			stage.setOnShown(e2 -> {
+				stage.widthProperty().removeListener(widthListener);
+				stage.heightProperty().removeListener(heightListener);
+			});
+			
+		    stage.showAndWait();
+		    
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+    }
 
     @FXML
     void onBackups(ActionEvent event) {

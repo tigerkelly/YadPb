@@ -10,7 +10,7 @@
 
 .view-list-cell{
     -fx-font-size:14px;
-    -fx-font-family: "Courier New";
+    -fx-font-family: "monospace";
 }
 
 .text-area .content {

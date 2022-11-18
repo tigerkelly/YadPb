@@ -35,7 +35,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <Label prefWidth="100.0" text="File Name:">
+                  <Label prefWidth="120.0" text="File Name:">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -55,7 +55,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <Label prefWidth="100.0" text="Separator:">
+                  <Label prefWidth="120.0" text="Separator:">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -104,7 +104,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <Label prefWidth="100.0" text="Overwrite Text:">
+                  <Label prefWidth="120.0" text="Overwrite Text:">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -113,11 +113,17 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Optional argument is a text for confirmation dialog." />
+                     </tooltip>
                   </TextField>
                   <ToggleButton fx:id="btnOverwrite" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Overwrite">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Confirm file selection if filename already exists." />
+                     </tooltip>
                   </ToggleButton>
                </children>
                <padding>

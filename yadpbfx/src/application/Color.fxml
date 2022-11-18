@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -39,16 +40,25 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ColorPicker fx:id="cpInitColor" onAction="#doInitColor" prefWidth="125.0" style="-fx-font-size: 14px;" />
+                  <ColorPicker fx:id="cpInitColor" onAction="#doInitColor" prefWidth="125.0" style="-fx-font-size: 14px;">
+                     <tooltip>
+                        <Tooltip text="Set initial color value." />
+                     </tooltip></ColorPicker>
                   <ToggleButton fx:id="btnGtkPalette" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="GTK Palette">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Show system palette inside color dialog." />
+                     </tooltip>
                   </ToggleButton>
                   <ToggleButton fx:id="btnExtra" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Extra">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Show extra information about color in returned string." />
+                     </tooltip>
                   </ToggleButton>
                </children>
                <padding>
@@ -66,6 +76,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Show palette and set predefined colors from given filename.&#10;By default used /etc/X11/rgb.txt." />
+                     </tooltip>
                   </TextField>
                   <Button fx:id="btnPalette" mnemonicParsing="false" onAction="#doPalette" text="^">
                      <font>
@@ -84,16 +97,25 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cbMode" onAction="#doMode" prefWidth="125.0" style="-fx-font-size: 14px;" />
+                  <ComboBox fx:id="cbMode" onAction="#doMode" prefWidth="125.0" style="-fx-font-size: 14px;">
+                     <tooltip>
+                        <Tooltip text="Set output color mode. Possible values are hex or rgb." />
+                     </tooltip></ComboBox>
                   <ToggleButton fx:id="btnExpand" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Expand">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Expander for list of user-defined colors will be initially opened." />
+                     </tooltip>
                   </ToggleButton>
                   <ToggleButton fx:id="btnAlpha" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Alpha">
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Add opacity to output color string." />
+                     </tooltip>
                   </ToggleButton>
                </children>
                <padding>
