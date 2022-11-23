@@ -1,5 +1,5 @@
 # YadPb
-A GUI project builder for the YAD program.
+This is a GUI frontend for the YAD program.  Allow you to create a project(s) to keep your YAD dailogs.
 
 Once a project has been created the use can start be adding different dialogs to the project.
 
