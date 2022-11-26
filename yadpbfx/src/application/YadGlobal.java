@@ -45,6 +45,8 @@ public class YadGlobal {
 
 		yadPbVersion = getVersion();
 		
+		getDefaults();
+		
 		checkImage = new Image(getClass().getResourceAsStream("/images/check.png"));
 		
 		dialogNames.put("Calendar", "Calendar.fxml");
@@ -111,6 +113,7 @@ public class YadGlobal {
 
 	Alert alert = null;
 	public IniFile ini = null;
+	public IniFile defaults = null;
 	public SceneNav sceneNav = null;
 
 	public String yadPbVersion = null;
@@ -275,6 +278,55 @@ public class YadGlobal {
 
 	public void Msg(String msg) {
 		System.out.println(msg);
+	}
+	
+	private void getDefaults() {
+		
+		String iniData = null;
+	
+		try {
+    		InputStream in = null;
+			
+			in = getClass().getResourceAsStream("txts/defaults.ini");
+			
+			if (in != null) {
+    		
+				BufferedReader br = new BufferedReader(new InputStreamReader(in, "UTF-8"));
+	
+				String line = null;
+				while ((line = br.readLine()) != null) {
+					if (iniData == null)
+						iniData = line + "\n";
+					else
+						iniData += line + "\n";
+				}
+				br.close();
+			} else {
+				try {
+					BufferedReader br = new BufferedReader(new FileReader("txts/defaults.ini"));
+
+					String line = null;
+					while ((line = br.readLine()) != null) {
+						if (iniData == null)
+							iniData = line + "\n";
+						else
+							iniData += line + "\n";
+					}
+					br.close();
+				} catch (IOException ex2) {
+					ex2.printStackTrace();
+				}
+			}
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+		
+//		System.out.println("iniData " + iniData);
+		
+		defaults = new IniFile("defaults.ini");
+		defaults.inputString("defaults.ini", iniData);
+		
+//		System.out.println(defaults);
 	}
 	
 	private String getVersion() {

@@ -423,13 +423,13 @@ public class FormController implements Initializable, DialogInterface {
 		cbType.getSelectionModel().select(defaultType);
 		
 		cbAlign.getItems().addAll("Left", "Center", "Right");
-		cbAlign.getSelectionModel().select(0);
+//		cbAlign.getSelectionModel().select(0);
 		
 		cbPrecision.getItems().addAll("1","2","3","4","5","6");
-		cbPrecision.getSelectionModel().select(2);
+//		cbPrecision.getSelectionModel().select(2);
 		
 		cbComplete.getItems().addAll("Any", "All", "Regex");
-		cbComplete.getSelectionModel().select(0);
+//		cbComplete.getSelectionModel().select(0);
 		
 		tblButtons.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
 		    if (newVal != null) {
