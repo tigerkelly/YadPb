@@ -118,6 +118,9 @@ public class GeneralSettingsController implements Initializable {
 
     @FXML
     private Button btnSave;
+    
+    @FXML
+    private ToggleButton btnImageOnTop;
 
     @FXML
     private ToggleButton btnSelectable;
@@ -661,16 +664,18 @@ public class GeneralSettingsController implements Initializable {
 		colButtonTooltip.setCellFactory(TextFieldTableCell.forTableColumn());
 		colButtonTooltip.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).setText(e.getNewValue()));
 		
+		// Default values should be placed in the YadPbController, when creating dialog.
+		
 		cbTimeoutPosition.getItems().addAll("Top", "Bottom", "Left", "Right");
-		cbTimeoutPosition.setValue("Top");
+//		cbTimeoutPosition.setValue("Top");
 		cbTextAlign.getItems().addAll("Left", "Right", "Center", "Fill");
-		cbTextAlign.setValue("Left");
+//		cbTextAlign.setValue("Left");
 		cbKillSignal.getItems().addAll("SIGTERM", "SIGINT", "SIGUSR1", "SIGUSR2", "SIGKILL", "SIGCHLD");
-		cbKillSignal.setValue("SIGTERM");
+//		cbKillSignal.setValue("SIGTERM");
 		cbVScrollPolicy.getItems().addAll("Auto", "Always", "Never");
-		cbVScrollPolicy.setValue("Auto");
+//		cbVScrollPolicy.setValue("Auto");
 		cbHScrollPolicy.getItems().addAll("Auto", "Always", "Never");
-		cbHScrollPolicy.setValue("Auto");
+//		cbHScrollPolicy.setValue("Auto");
 		cbButtonLayout.getItems().addAll("Spread", "Edge", "Start", "End", "Center");
 		cbButtonLayout.setValue("Start");
 		cbButtonIcon.getItems().addAll(icons);
@@ -731,7 +736,7 @@ public class GeneralSettingsController implements Initializable {
 		String vscroll = yg.currIni.getString(yg.currDialog + "-General", "vscroll");
 		
 		Boolean killparent = yg.currIni.getBoolean(yg.currDialog + "-General", "killparent");
-//		Boolean timeout = yg.currIni.getBoolean(yg.currDialog + "-General", "timeout");
+		Boolean imageontop = yg.currIni.getBoolean(yg.currDialog + "-General", "imageontop");
 		Boolean undecorated = yg.currIni.getBoolean(yg.currDialog + "-General", "undecorated");
 		Boolean fullscreen = yg.currIni.getBoolean(yg.currDialog + "-General", "fullscreen");
 		Boolean noescape = yg.currIni.getBoolean(yg.currDialog + "-General", "noescape");
@@ -826,7 +831,7 @@ public class GeneralSettingsController implements Initializable {
 			cbKillSignal.setValue(signal);
 		
 		setToggleButton(btnKillParent, killparent);
-//		setToggleButton(btnTimeout, timeout);
+		setToggleButton(btnImageOnTop, imageontop);
 		setToggleButton(btnUndecorated, undecorated);
 		setToggleButton(btnFullScreen, fullscreen);
 		setToggleButton(btnNoEscape, noescape);

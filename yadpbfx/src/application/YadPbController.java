@@ -481,8 +481,6 @@ public class YadPbController implements Initializable, DialogInterface {
 					for (String s : lst)
 						lstDialogs.getItems().add(s);
 					
-					lstDialogs.getSelectionModel().select(dt.getText() + "," + dt.getType());
-					
 					String name = dt.getText();
 					String type = dt.getType();
 					
@@ -491,7 +489,44 @@ public class YadPbController implements Initializable, DialogInterface {
 						yg.currIni.addSection(name + "-General");
 						
 						yg.currIni.addValuePair(name, "type", type);
+						
+						// --------------------------------
+						// Set General default settings.
+						if (dt.getType().equals("Print") == true)
+							yg.currIni.addValuePair(name + "-General", "imageontop", "true");
+						
+						yg.currIni.addValuePair(name + "-General", "buttonlayout", "End");
+						yg.currIni.addValuePair(name + "-General", "textalign", "Fill");
+						yg.currIni.addValuePair(name + "-General", "killparent", "SIGTERM");
+						yg.currIni.addValuePair(name + "-General", "timeoutposition", "Top");
+						yg.currIni.addValuePair(name + "-General", "response", "0");
+						yg.currIni.addValuePair(name + "-General", "hscroll", "Auto");
+						yg.currIni.addValuePair(name + "-General", "vscroll", "Auto");
+						
+						// ---------------------------------
+						// Set dialog default settings.
+						if (dt.getType().equals("Color") == true)
+							yg.currIni.addValuePair(name, "mode", "Hex");
+						
+						if (dt.getType().equals("DnD") == true)
+							yg.currIni.addValuePair(name, "exitondrop", "0");
+						
+						if (dt.getType().equals("Entry") == true)
+							yg.currIni.addValuePair(name, "precision", "3");
+						
+						if (dt.getType().equals("Form") == true) {
+							yg.currIni.addValuePair(name, "precision", "3");
+							yg.currIni.addValuePair(name, "align", "Left");
+						}
+						
+						if (dt.getType().equals("HTML") == true)
+							yg.currIni.addValuePair(name, "mime", "text/html");
+						
+						if (dt.getType().equals("Icons") == true)
+							yg.currIni.addValuePair(name, "term", "xterm -e %s");
 					}
+					
+					lstDialogs.getSelectionModel().select(dt.getText() + "," + dt.getType());
 			    }
 
 			} catch (IOException e1) {

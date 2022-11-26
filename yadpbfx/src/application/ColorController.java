@@ -118,7 +118,7 @@ public class ColorController implements Initializable, DialogInterface {
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		cbMode.getItems().addAll("Hex", "RGB");
-		cbMode.getSelectionModel().select(0);
+//		cbMode.getSelectionModel().select(0);
 
 		javafx.scene.paint.Color c = javafx.scene.paint.Color.web("#00000000");
 		cpInitColor.setValue(c);
@@ -131,6 +131,11 @@ public class ColorController implements Initializable, DialogInterface {
 		String palette = yg.currIni.getString(yg.currDialog, "palette");
 		String mode = yg.currIni.getString(yg.currDialog, "mode");
 		String initcolor = yg.currIni.getString(yg.currDialog, "initcolor");
+		
+//		System.out.println("currIni " + yg.currIni);
+//		System.out.println("currDialog " + yg.currDialog);
+//		System.out.println("palette " + palette);
+//		System.out.println("mode " + mode);
 
 		boolean gtkpalette = yg.currIni.getBoolean(yg.currDialog, "gtkpalette");
 		boolean extra = yg.currIni.getBoolean(yg.currDialog, "extra");

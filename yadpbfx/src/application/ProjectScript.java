@@ -1116,6 +1116,7 @@ public class ProjectScript {
 		String vscroll = ini.getString(sec + "-General", "vscroll");
 		
 		Boolean killparent = ini.getBoolean(sec + "-General", "killparent");
+		Boolean imageontop = ini.getBoolean(sec + "-General", "imageontop");
 		Boolean undecorated = ini.getBoolean(sec + "-General", "undecorated");
 		Boolean fullscreen = ini.getBoolean(sec + "-General", "fullscreen");
 		Boolean noescape = ini.getBoolean(sec + "-General", "noescape");
@@ -1232,6 +1233,8 @@ public class ProjectScript {
 			lst.add("--fixed");
 		if (mouse == true)
 			lst.add("--mouse");
+		if (imageontop == true)
+			lst.add("--image-on-top");
 		if (ontop == true)
 			lst.add("--on-top");
 		if (skiptaskbar == true)
