@@ -44,6 +44,15 @@ public class DialogNewController implements Initializable {
     	Stage stage = (Stage) btnCancel.getScene().getWindow();
         stage.close();
     }
+    
+    @FXML
+    void doDialogName(ActionEvent event) {
+    	
+		if (cbDialogType.getSelectionModel().isEmpty() == false &&
+				txtDialogName.getText().isEmpty() == false)
+			doSave(null);
+    	
+    }
 
     @FXML
     void doSave(ActionEvent event) {
@@ -92,7 +101,11 @@ public class DialogNewController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-		cbDialogType.getItems().addAll("Calendar", "Color", "DnD", "Entry", "File", "Font", "Form", "HTML", "Icons", "Info", "List", "Notebook", "Notification", "Print", "Progress", "Progress Multi", "Scale");
+		cbDialogType.getItems().addAll("Calendar", "Color", "DnD", "Entry", "File", "Font", "Form", 
+				"HTML", "Icons", "Info", "List", "Notebook", "Notification", "Print", 
+				"Progress", "Progress Multi", "Scale");
+		
+		
 	}
 	
 	public DialogType getDialog() {

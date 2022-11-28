@@ -84,12 +84,12 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cbPrintType" onAction="#doPrintType" prefWidth="100.0" style="-fx-font-size: 14px;">
+                  <ComboBox fx:id="cbPrintType" onAction="#doPrintType" prefWidth="150.0" style="-fx-font-size: 14px;">
                      <tooltip>
                         <Tooltip text="Set source file type." />
                      </tooltip>
                   </ComboBox>
-                  <ToggleButton fx:id="btnHeaders" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Headers">
+                  <ToggleButton fx:id="btnHeaders" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Headers">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -97,7 +97,7 @@
                         <Tooltip text="Add headers to the top of page with filename and page number. This option doesn't work for RAW type." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnAddPreview" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Add Preview">
+                  <ToggleButton fx:id="btnAddPreview" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Add Preview">
                      <font>
                         <Font size="14.0" />
                      </font>

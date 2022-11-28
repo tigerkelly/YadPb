@@ -40,11 +40,11 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ColorPicker fx:id="cpInitColor" onAction="#doInitColor" prefWidth="125.0" style="-fx-font-size: 14px;">
+                  <ColorPicker fx:id="cpInitColor" onAction="#doInitColor" prefWidth="150.0" style="-fx-font-size: 14px;">
                      <tooltip>
                         <Tooltip text="Set initial color value." />
                      </tooltip></ColorPicker>
-                  <ToggleButton fx:id="btnGtkPalette" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="GTK Palette">
+                  <ToggleButton fx:id="btnGtkPalette" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="GTK Palette">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -52,7 +52,7 @@
                         <Tooltip text="Show system palette inside color dialog." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnExtra" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Extra">
+                  <ToggleButton fx:id="btnExtra" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Extra">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -72,7 +72,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtPalette" editable="false" prefWidth="350.0" styleClass="readonly">
+                  <TextField fx:id="txtPalette" editable="false" prefWidth="415.0" styleClass="readonly">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -97,11 +97,11 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cbMode" onAction="#doMode" prefWidth="125.0" style="-fx-font-size: 14px;">
+                  <ComboBox fx:id="cbMode" onAction="#doMode" prefWidth="150.0" style="-fx-font-size: 14px;">
                      <tooltip>
                         <Tooltip text="Set output color mode. Possible values are hex or rgb." />
                      </tooltip></ComboBox>
-                  <ToggleButton fx:id="btnExpand" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Expand">
+                  <ToggleButton fx:id="btnExpand" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Expand">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -109,7 +109,7 @@
                         <Tooltip text="Expander for list of user-defined colors will be initially opened." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnAlpha" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Alpha">
+                  <ToggleButton fx:id="btnAlpha" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Alpha">
                      <font>
                         <Font size="14.0" />
                      </font>

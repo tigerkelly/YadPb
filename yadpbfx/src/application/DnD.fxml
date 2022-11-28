@@ -74,7 +74,7 @@
             <HBox spacing="4.0">
                <children>
                   <Region prefWidth="100.0" />
-                  <ToggleButton fx:id="btnTooltip" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Tooltip">
+                  <ToggleButton fx:id="btnTooltip" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Tooltip">
                      <font>
                         <Font size="14.0" />
                      </font>

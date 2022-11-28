@@ -74,7 +74,7 @@
                         <Tooltip text="Set output separator character. Default is `|'." />
                      </tooltip>
                   </TextField>
-                  <ToggleButton fx:id="btnQuoted" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Quoted">
+                  <ToggleButton fx:id="btnQuoted" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Quoted">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -82,7 +82,7 @@
                         <Tooltip text="Output data will be in shell-style quotes." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnSeparateOutput" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Separate Output">
+                  <ToggleButton fx:id="btnSeparateOutput" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Separate">
                      <font>
                         <Font size="14.0" />
                      </font>

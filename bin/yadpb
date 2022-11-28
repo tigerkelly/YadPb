@@ -1,0 +1,28 @@
+#!/usr/bin/bash
+
+if [[ -z "${PATH_TO_FX}" ]]; then
+	echo The 'PATH_TO_FX' is not in the environment.
+	echo "   Example: export PATH_TO_TX=~/javafx-sdk-19/lib"
+	exit 1
+fi
+
+logf=~/YadPb/yadpb.log
+#pathtofx=/home/kelly/work/yadpb/javafx-sdk-19/lib
+
+cd /home/kelly/YadPb
+
+JARS="inifile8-2.0.16.jar\
+:$PATH_TO_FX/javafx.controls.jar\
+:$PATH_TO_FX/javafx.fxml.jar\
+:$PATH_TO_FX/javafx.base.jar\
+:$PATH_TO_FX/javafx.graphics.jar"
+
+# echo JARS = $JARS
+
+exec /usr/lib/jvm/java-18-openjdk-amd64/bin/java \
+	--module-path=/home/kelly/work/yadpb/javafx-sdk-19/lib \
+	--add-modules javafx.controls,javafx.fxml \
+	-Dfile.encoding=UTF-8 \
+	-p $JARS \
+	-XX:+ShowCodeDetailsInExceptionMessages \
+	-jar yadpb.jar 2> $logf

@@ -84,7 +84,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtLogText" onKeyTyped="#onLogText">
+                  <TextField fx:id="txtLogText" onKeyTyped="#onLogText" prefWidth="225.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -99,7 +99,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <ToggleButton fx:id="btnRightToLeft" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Right To Left">
+                  <ToggleButton fx:id="btnRightToLeft" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Right To Left">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -107,7 +107,7 @@
                         <Tooltip text="Set Right-To-Left progress bar direction." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnAutoClose" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Auto Close">
+                  <ToggleButton fx:id="btnAutoClose" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Auto Close">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -115,7 +115,7 @@
                         <Tooltip text="Close dialog when 100% has been reached." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnAutoKill" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Auto Kill">
+                  <ToggleButton fx:id="btnAutoKill" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Auto Kill">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -123,7 +123,7 @@
                         <Tooltip text="Kill parent process if cancel button is pressed." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnPulsate" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Pulsate">
+                  <ToggleButton fx:id="btnPulsate" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Pulsate">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -138,7 +138,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <ToggleButton fx:id="btnLogOnTop" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Log On Top">
+                  <ToggleButton fx:id="btnLogOnTop" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Log On Top">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -146,7 +146,7 @@
                         <Tooltip text="Place log window above progress bar." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnLogExpand" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Log Expand">
+                  <ToggleButton fx:id="btnLogExpand" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Log Expand">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -154,7 +154,7 @@
                         <Tooltip text="Start with expanded log window." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnEnableLog" mnemonicParsing="false" onAction="#doToggleButton" text="Enable Log">
+                  <ToggleButton fx:id="btnEnableLog" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Enable Log">
                      <font>
                         <Font size="14.0" />
                      </font>

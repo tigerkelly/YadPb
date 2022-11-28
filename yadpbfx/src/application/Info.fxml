@@ -162,7 +162,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <ToggleButton fx:id="btnEditable" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Editable">
+                  <ToggleButton fx:id="btnEditable" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Editable">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -170,7 +170,7 @@
                         <Tooltip text="Allow changes to text." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnShowUri" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Show Uri">
+                  <ToggleButton fx:id="btnShowUri" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Show Uri">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -178,7 +178,7 @@
                         <Tooltip text="Make links in text clickable. Links opens with xdg-open command." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnListen" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Listen">
+                  <ToggleButton fx:id="btnListen" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Listen">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -186,7 +186,7 @@
                         <Tooltip text="Listen data from stdin even if filename was specified." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnWrapText" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Wrap Text">
+                  <ToggleButton fx:id="btnWrapText" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Wrap Text">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -194,7 +194,7 @@
                         <Tooltip text="Enable text wrapping." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnTail" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Tail">
+                  <ToggleButton fx:id="btnTail" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Tail">
                      <font>
                         <Font size="14.0" />
                      </font>

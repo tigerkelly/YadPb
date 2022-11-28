@@ -75,8 +75,7 @@ public class Main extends Application {
 			messageBox.setTitle("Warning");
 			ButtonType yesButton = new ButtonType("Yes", ButtonData.YES);
 			ButtonType noButton = new ButtonType("No", ButtonData.NO);
-			ButtonType cancelButton = new ButtonType("Cancel", ButtonData.CANCEL_CLOSE);
-			messageBox.getButtonTypes().setAll(yesButton, noButton, cancelButton);
+			messageBox.getButtonTypes().setAll(yesButton, noButton);
 
 			messageBox.setContentText("Some projects have changed, save the projects?");
 			
@@ -106,9 +105,7 @@ public class Main extends Application {
 					
 					yg.centerScene(mainPane, "ProjectsToSave.fxml", "Save Project(s)", null);
 					
-				} else if (type == ButtonType.NO) {
-				} else {
-					return;
+				} else if (type.getButtonData() == ButtonData.NO) {
 				}
 			});
 		}

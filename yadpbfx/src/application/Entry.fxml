@@ -171,7 +171,7 @@
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
                   <Region prefWidth="100.0" />
-                  <ToggleButton fx:id="btnCompletion" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Completion">
+                  <ToggleButton fx:id="btnCompletion" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Completion">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -179,7 +179,7 @@
                         <Tooltip text="Use completion instead of combo-box." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnNumeric" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Numeric">
+                  <ToggleButton fx:id="btnNumeric" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Numeric">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -187,7 +187,7 @@
                         <Tooltip text="Use  spin button instead of text entry." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnNumOutput" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Num Output">
+                  <ToggleButton fx:id="btnNumOutput" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Num Output">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -195,7 +195,7 @@
                         <Tooltip text="Output index of active element instead of text for combo-box entry." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnEditable" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Editable">
+                  <ToggleButton fx:id="btnEditable" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Editable">
                      <font>
                         <Font size="14.0" />
                      </font>

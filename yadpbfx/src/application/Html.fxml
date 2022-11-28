@@ -39,7 +39,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtUrl" onKeyTyped="#onUrl" prefWidth="600.0">
+                  <TextField fx:id="txtUrl" onKeyTyped="#onUrl" prefWidth="550.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -69,7 +69,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtUriHandler" onKeyTyped="#onUriHandler" prefWidth="343.0">
+                  <TextField fx:id="txtUriHandler" onKeyTyped="#onUriHandler" prefWidth="285.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -89,7 +89,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtUserAgent" onKeyTyped="#onuserAgent" prefWidth="600.0">
+                  <TextField fx:id="txtUserAgent" onKeyTyped="#onuserAgent" prefWidth="550.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -109,7 +109,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtUserStyle" onKeyTyped="#onUserStyle" prefWidth="600.0">
+                  <TextField fx:id="txtUserStyle" onKeyTyped="#onUserStyle" prefWidth="550.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -147,7 +147,7 @@
             <HBox spacing="4.0">
                <children>
                   <Region prefWidth="90.0" />
-                  <ToggleButton fx:id="btnPrintUri" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Print Uri">
+                  <ToggleButton fx:id="btnPrintUri" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Print Uri">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -155,7 +155,7 @@
                         <Tooltip text="Print clicked links to standard output." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnBrowser" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Browser">
+                  <ToggleButton fx:id="btnBrowser" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Browser">
                      <font>
                         <Font size="14.0" />
                      </font>

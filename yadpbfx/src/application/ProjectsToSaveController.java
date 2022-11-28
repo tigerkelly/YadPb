@@ -11,11 +11,13 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
+import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.stage.Stage;
 import tbl.Project;
@@ -34,28 +36,61 @@ public class ProjectsToSaveController implements Initializable {
 
     @FXML
     private TableView<Project> tblProjects;
-
-    @FXML
-    private TextField txtPath;
     
     @FXML
     private CheckBox ckbSelectAll;
 
     ObservableList<Projectx> selectedItems = null;
     private YadGlobal yg = YadGlobal.getInstance();
+    private boolean leaveFlag = false;
     
     @FXML
-    void doSelectAll(ActionEvent event) {
-//    	ObservableList<Project> prjs = tblProjects.getItems();
-//    	
-//    	for (Project p : prjs) {
-//    	}
-    }
-
-    @FXML
     void doCancel(ActionEvent event) {
-    	Stage stage = (Stage) btnCancel.getScene().getWindow();
-        stage.close();
+    	Alert messageBox = new Alert(Alert.AlertType.CONFIRMATION);
+		Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
+		
+		messageBox.setTitle("Warning");
+		ButtonType yesButton = new ButtonType("Yes", ButtonData.YES);
+		ButtonType noButton = new ButtonType("No", ButtonData.NO);
+		messageBox.getButtonTypes().setAll(yesButton, noButton);
+
+		messageBox.setContentText("Canceling out of this screen will abandon all changes.\nProcess with Cancel?");
+		
+		// Code to center dialog within parent.
+		Stage ps = (Stage) ckbSelectAll.getScene().getWindow();
+
+		ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
+			double stageWidth = newValue.doubleValue();
+			stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
+		};
+		ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
+			double stageHeight = newValue.doubleValue();
+			stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
+		};
+
+		stage.widthProperty().addListener(widthListener);
+		stage.heightProperty().addListener(heightListener);
+
+		// Once the window is visible, remove the listeners
+		stage.setOnShown(e2 -> {
+			stage.widthProperty().removeListener(widthListener);
+			stage.heightProperty().removeListener(heightListener);
+		});
+
+		
+		messageBox.showAndWait().ifPresent(type -> {
+			if (type.getButtonData() == ButtonData.YES) {
+				leaveFlag = true;
+			} else if (type.getButtonData() == ButtonData.NO) {
+//				System.out.println("NO");
+				return;
+			}
+		});
+		
+		if (leaveFlag == true) {
+	    	Stage stage2 = (Stage) btnCancel.getScene().getWindow();
+	        stage2.close();
+		}
     }
 
     @FXML
@@ -103,6 +138,8 @@ public class ProjectsToSaveController implements Initializable {
     	tblProjects.getColumns().add(colProject);
     	tblProjects.getColumns().add(colDesc);
 
+    	boolean autoselect = yg.sysIni.getBoolean("System", "autoselect");
+		ckbSelectAll.setSelected(autoselect);
     	
     	Object[] keys = yg.prjList.keySet().toArray();
 		
@@ -110,10 +147,14 @@ public class ProjectsToSaveController implements Initializable {
 			String k = (String)o;
 			
 			IniFile ini = yg.prjList.get(k);
-			if (ini.getChangedFlag() == true)
-				tblProjects.getItems().add(new Project(k, yg.sysIni.getString("Projects", k), true));
+			if (ini.getChangedFlag() == true) {
+				Project p = new Project(k, yg.sysIni.getString("Projects", k), true);
+				tblProjects.getItems().add(p);
+				
+				p.getAction().setSelected(autoselect);
+					
+			}
 		}
-		
 	}
 
 }

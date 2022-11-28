@@ -11,8 +11,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="application.ProjectsToSaveController">
+<AnchorPane xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.ProjectsToSaveController">
    <children>
       <VBox prefHeight="400.0" prefWidth="500.0" spacing="4.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -27,7 +26,7 @@
             </HBox>
             <HBox alignment="CENTER_RIGHT" spacing="4.0">
                <children>
-                  <CheckBox fx:id="ckbSelectAll" mnemonicParsing="false" onAction="#doSelectAll" text="Select All" />
+                  <CheckBox fx:id="ckbSelectAll" mnemonicParsing="false" text="Select All" />
                </children>
                <padding>
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />

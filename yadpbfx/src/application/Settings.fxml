@@ -5,6 +5,7 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -36,11 +37,29 @@
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </padding>
             </HBox>
-            <CheckBox fx:id="chkBackupProject" mnemonicParsing="false" selected="true" text="Backup Project">
-               <font>
-                  <Font size="14.0" />
-               </font>
-            </CheckBox>
+            <HBox spacing="4.0">
+               <children>
+                  <CheckBox fx:id="chkBackupProject" mnemonicParsing="false" selected="true" text="Backup Project">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Create a backup of all changed projects." />
+                     </tooltip>
+                  </CheckBox>
+                  <CheckBox fx:id="chkAutoSelect" mnemonicParsing="false" text="Auto select all project to save.">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="On save screen auto select all projects." />
+                     </tooltip>
+                  </CheckBox>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="4.0" VBox.vgrow="ALWAYS">
                <padding>
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />

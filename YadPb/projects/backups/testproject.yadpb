@@ -1,316 +1,233 @@
 # Created by the YadPb program.
 # For project 'testproject'
-# Description: Test all of the dialog type screen.
-# Created: 2022/09/30 08:52:13
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
 
 [Calendar]
 	type = Calendar
-	showweeks = true
-	dateformat = %Y/%m/%d
-	defaultdate = 2022-11-10
 
 [Calendar-General]
-	title = kelly
-	timeout = false
-	timeoutposition = Default
-	btnlayout = Start
-	textalign = Left
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
 	hscroll = Auto
 	vscroll = Auto
-	killparent = false
-	undecorated = false
-	fullscreen = false
-	noescape = false
-	nobuttons = true
-	center = true
-	maximized = false
-	expander = false
-	nomarkup = true
-	escapeok = true
-	alwaysprint = false
-	sticky = true
-	fixed = false
-	mouse = false
-	ontop = true
-	skiptaskbar = false
-	splash = false
-	nofocus = true
-	closeonfocus = false
-	selectable = false
-	enablespell = false
-	buttons = B1!help-about!B1 tooltip.:0,B2!list-add!B2 tooltip.:2,B3!gtk-apply!B3 tooltip.:3
-	icon = 
-	timeoutsecs = 
-	text = 
-	image = 
-	width = 
-	height = 
-	posx = 
-	posy = 
-	plug = 
-	tabnum = 
-	expandertext = 
-	borders = 
-	imagepath = 
-	rest = 
-	response = 
-	gtkc = 
-	spelllang = 
-	signal = 
-	centerwindow = true
 
 [Color]
 	type = Color
-	palette = C:\Users\Kellyw\kw.txt
-	gtkpalette = true
-	alpha = true
-	initcolor = #e6804dff
+	mode = Hex
+	palette = /etc/X11/rgb.txt
 
 [Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
 
 [DnD]
 	type = DnD
-	exitondrop = 1
-	tooltip = false
+	exitondrop = 0
 
 [DnD-General]
-
-[Entrry]
-	type = Entry
-	numeric = true
-	numoutput = true
-	righticon = C:\reflectv7.3-5925-x64-0.dmp
-	lefticon = C:\reflectv7.3-5925-x64-0.dmp
-	editable = true
-
-[Entrry-General]
-	timeout = false
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
 	timeoutposition = Top
-	btnlayout = Start
-	textalign = Left
+	response = 0
 	hscroll = Auto
 	vscroll = Auto
-	killparent = false
-	undecorated = false
-	fullscreen = true
-	noescape = false
-	nobuttons = false
-	center = false
-	maximized = false
-	expander = false
-	nomarkup = false
-	escapeok = false
-	alwaysprint = false
-	sticky = false
-	fixed = false
-	mouse = true
-	ontop = false
-	skiptaskbar = false
-	splash = false
-	nofocus = false
-	closeonfocus = false
-	selectable = false
-	enablespell = false
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = true
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
 
 [File]
 	type = File
-	directory = true
-	savemode = true
-	overwritetext = kelly
-	mimefilters = M1|application/x-7z-compressed
-	filefilters = f1|*.jpg,f2|*.pdf,f3|*.htm *.html,f4|*.txt,f5|*.exe,f6|*.log,f7|*.exe
 
 [File-General]
-	timeout = false
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
 	timeoutposition = Top
-	btnlayout = Start
-	textalign = Left
+	response = 0
 	hscroll = Auto
 	vscroll = Auto
-	killparent = false
-	undecorated = true
-	fullscreen = false
-	noescape = false
-	nobuttons = false
-	center = false
-	maximized = false
-	expander = false
-	nomarkup = false
-	escapeok = false
-	alwaysprint = true
-	sticky = false
-	fixed = false
-	mouse = false
-	ontop = false
-	skiptaskbar = false
-	splash = false
-	nofocus = false
-	closeonfocus = false
-	selectable = false
-	enablespell = false
 
 [Font]
 	type = Font
+	sep = |
 
 [Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
 
 [Form]
 	type = Form
+	sep = |
+	items = !
+	complete = Any
+	precision = 3
+	align = Left
 
 [Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
 
-[Html]
+[HTML]
 	type = HTML
-	browser = true
-	printuri = false
+	mime = text/html
+	useragent = YAD-Webkit
 
-[Html-General]
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
 
 [Icons]
 	type = Icons
+	term = xterm -e '%s'
 
 [Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
 
 [Info]
 	type = Info
 
 [Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
 
 [List]
 	type = List
-	columns = Col1:Text-TXT
-	quotedoutput = true
-	regexsearch = true
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
 
 [List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
 	timeoutposition = Top
-	btnlayout = Start
-	textalign = Left
+	response = 0
 	hscroll = Auto
 	vscroll = Auto
-	centerwindow = true
-	escapeok = false
-	killparent = false
-	maximized = false
-	selectable = false
-	nomarkup = false
-	enablespell = false
-	alwaysprint = false
-	nobuttons = false
-	expander = false
-	skiptaskbar = false
-	timeout = false
-	mouse = false
-	undecorated = false
-	noescape = false
-	fullscreen = false
-	closeonfocus = false
-	sticky = true
-	ontop = true
-	fixed = false
-	splash = false
-	nofocus = true
 
 [Notebook]
 	type = Notebook
-	tabs = txt1!list-add!,txt2!gtk-apply!tooltip,txt4!!tooltip.
-	tabposition = Top
+	tabpos = Left
 
 [Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
 
 [Notification]
 	type = Notification
-	listen = true
-	nomiddle = true
-	hidden = true
 	sep = |
+	itemsep = !
 
 [Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
 	timeoutposition = Top
-	btnlayout = Start
-	textalign = Left
+	response = 0
 	hscroll = Auto
 	vscroll = Auto
-	centerwindow = false
-	escapeok = true
-	killparent = false
-	maximized = false
-	selectable = false
-	nomarkup = false
-	enablespell = true
-	alwaysprint = true
-	nobuttons = false
-	expander = false
-	skiptaskbar = false
-	timeout = false
-	mouse = false
-	undecorated = true
-	noescape = false
-	fullscreen = false
-	closeonfocus = false
-	sticky = false
-	ontop = false
-	fixed = false
-	splash = true
-	nofocus = false
 
 [Print]
 	type = Print
+	printtype = Text
 
 [Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
 
 [Progress]
 	type = Progress
+	righttoleft = false
 
 [Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
 
 [ProgressMulti]
 	type = Progress Multi
-	bars = b1:NORM,b2:RTL
-	vertical = true
-	autoclose = true
-	autokill = true
-	align = Center
-	watchbar = 2
 
 [ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
 
 [Scale]
 	type = Scale
-	minvalue = 3
-	marks = Mark1:50,mark2:75
-	printpartial = true
-	incbuttons = true
-	hidevalue = false
-	vertical = true
-	invert = true
 
 [Scale-General]
-	timeout = false
-	timeoutposition = Default
-	btnlayout = End
-	textalign = Left
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
 	hscroll = Auto
 	vscroll = Auto
-	killparent = true
-	undecorated = false
-	fullscreen = true
-	noescape = true
-	nobuttons = false
-	center = false
-	maximized = false
-	expander = false
-	nomarkup = true
-	escapeok = false
-	alwaysprint = false
-	sticky = false
-	fixed = false
-	mouse = true
-	ontop = false
-	skiptaskbar = true
-	splash = false
-	nofocus = false
-	closeonfocus = false
-	selectable = false
-	enablespell = false
-	centerwindow = false

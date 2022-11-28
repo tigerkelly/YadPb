@@ -88,7 +88,7 @@
                      <tooltip>
                         <Tooltip text="Select init data." />
                      </tooltip></DatePicker>
-                  <ToggleButton fx:id="btnShowWeeks" mnemonicParsing="false" onAction="#doToggleButton" text="Show Weeks">
+                  <ToggleButton fx:id="btnShowWeeks" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Show Weeks">
                      <font>
                         <Font size="14.0" />
                      </font>

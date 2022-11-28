@@ -45,9 +45,11 @@ public class ProjectOpenController implements Initializable {
 
     @FXML
     void doOpenProject(ActionEvent event) {
-    	TableViewSelectionModel<Projectx> selectionModel = tblProjects.getSelectionModel();
-    	ObservableList<Projectx> selectedItems = selectionModel.getSelectedItems();
-    	yg.openPrjName = ((Projectx)selectedItems.get(0)).getProject();
+    	if(tblProjects.getItems().isEmpty() == false) {
+	    	TableViewSelectionModel<Projectx> selectionModel = tblProjects.getSelectionModel();
+	    	ObservableList<Projectx> selectedItems = selectionModel.getSelectedItems();
+	    	yg.openPrjName = ((Projectx)selectedItems.get(0)).getProject();
+    	}
     	Stage stage = (Stage) btnCancel.getScene().getWindow();
         stage.close();
     }
@@ -70,7 +72,7 @@ public class ProjectOpenController implements Initializable {
             row.setOnMouseClicked(event -> {
                 if (event.getClickCount() == 2 && (row.isEmpty() == false) ) {
                     Projectx rowData = row.getItem();
-//                    System.out.println("Double click on: " + rowData.getProject());
+//                  System.out.println("Double click on: " + rowData.getProject());
                     yg.openPrjName = rowData.getProject();
                 	Stage stage = (Stage) btnCancel.getScene().getWindow();
                     stage.close();

@@ -7,6 +7,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -34,62 +35,70 @@
                   </Button>
                </children>
             </HBox>
-            <HBox spacing="4.0">
+            <HBox>
                <children>
-                  <TableView fx:id="tblProgressBars" editable="true" prefHeight="250.0" prefWidth="375.0">
-                    <columns>
-                      <TableColumn fx:id="colName" prefWidth="200.0" text="Name" />
-                      <TableColumn fx:id="colType" prefWidth="150.0" text="Type" />
-                    </columns>
-                  </TableView>
-                  <VBox prefWidth="250.0" spacing="4.0">
-                     <padding>
-                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                     </padding>
-                     <children>
-                        <Label text="Name:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtProgressName">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </TextField>
-                        <Label text="Type:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <HBox alignment="CENTER_LEFT">
+                  <TitledPane text="Progress Bars">
+                     <content>
+                        <HBox spacing="4.0">
                            <children>
-                              <ComboBox fx:id="cbProgressType" prefWidth="175.0" />
+                              <TableView fx:id="tblProgressBars" editable="true" prefHeight="250.0" prefWidth="375.0">
+                                <columns>
+                                  <TableColumn fx:id="colName" prefWidth="200.0" text="Name" />
+                                  <TableColumn fx:id="colType" prefWidth="150.0" text="Type" />
+                                </columns>
+                              </TableView>
+                              <VBox prefWidth="250.0" spacing="4.0">
+                                 <padding>
+                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                 </padding>
+                                 <children>
+                                    <Label text="Name:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtProgressName">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label text="Type:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="CENTER_LEFT">
+                                       <children>
+                                          <ComboBox fx:id="cbProgressType" prefWidth="175.0" />
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="BOTTOM_RIGHT" spacing="4.0" VBox.vgrow="ALWAYS">
+                                       <padding>
+                                          <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                       </padding>
+                                       <children>
+                                          <Button fx:id="btnProgressAdd" mnemonicParsing="false" onAction="#doProgressAdd" prefWidth="110.0" text="Add">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btnProgressDelete" mnemonicParsing="false" onAction="#doProgressDelete" prefWidth="110.0" text="Delete">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
                            </children>
-                        </HBox>
-                        <HBox alignment="BOTTOM_RIGHT" spacing="4.0" VBox.vgrow="ALWAYS">
                            <padding>
                               <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                            </padding>
-                           <children>
-                              <Button fx:id="btnProgressAdd" mnemonicParsing="false" onAction="#doProgressAdd" prefWidth="110.0" text="Add">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="btnProgressDelete" mnemonicParsing="false" onAction="#doProgressDelete" prefWidth="110.0" text="Delete">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Button>
-                           </children>
                         </HBox>
-                     </children>
-                  </VBox>
+                     </content>
+                  </TitledPane>
                </children>
-               <padding>
-                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-               </padding>
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
@@ -123,7 +132,7 @@
             </HBox>
             <HBox spacing="4.0">
                <children>
-                  <ToggleButton fx:id="btnVertical" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Vertical">
+                  <ToggleButton fx:id="btnVertical" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Vertical">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -131,7 +140,7 @@
                         <Tooltip text="Set vertical orientation of progress bars." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnAutoClose" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Auto Close">
+                  <ToggleButton fx:id="btnAutoClose" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Auto Close">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -139,7 +148,7 @@
                         <Tooltip text="Close dialog when 100% has been reached for all of non-pulsating progress bars." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnAutoKill" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Auto Kill">
+                  <ToggleButton fx:id="btnAutoKill" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Auto Kill">
                      <font>
                         <Font size="14.0" />
                      </font>

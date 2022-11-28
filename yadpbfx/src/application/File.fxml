@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -48,14 +49,7 @@
                         <Tooltip text="Set the filename." />
                      </tooltip>
                   </TextField>
-               </children>
-               <padding>
-                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-               </padding>
-            </HBox>
-            <HBox alignment="CENTER_LEFT" spacing="4.0">
-               <children>
-                  <Label prefWidth="120.0" text="Separator:">
+                  <Label text="Separator:">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -65,38 +59,6 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <ToggleButton fx:id="btnMultiple" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Multiple">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <tooltip>
-                        <Tooltip text="Allow selection of multiple filenames in file selection dialog." />
-                     </tooltip>
-                  </ToggleButton>
-                  <ToggleButton fx:id="btnDirectory" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Directory">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <tooltip>
-                        <Tooltip text="Activate directory-only selection." />
-                     </tooltip>
-                  </ToggleButton>
-                  <ToggleButton fx:id="btnSaveMode" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Save Mode">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <tooltip>
-                        <Tooltip text="Activate save mode." />
-                     </tooltip>
-                  </ToggleButton>
-                  <ToggleButton fx:id="btnQuoted" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Quoted">
-                     <font>
-                        <Font size="14.0" />
-                     </font>
-                     <tooltip>
-                        <Tooltip text="Output values will be shell-style quoted." />
-                     </tooltip>
-                  </ToggleButton>
                </children>
                <padding>
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
@@ -117,7 +79,7 @@
                         <Tooltip text="Optional argument is a text for confirmation dialog." />
                      </tooltip>
                   </TextField>
-                  <ToggleButton fx:id="btnOverwrite" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Overwrite">
+                  <ToggleButton fx:id="btnOverwrite" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Overwrite">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -130,166 +92,196 @@
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </padding>
             </HBox>
-            <HBox spacing="4.0">
+            <HBox>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
                <children>
-                  <HBox spacing="4.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <Label text="File Filters:">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <padding>
-                        <Insets left="4.0" right="4.0" />
-                     </padding>
-                  </HBox>
-                  <HBox spacing="4.0" HBox.hgrow="ALWAYS">
-                     <children>
-                        <Label text="Mime Filters:">
-                           <font>
-                              <Font name="System Bold" size="14.0" />
-                           </font>
-                        </Label>
-                     </children>
-                     <padding>
-                        <Insets left="4.0" right="4.0" />
-                     </padding>
-                  </HBox>
-               </children>
-            </HBox>
-            <HBox prefHeight="200.0" spacing="4.0">
-               <padding>
-                  <Insets left="4.0" right="4.0" />
-               </padding>
-               <children>
-                  <TableView fx:id="tblFileFilter" editable="true" prefWidth="250.0" style="-fx-font-size: 14px;">
-                    <columns>
-                      <TableColumn fx:id="colFilterName" prefWidth="125.0" style="-fx-font-size: 14px;" text="Name" />
-                      <TableColumn fx:id="colFilterFilter" prefWidth="100.0" style="-fx-font-size: 14px;" text="Filter" />
-                    </columns>
-                  </TableView>
-                  <VBox prefHeight="450.0" spacing="4.0">
-                     <children>
-                        <Label text="Name:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtFilterName">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </TextField>
-                        <Label text="Filter:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <HBox spacing="4.0">
-                           <children>
-                              <TextField fx:id="txtFilterFilter" HBox.hgrow="ALWAYS">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </TextField>
-                              <Button fx:id="btnFileFilter" mnemonicParsing="false" onAction="#doFileFilter" prefWidth="35.0" text="F">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Button>
-                           </children>
-                        </HBox>
-                        <HBox alignment="BOTTOM_RIGHT" spacing="4.0" VBox.vgrow="ALWAYS">
-                           <children>
-                              <Button fx:id="btnFilterAdd" mnemonicParsing="false" onAction="#doFilterAdd" prefWidth="100.0" text="Add">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="btnFilterDelete" mnemonicParsing="false" onAction="#doFilterDelete" prefWidth="100.0" text="Delete">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Button>
-                           </children>
+                  <TitledPane text="File Filters">
+                     <content>
+                        <HBox prefHeight="200.0" spacing="4.0">
                            <padding>
                               <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                            </padding>
-                        </HBox>
-                     </children>
-                  </VBox>
-                  <HBox prefHeight="200.0" spacing="4.0">
-                     <padding>
-                        <Insets left="4.0" right="4.0" top="4.0" />
-                     </padding>
-                     <children>
-                        <TableView fx:id="tblMimeFilter" editable="true" prefWidth="250.0" style="-fx-font-size: 14px;">
-                           <columns>
-                              <TableColumn fx:id="colMimeName" prefWidth="125.0" style="-fx-font-size: 14px;" text="Name" />
-                              <TableColumn fx:id="colMimeFilter" prefWidth="100.0" style="-fx-font-size: 14px;" text="Mime" />
-                           </columns>
-                        </TableView>
-                        <VBox prefHeight="450.0" spacing="4.0">
                            <children>
-                              <Label text="Name:">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="txtMimeName">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </TextField>
-                              <Label text="Mime:">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Label>
-                              <HBox spacing="4.0">
+                              <TableView fx:id="tblFileFilter" editable="true" prefWidth="375.0" style="-fx-font-size: 14px;">
+                                <columns>
+                                  <TableColumn fx:id="colFilterName" prefWidth="175.0" style="-fx-font-size: 14px;" text="Name" />
+                                  <TableColumn fx:id="colFilterFilter" prefWidth="175.0" style="-fx-font-size: 14px;" text="Filter" />
+                                </columns>
+                              </TableView>
+                              <VBox prefHeight="450.0" spacing="4.0">
                                  <children>
-                                    <TextField fx:id="txtMimeFilter" HBox.hgrow="ALWAYS">
+                                    <Label text="Name:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtFilterName">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
                                     </TextField>
-                                    <Button fx:id="btnMimeTypes" mnemonicParsing="false" onAction="#doMimeTypes" prefWidth="35.0" text="M">
+                                    <Label text="Filter:">
                                        <font>
                                           <Font size="14.0" />
                                        </font>
-                                       <tooltip>
-                                          <Tooltip text="List of Common Mime types.">
+                                    </Label>
+                                    <HBox spacing="4.0">
+                                       <children>
+                                          <TextField fx:id="txtFilterFilter" HBox.hgrow="ALWAYS">
                                              <font>
                                                 <Font size="14.0" />
                                              </font>
-                                          </Tooltip>
-                                       </tooltip>
-                                    </Button>
+                                          </TextField>
+                                          <Button fx:id="btnFileFilter" mnemonicParsing="false" onAction="#doFileFilter" prefWidth="35.0" text="F">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="BOTTOM_RIGHT" spacing="4.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Button fx:id="btnFilterAdd" mnemonicParsing="false" onAction="#doFilterAdd" prefWidth="100.0" text="Add">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btnFilterDelete" mnemonicParsing="false" onAction="#doFilterDelete" prefWidth="100.0" text="Delete">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                       </padding>
+                                    </HBox>
                                  </children>
-                              </HBox>
-                              <HBox alignment="BOTTOM_RIGHT" spacing="4.0" VBox.vgrow="ALWAYS">
-                                 <children>
-                                    <Button fx:id="btnMimeAdd" mnemonicParsing="false" onAction="#doMimeAdd" prefWidth="100.0" text="Add">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Button>
-                                    <Button fx:id="btnMimeDelete" mnemonicParsing="false" onAction="#doMimeDelete" prefWidth="100.0" text="Delete">
-                                       <font>
-                                          <Font size="14.0" />
-                                       </font>
-                                    </Button>
-                                 </children>
-                                 <padding>
-                                    <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-                                 </padding>
-                              </HBox>
+                              </VBox>
                            </children>
-                        </VBox>
-                     </children>
-                  </HBox>
+                        </HBox>
+                     </content>
+                  </TitledPane>
                </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <TitledPane text="Mime Filters">
+                     <content>
+                        <HBox prefHeight="200.0" spacing="4.0">
+                           <padding>
+                              <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                           </padding>
+                           <children>
+                              <TableView fx:id="tblMimeFilter" editable="true" prefWidth="375.0" style="-fx-font-size: 14px;">
+                                 <columns>
+                                    <TableColumn fx:id="colMimeName" prefWidth="175.0" style="-fx-font-size: 14px;" text="Name" />
+                                    <TableColumn fx:id="colMimeFilter" prefWidth="175.0" style="-fx-font-size: 14px;" text="Mime" />
+                                 </columns>
+                              </TableView>
+                              <VBox prefHeight="450.0" spacing="4.0">
+                                 <children>
+                                    <Label text="Name:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtMimeName">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label text="Mime:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox spacing="4.0">
+                                       <children>
+                                          <TextField fx:id="txtMimeFilter" HBox.hgrow="ALWAYS">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <Button fx:id="btnMimeTypes" mnemonicParsing="false" onAction="#doMimeTypes" prefWidth="35.0" text="M">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                             <tooltip>
+                                                <Tooltip text="List of Common Mime types.">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Tooltip>
+                                             </tooltip>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="BOTTOM_RIGHT" spacing="4.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Button fx:id="btnMimeAdd" mnemonicParsing="false" onAction="#doMimeAdd" prefWidth="100.0" text="Add">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btnMimeDelete" mnemonicParsing="false" onAction="#doMimeDelete" prefWidth="100.0" text="Delete">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                       <padding>
+                                          <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                       </padding>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </HBox>
+                     </content>
+                  </TitledPane>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <ToggleButton fx:id="btnMultiple" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Multiple">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Allow selection of multiple filenames in file selection dialog." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnDirectory" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Directory">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Activate directory-only selection." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnSaveMode" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Save Mode">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Activate save mode." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnQuoted" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Quoted">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Output values will be shell-style quoted." />
+                     </tooltip>
+                  </ToggleButton>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
             </HBox>
          </children>
          <padding>

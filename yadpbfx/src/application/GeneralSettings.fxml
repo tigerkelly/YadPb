@@ -81,7 +81,7 @@
                         <Font size="14.0" />
                      </font>
                   </TextField>
-                  <ToggleButton fx:id="btnImageOnTop" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Image On Top">
+                  <ToggleButton fx:id="btnImageOnTop" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Image On Top">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -494,7 +494,7 @@
                <children>
                   <FlowPane hgap="5.0" maxWidth="1280.0" prefWrapLength="650.0" vgap="8.0" HBox.hgrow="ALWAYS">
                      <children>
-                        <ToggleButton fx:id="btnUndecorated" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Undecorated">
+                        <ToggleButton fx:id="btnUndecorated" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Undecorated">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -502,7 +502,7 @@
                               <Tooltip text="Make window undecorated (remove title and window borders)." />
                            </tooltip>
                         </ToggleButton>
-                        <ToggleButton fx:id="btnFullScreen" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Full Screen">
+                        <ToggleButton fx:id="btnFullScreen" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Full Screen">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -510,7 +510,7 @@
                               <Tooltip text="Run dialog in fullscreen mode." />
                            </tooltip>
                         </ToggleButton>
-                        <ToggleButton fx:id="btnNoEscape" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="No Escape">
+                        <ToggleButton fx:id="btnNoEscape" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="No Escape">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -518,7 +518,7 @@
                               <Tooltip text="Don't close dialog if Escape was pressed." />
                            </tooltip>
                         </ToggleButton>
-                        <ToggleButton fx:id="btnKillParent" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Kill Parent">
+                        <ToggleButton fx:id="btnKillParent" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Kill Parent">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -526,8 +526,8 @@
                               <Tooltip text="Send SIGNAL to parent process." />
                            </tooltip>
                         </ToggleButton>
-                        <ComboBox fx:id="cbKillSignal" prefWidth="135.0" promptText="SIGTERM" style="-fx-font-size: 14px;" />
-                        <ToggleButton fx:id="btnEscapeOk" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Escape OK">
+                        <ComboBox fx:id="cbKillSignal" prefWidth="150.0" promptText="SIGTERM" style="-fx-font-size: 14px;" />
+                        <ToggleButton fx:id="btnEscapeOk" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Escape OK">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -535,7 +535,7 @@
                               <Tooltip text="Escape acts like pressing OK button." />
                            </tooltip>
                         </ToggleButton>
-                        <ToggleButton fx:id="btnOnTop" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="On Top">
+                        <ToggleButton fx:id="btnOnTop" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="On Top">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -543,7 +543,7 @@
                               <Tooltip text="Place window over other windows." />
                            </tooltip>
                         </ToggleButton>
-                        <ToggleButton fx:id="btnSticky" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Sticky">
+                        <ToggleButton fx:id="btnSticky" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Sticky">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -551,7 +551,7 @@
                               <Tooltip text="Make window visible on all desktops." />
                            </tooltip>
                         </ToggleButton>
-                        <ToggleButton fx:id="btnNoMarkup" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="No Markup">
+                        <ToggleButton fx:id="btnNoMarkup" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="No Markup">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -559,7 +559,7 @@
                               <Tooltip text="Don't use pango markup in dialog's text." />
                            </tooltip>
                         </ToggleButton>
-                        <ToggleButton fx:id="btnNoButtons" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="No Buttons">
+                        <ToggleButton fx:id="btnNoButtons" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="No Buttons">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -567,7 +567,7 @@
                               <Tooltip text="Don't show buttons." />
                            </tooltip>
                         </ToggleButton>
-                        <ToggleButton fx:id="btnSplash" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Splash">
+                        <ToggleButton fx:id="btnSplash" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Splash">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -575,7 +575,7 @@
                               <Tooltip text="Open  window with &quot;splashscreen&quot; window hints." />
                            </tooltip>
                         </ToggleButton>
-                        <ToggleButton fx:id="btnNoFocus" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="No Focus">
+                        <ToggleButton fx:id="btnNoFocus" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="No Focus">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -583,7 +583,7 @@
                               <Tooltip text="Dialog window never take focus." />
                            </tooltip>
                         </ToggleButton>
-                        <ToggleButton fx:id="btnCenterWindow" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Center Window">
+                        <ToggleButton fx:id="btnCenterWindow" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Center Window">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -591,7 +591,7 @@
                               <Tooltip text="Place window on center of screen." />
                            </tooltip>
                         </ToggleButton>
-                        <ToggleButton fx:id="btnSkipTaskbar" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Skip Taskbar">
+                        <ToggleButton fx:id="btnSkipTaskbar" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Skip Taskbar">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -599,7 +599,7 @@
                               <Tooltip text="Don't show window in taskbar and pager" />
                            </tooltip>
                         </ToggleButton>
-                        <ToggleButton fx:id="btnCloseOnFocus" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Close On Focus">
+                        <ToggleButton fx:id="btnCloseOnFocus" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Close On Focus">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -607,7 +607,7 @@
                               <Tooltip text="Close the dialog window when it loose the focus." />
                            </tooltip>
                         </ToggleButton>
-                        <ToggleButton fx:id="btnEnableSpell" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Enable Spell">
+                        <ToggleButton fx:id="btnEnableSpell" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Enable Spell">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -615,7 +615,7 @@
                               <Tooltip text="Enable spell checking in textview widgets" />
                            </tooltip>
                         </ToggleButton>
-                        <ToggleButton fx:id="btnMaximized" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Maximized">
+                        <ToggleButton fx:id="btnMaximized" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Maximized">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -623,7 +623,7 @@
                               <Tooltip text="Run dialog window maximized." />
                            </tooltip>
                         </ToggleButton>
-                        <ToggleButton fx:id="btnSelectable" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Selectable">
+                        <ToggleButton fx:id="btnSelectable" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Selectable">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -631,7 +631,7 @@
                               <Tooltip text="If set, user can select dialog's text and copy it to clipboard." />
                            </tooltip>
                         </ToggleButton>
-                        <ToggleButton fx:id="btnMouse" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Mouse">
+                        <ToggleButton fx:id="btnMouse" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Mouse">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -639,7 +639,7 @@
                               <Tooltip text="Place window under mouse position." />
                            </tooltip>
                         </ToggleButton>
-                        <ToggleButton fx:id="btnFixed" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Fixed">
+                        <ToggleButton fx:id="btnFixed" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Fixed">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -647,7 +647,7 @@
                               <Tooltip text="Make window fixed width and height." />
                            </tooltip>
                         </ToggleButton>
-                        <ToggleButton fx:id="btnAlwaysPrint" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="135.0" text="Always Print">
+                        <ToggleButton fx:id="btnAlwaysPrint" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Always Print">
                            <font>
                               <Font size="14.0" />
                            </font>
@@ -655,7 +655,7 @@
                               <Tooltip text="Print result for aby of the return codes." />
                            </tooltip>
                         </ToggleButton>
-                        <ComboBox fx:id="cbTimeoutPosition" prefWidth="135.0" promptText="Default" style="-fx-font-size: 14px;">
+                        <ComboBox fx:id="cbTimeoutPosition" prefWidth="150.0" promptText="Default" style="-fx-font-size: 14px;">
                            <tooltip>
                               <Tooltip text="Show  timeout  indicator in given position." />
                            </tooltip></ComboBox>

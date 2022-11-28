@@ -33,7 +33,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <Label prefWidth="75.0" text="Read Dir:">
+                  <Label prefWidth="90.0" text="Read Dir:">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -58,7 +58,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <Label text="Item Width:">
+                  <Label prefWidth="90.0" text="Item Width:">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -91,7 +91,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <ToggleButton fx:id="btnMonitor" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Monitor">
+                  <ToggleButton fx:id="btnMonitor" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Monitor">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -99,7 +99,7 @@
                         <Tooltip text="Watch for changes in directory and automatically update content of iconbox." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnDescend" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Descend">
+                  <ToggleButton fx:id="btnDescend" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Descend">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -107,7 +107,7 @@
                         <Tooltip text="Sort items in descending order." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnCompact" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Compact">
+                  <ToggleButton fx:id="btnCompact" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Compact">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -115,7 +115,7 @@
                         <Tooltip text="Use compact mode. Icon and name of each item is placed in a single row." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnListen" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Listen">
+                  <ToggleButton fx:id="btnListen" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Listen">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -130,7 +130,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <ToggleButton fx:id="btnSingleClick" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Single Click">
+                  <ToggleButton fx:id="btnSingleClick" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Single Click">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -138,7 +138,7 @@
                         <Tooltip text="Activate items by single mouse click." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnSortByName" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Sort By Name">
+                  <ToggleButton fx:id="btnSortByName" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Sort By Name">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -146,7 +146,7 @@
                         <Tooltip text="Use field Name instead of filename for sorting items." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnGeneric" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="120.0" text="Generic">
+                  <ToggleButton fx:id="btnGeneric" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Generic">
                      <font>
                         <Font size="14.0" />
                      </font>

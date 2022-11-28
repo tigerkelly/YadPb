@@ -29,7 +29,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
-import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -75,9 +74,6 @@ public class YadPbController implements Initializable, DialogInterface {
 
 	@FXML
 	private StackPane stackPane;
-
-	@FXML
-	private TextArea taData;
 
 	@FXML
     void onAbout(ActionEvent event) {
@@ -301,7 +297,7 @@ public class YadPbController implements Initializable, DialogInterface {
 			@Override
 			public void changed(ObservableValue<? extends String> ov, String oldVal, String newVal) {
 //				System.out.println("new " + newVal + " old " + oldVal);
-				if (!newVal.equals(yg.currProject)) {
+				if (newVal != null && newVal.equals(yg.currProject) == false) {
 					yg.currIni = yg.prjList.get(newVal);
 					yg.currBackupIni = yg.prjBackupList.get(newVal);
 					yg.currProject = newVal;
@@ -309,11 +305,6 @@ public class YadPbController implements Initializable, DialogInterface {
 					loadProject(newVal);
 
 					yg.clearStack();
-
-					String data = yg.currIni.stringFile(null);
-
-					data = data.replaceAll("\\t", "    ");
-					taData.setText(data);
 				}
 			}
 		});
@@ -343,6 +334,17 @@ public class YadPbController implements Initializable, DialogInterface {
 			if (dlg != null && dlg.isEmpty() == false) {
 				
 				yg.centerScene(lstProjects, "OpenScript.fxml", "Project Script for", dlg);
+			}
+			
+		});
+		
+		MenuItem mProjectData = new MenuItem("Project Data");
+		mProjectData.setOnAction((ActionEvent e) -> {
+			String data = yg.currIni.stringFile(null);
+			
+			if (data != null && data.isEmpty() == false) {
+				data = data.replaceAll("\\t", "    ");
+				yg.centerScene(lstProjects, "OpenData.fxml", "Project Data for", data);
 			}
 			
 		});
@@ -400,6 +402,8 @@ public class YadPbController implements Initializable, DialogInterface {
 					yg.sysIni.removeValuePair("Projects", prj);
 					yg.sysIni.writeFile(true);
 					
+					lstDialogs.getItems().clear();
+					
 				} else {
 					return;
 				}
@@ -408,16 +412,18 @@ public class YadPbController implements Initializable, DialogInterface {
 		
 		SeparatorMenuItem sep = new SeparatorMenuItem();
 
-		cm.getItems().addAll(mProjectTitle, sep, mOpenProject, mNewProject, mCreateScript, mDeleteProject);
+		cm.getItems().addAll(mProjectTitle, sep, mOpenProject, mNewProject, mCreateScript, mProjectData, mDeleteProject);
 		
 		cm.setOnShowing(new EventHandler<WindowEvent>() {
 			public void handle(WindowEvent e) {
 				int idx = lstProjects.getSelectionModel().getSelectedIndex();
 				if (idx < 0) {
 					mCreateScript.setDisable(true);
+					mProjectData.setDisable(true);
 					mDeleteProject.setDisable(true);
 				} else {
 					mCreateScript.setDisable(false);
+					mProjectData.setDisable(false);
 					mDeleteProject.setDisable(false);
 				}
 			}
@@ -492,18 +498,31 @@ public class YadPbController implements Initializable, DialogInterface {
 						
 						Object[] keys = yg.defaults.getSectionKeys("General");
 						
-						for (Object o : keys) {
-							String k = (String)o;
-							String v = yg.defaults.getString("General", k);
-							yg.currIni.addValuePair(name + "-General", k, v);
+						if (keys != null && keys.length > 0) {
+							// Add common general settings.
+							for (Object o : keys) {
+								String k = (String)o;
+								String v = yg.defaults.getString("General", k);
+								yg.currIni.addValuePair(name + "-General", k, v);
+							}
 						}
 						
 						keys = yg.defaults.getSectionKeys(type);
-						if (keys.length > 0) {
+						if (keys != null && keys.length > 0) {
 							for (Object o : keys) {
 								String k = (String)o;
 								String v = yg.defaults.getString(type, k);
 								yg.currIni.addValuePair(name, k, v);
+							}
+						}
+						
+						keys = yg.defaults.getSectionKeys(type + "-General");
+						if (keys != null && keys.length > 0) {
+							// Add general settings per dialog type.
+							for (Object o : keys) {
+								String k = (String)o;
+								String v = yg.defaults.getString(type + "-General", k);
+								yg.currIni.addValuePair(name + "-General", k, v);
 							}
 						}
 					}

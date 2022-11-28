@@ -6,6 +6,7 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.control.ToggleButton?>
 <?import javafx.scene.control.Tooltip?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -35,64 +36,77 @@
             </HBox>
             <HBox>
                <children>
-                  <TableView fx:id="tblMarks" editable="true" prefHeight="250.0" prefWidth="325.0">
-                    <columns>
-                      <TableColumn fx:id="colMarkText" prefWidth="200.0" text="Mark Text" />
-                      <TableColumn fx:id="colMarkValue" prefWidth="100.0" text="Mark Value" />
-                    </columns>
-                  </TableView>
-                  <VBox prefWidth="250.0" spacing="4.0">
-                     <children>
-                        <Label text="Mark Text:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
-                        <TextField fx:id="txtMarkText">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </TextField>
-                        <Label text="Mark Value:">
-                           <font>
-                              <Font size="14.0" />
-                           </font>
-                        </Label>
+                  <TitledPane text="Marks">
+                     <content>
                         <HBox>
                            <children>
-                              <TextField fx:id="txtMarkValue" prefWidth="65.0" text="0">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </TextField>
+                              <TableView fx:id="tblMarks" editable="true" prefHeight="250.0" prefWidth="325.0">
+                                <columns>
+                                  <TableColumn fx:id="colMarkText" prefWidth="200.0" text="Mark Text" />
+                                  <TableColumn fx:id="colMarkValue" prefWidth="100.0" text="Mark Value" />
+                                </columns>
+                              </TableView>
+                              <VBox prefWidth="250.0" spacing="4.0">
+                                 <children>
+                                    <Label text="Mark Text:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <TextField fx:id="txtMarkText">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </TextField>
+                                    <Label text="Mark Value:">
+                                       <font>
+                                          <Font size="14.0" />
+                                       </font>
+                                    </Label>
+                                    <HBox alignment="BOTTOM_LEFT" spacing="4.0">
+                                       <children>
+                                          <TextField fx:id="txtMarkValue" prefWidth="65.0" text="0">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </TextField>
+                                          <Label text="Value 0 to 100" textFill="BLUE">
+                                             <font>
+                                                <Font size="12.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="4.0" VBox.vgrow="ALWAYS">
+                                       <padding>
+                                          <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                                       </padding>
+                                       <children>
+                                          <Button fx:id="btnMarkAdd" mnemonicParsing="false" onAction="#doMarkAdd" prefWidth="110.0" text="Add">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                          <Button fx:id="btnMarkDelete" mnemonicParsing="false" onAction="#doMarkDelete" prefWidth="110.0" text="Delete">
+                                             <font>
+                                                <Font size="14.0" />
+                                             </font>
+                                          </Button>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <padding>
+                                    <Insets left="4.0" right="4.0" />
+                                 </padding>
+                              </VBox>
                            </children>
-                        </HBox>
-                        <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="4.0" VBox.vgrow="ALWAYS">
                            <padding>
                               <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                            </padding>
-                           <children>
-                              <Button fx:id="btnMarkAdd" mnemonicParsing="false" onAction="#doMarkAdd" prefWidth="110.0" text="Add">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Button>
-                              <Button fx:id="btnMarkDelete" mnemonicParsing="false" onAction="#doMarkDelete" prefWidth="110.0" text="Delete">
-                                 <font>
-                                    <Font size="14.0" />
-                                 </font>
-                              </Button>
-                           </children>
                         </HBox>
-                     </children>
-                     <padding>
-                        <Insets left="4.0" right="4.0" />
-                     </padding>
-                  </VBox>
+                     </content>
+                  </TitledPane>
                </children>
-               <padding>
-                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
-               </padding>
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
@@ -155,7 +169,7 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <ToggleButton fx:id="btnPrintPartial" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Print Partial">
+                  <ToggleButton fx:id="btnPrintPartial" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Print Partial">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -163,7 +177,7 @@
                         <Tooltip text="Print partial values." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnIncButtons" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Inc Buttons">
+                  <ToggleButton fx:id="btnIncButtons" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Inc Buttons">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -171,7 +185,7 @@
                         <Tooltip text="Show buttons on edges of a scale for increasing or decreasing scale value." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnHideValue" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Hide Value">
+                  <ToggleButton fx:id="btnHideValue" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Hide Value">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -179,7 +193,14 @@
                         <Tooltip text="Hide value." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnVertical" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Vertical">
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefWidth="150.0" spacing="4.0">
+               <children>
+                  <ToggleButton fx:id="btnVertical" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Vertical">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -187,7 +208,7 @@
                         <Tooltip text="Show vertical scale." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnInvert" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="110.0" text="Invert">
+                  <ToggleButton fx:id="btnInvert" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Invert">
                      <font>
                         <Font size="14.0" />
                      </font>

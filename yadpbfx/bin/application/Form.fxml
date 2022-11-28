@@ -46,11 +46,11 @@
                            <children>
                               <HBox layoutX="14.0" layoutY="-13.0" spacing="4.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <TableView fx:id="tblButtons" editable="true" prefWidth="550.0" style="-fx-font-size: 14px;">
+                                    <TableView fx:id="tblButtons" editable="true" prefWidth="475.0" style="-fx-font-size: 14px;">
                                       <columns>
-                                        <TableColumn fx:id="colText" prefWidth="200.0" style="-fx-font-size: 14px;" text="Text" />
-                                        <TableColumn fx:id="colType" prefWidth="175.0" style="-fx-font-size: 14px;" text="Type" />
-                                          <TableColumn fx:id="colValues" prefWidth="150.0" style="-fx-font-size: 14px;" text="Values" />
+                                        <TableColumn fx:id="colText" prefWidth="175.0" style="-fx-font-size: 14px;" text="Text" />
+                                        <TableColumn fx:id="colType" prefWidth="150.0" style="-fx-font-size: 14px;" text="Type" />
+                                          <TableColumn fx:id="colValues" prefWidth="125.0" style="-fx-font-size: 14px;" text="Values" />
                                       </columns>
                                        <tooltip>
                                           <Tooltip text="Double click to edit cell.">
@@ -60,7 +60,7 @@
                                           </Tooltip>
                                        </tooltip>
                                     </TableView>
-                                    <VBox prefWidth="350.0" spacing="4.0">
+                                    <VBox prefWidth="225.0" spacing="4.0">
                                        <children>
                                           <Label text="Text:">
                                              <font>
@@ -254,7 +254,7 @@
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </padding>
                <children>
-                  <ToggleButton fx:id="btnScroll" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Scroll">
+                  <ToggleButton fx:id="btnScroll" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Scroll">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -262,7 +262,7 @@
                         <Tooltip text="Make form scrollable." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnOutputByRow" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Output by Row">
+                  <ToggleButton fx:id="btnOutputByRow" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Output by Row">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -270,7 +270,7 @@
                         <Tooltip text="Output field values row by row if several columns is specified." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnQuotedOutput" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Quoted Output">
+                  <ToggleButton fx:id="btnQuotedOutput" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Quoted Output">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -278,7 +278,7 @@
                         <Tooltip text="Output values will be in shell-style quotes." />
                      </tooltip>
                   </ToggleButton>
-                  <ToggleButton fx:id="btnCycle" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="125.0" text="Cycle">
+                  <ToggleButton fx:id="btnCycle" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Cycle">
                      <font>
                         <Font size="14.0" />
                      </font>

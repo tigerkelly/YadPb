@@ -32,6 +32,9 @@ public class SettingsController implements Initializable {
 
     @FXML
     private CheckBox chkBackupProject;
+    
+    @FXML
+    private CheckBox chkAutoSelect;
 
     @FXML
     private TextField txtWorkDir;
@@ -57,6 +60,7 @@ public class SettingsController implements Initializable {
     void doSave(ActionEvent event) {
     	yg.sysIni.addValuePair("System", "workdir", txtWorkDir.getText());
 		yg.sysIni.addValuePair("System", "backup", chkBackupProject.isSelected() ? "true" : "false");
+		yg.sysIni.addValuePair("System", "backup", chkAutoSelect.isSelected() ? "true" : "false");
 		
 		yg.sysIni.writeFile(true);
 		
@@ -69,8 +73,10 @@ public class SettingsController implements Initializable {
 		txtWorkDir.setText(yg.workDir.getAbsolutePath());
 		
 		boolean backup = yg.sysIni.getBoolean("System", "backup");
+		boolean autoselect = yg.sysIni.getBoolean("System", "autoselect");
 		
 		chkBackupProject.setSelected(backup);
+		chkAutoSelect.setSelected(autoselect);
 		
 	}
 
