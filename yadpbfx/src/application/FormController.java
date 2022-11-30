@@ -462,10 +462,26 @@ public class FormController implements Initializable, DialogInterface {
     
     	String fields = null;
     	for (TextType tt : obs) {
-    		if (fields == null)
-    			fields = tt.getText() + "|" + tt.getType() + "|" + tt.getValues();
-    		else
-    			fields += "," + tt.getText() + "|" + tt.getType() + "|" + tt.getValues();
+    		String txt = tt.getText();
+    		String typ = tt.getType();
+    		String val = tt.getValues();
+    		
+    		if (txt.isEmpty() == false && typ.isEmpty() == false && val.isEmpty() == false) {
+	    		if (fields == null)
+	    			fields = tt.getText() + "!" + tt.getType() + "!" + tt.getValues();
+	    		else
+	    			fields += "," + tt.getText() + "!" + tt.getType() + "!" + tt.getValues();
+    		} else if (txt.isEmpty() == false && typ.isEmpty() == false && val.isEmpty() == true) {
+    			if (fields == null)
+	    			fields = tt.getText() + "!" + tt.getType();
+	    		else
+	    			fields += "," + tt.getText() + "!" + tt.getType();
+    		} else if (txt.isEmpty() == false && typ.isEmpty() == true && val.isEmpty() == true) {
+    			if (fields == null)
+	    			fields = tt.getText();
+	    		else
+	    			fields += "," + tt.getText();
+    		}
     	}
     	
     	if (fields != null)
@@ -518,11 +534,13 @@ public class FormController implements Initializable, DialogInterface {
 
 			for (String s : a) {
 				String[] b = s.split(":");
-				String[] c = b[1].split("|");
-				
-				tblButtons.getItems().add(new TextType(b[0], c[0], c[1]));
-				
-				fieldNames.add(b[0]);
+				if (b.length > 1) {
+					String[] c = b[1].split("!");
+					
+					tblButtons.getItems().add(new TextType(b[0], c[0], c[1]));
+					
+					fieldNames.add(b[0]);
+				}
 			}
 			
 			txtText.setText("");

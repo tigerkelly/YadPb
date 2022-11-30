@@ -329,7 +329,7 @@ public class YadPbController implements Initializable, DialogInterface {
 
 		MenuItem mCreateScript = new MenuItem("Create Script");
 		mCreateScript.setOnAction((ActionEvent e) -> {
-			String dlg = ProjectScript.createDialog(yg.currIni);
+			String dlg = ProjectScript.createAllDialogs(yg.currIni);
 
 			if (dlg != null && dlg.isEmpty() == false) {
 				
@@ -587,9 +587,19 @@ public class YadPbController implements Initializable, DialogInterface {
 				}
 			});
 		});
+		
+		MenuItem mRunDialog = new MenuItem("Run Dialog");
+		mRunDialog.setOnAction((ActionEvent e) -> {
+			String dlg = ProjectScript.createDialog(yg.currIni, yg.currDialog);
+			
+//			System.out.println("dlg " + dlg);
+			
+			runDialog(dlg);
+		});
 
 		SeparatorMenuItem sep2 = new SeparatorMenuItem();
-		cm2.getItems().addAll(mDialogTitle, sep2, mNewDialog, mDeleteDialog);
+		SeparatorMenuItem sep3 = new SeparatorMenuItem();
+		cm2.getItems().addAll(mDialogTitle, sep2, mNewDialog, mDeleteDialog, sep3, mRunDialog);
 		
 		cm2.setOnShowing(new EventHandler<WindowEvent>() {
 			public void handle(WindowEvent e) {
@@ -599,9 +609,11 @@ public class YadPbController implements Initializable, DialogInterface {
 					else
 						mDeleteDialog.setDisable(true);
 					mNewDialog.setDisable(false);
+					mRunDialog.setDisable(false);
 				} else {
 					mNewDialog.setDisable(true);
 					mDeleteDialog.setDisable(true);
+					mRunDialog.setDisable(true);
 				}
 			}
 		});
@@ -799,6 +811,22 @@ public class YadPbController implements Initializable, DialogInterface {
 	    	lstProjects.getSelectionModel().select(yg.itemProjects.size() - 1);
 	    	loadProject(yg.openPrjName);
 	    }
+	}
+	
+	private void runDialog(String dlg) {
+		
+//		System.out.println("dlg " + dlg);
+		String[] a = dlg.split(" ");
+		
+		try {
+			ProcessBuilder pb = new ProcessBuilder(a);
+			
+			pb.inheritIO();
+			pb.start();
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
 	@Override

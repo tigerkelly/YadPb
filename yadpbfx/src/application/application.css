@@ -17,6 +17,12 @@
 	-fx-background-color: Ivory ;
 }
 
+.console .content {
+	-fx-font-size:14px;
+	-fx-background-color: Ivory ;
+    -fx-font-family: "monospace";
+}
+
 .readonly {
   -fx-control-inner-background: Ivory;
 }

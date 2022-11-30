@@ -7,10 +7,79 @@ import com.rkw.IniFile;
 
 public class ProjectScript {
 	
-	static String yad = "yad ";
-
-	static public String createDialog(IniFile ini) {
+	static String yad = "/usr/bin/yad ";
+	static boolean runFlag = false;
+	
+	static public String createDialog(IniFile ini, String dialog) {
 		StringBuilder txt = new StringBuilder();
+		
+		runFlag = true;
+		
+		String type = ini.getString(dialog, "type");
+		
+		switch (type) {
+		case "Calendar":
+			txt.append( buildCalendar(ini, dialog));
+			break;
+		case "Color":
+			txt.append( buildColor(ini, dialog));
+			break;
+		case "DnD":
+			txt.append( buildDnD(ini, dialog));
+			break;
+		case "Entry":
+			txt.append( buildEntry(ini, dialog));
+			break;
+		case "File":
+			txt.append( buildFile(ini, dialog));
+			break;
+		case "Font":
+			txt.append( buildFont(ini, dialog));
+			break;
+		case "Form":
+			txt.append( buildForm(ini, dialog));
+			break;
+		case "HTML":
+			txt.append( buildHtml(ini, dialog));
+			break;
+		case "Icons":
+			txt.append( buildIcons(ini, dialog));
+			break;
+		case "Info":
+			txt.append( buildInfo(ini, dialog));
+			break;
+		case "List":
+			txt.append( buildList(ini, dialog));
+			break;
+		case "Notebook":
+			txt.append( buildNotebook(ini, dialog));
+			break;
+		case "Notifaction":
+			txt.append( buildNotification(ini, dialog));
+			break;
+		case "Print":
+			txt.append( buildPrint(ini, dialog));
+			break;
+		case "Progress":
+			txt.append( buildProgress(ini, dialog));
+			break;
+		case "Progress Multi":
+			txt.append( buildProgressMulti(ini, dialog));
+			break;
+		case "Scale":
+			txt.append( buildScale(ini, dialog));
+			break;
+		}
+		
+		txt.append("\n");
+		
+		return txt.toString();
+	}
+
+	static public String createAllDialogs(IniFile ini) {
+		StringBuilder txt = new StringBuilder();
+		
+		runFlag = false;
 		
 		Object[] secs = ini.getSectionNames();
 		
@@ -99,19 +168,23 @@ public class ProjectScript {
 		boolean showweeks = ini.getBoolean(sec, "showweeks");
 		
 		if (detailfile != null && detailfile.isEmpty() == false)
-			lst.add("--details=\"" + detailfile + "\"" );
+			lst.add(quote("--details=", detailfile));
 		if (dateformat != null && dateformat.isEmpty() == false)
-			lst.add("--date-format=\"" + dateformat + "\"");
+			lst.add(quote("--date-format=", dateformat));
 		if (defaultdate != null && defaultdate.isEmpty() == false) {
 			String[] a = defaultdate.split("-");
-			lst.add("--month=" + a[1]);
-			lst.add("--day=" + a[2]);
-			lst.add("--year=" + a[0]);
+			lst.add(quote("--month=", a[1]));
+			lst.add(quote("--day=", a[2]));
+			lst.add(quote("--year=", a[0]));
 		}
 		if (showweeks == true)
 			lst.add("--show-weeks");
 		
-		txt.append("# Dialog '" + sec + "'\n" + yad);
+		if (runFlag == false)
+			txt.append("# Dialog '" + sec + "'\n" + yad);
+		else
+			txt.append(yad);
+		
 		for (String s : lst) {
 			txt.append(s + " ");
 		}
@@ -121,7 +194,8 @@ public class ProjectScript {
 		if (general != null)
 			txt.append(general);
 		
-		txt.append("\n# -----\n");
+		if (runFlag == false)
+			txt.append("\n# -----\n");
 		
 		return txt.toString();
 	}
@@ -144,11 +218,11 @@ public class ProjectScript {
 		boolean expand = ini.getBoolean(sec, "expand");
 		
 		if (palette != null && palette.isEmpty() == false)
-			lst.add("--details=\"" + palette + "\"" );
+			lst.add(quote("--details=", palette));
 		if (mode != null && mode.isEmpty() == false)
-			lst.add("--details=\"" + mode + "\"" );
+			lst.add(quote("--details=", mode));
 		if (initcolor != null && initcolor.isEmpty() == false) {
-			lst.add("--init-color=\"" + initcolor.substring(0, 7) + "\"");
+			lst.add(quote("--init-color=", initcolor.substring(0, 7)));
 		}
 		
 		if (gtkpalette == true)
@@ -160,7 +234,11 @@ public class ProjectScript {
 		if (expand == true)
 			lst.add("--expand");
 		
-		txt.append("# Dialog '" + sec + "'\n" + yad);
+		if (runFlag == false)
+			txt.append("# Dialog '" + sec + "'\n" + yad);
+		else
+			txt.append(yad);
+		
 		for (String s : lst) {
 			txt.append(s + " ");
 		}
@@ -170,7 +248,8 @@ public class ProjectScript {
 		if (general != null)
 			txt.append(general);
 		
-		txt.append("\n# -----\n");
+		if (runFlag == false)
+			txt.append("\n# -----\n");
 		
 		return txt.toString();
 	}
@@ -190,14 +269,18 @@ public class ProjectScript {
 		boolean tooltip = ini.getBoolean(sec, "tooltip");
 		
 		if (command != null && command.isEmpty() == false)
-			lst.add("--command=\"" + command + "\"");
+			lst.add(quote("--command=", command));
 		if (exitondrop != null && exitondrop.isEmpty() == false)
-			lst.add("--exit-on-drop=\"" + exitondrop + "\"");
+			lst.add(quote("--exit-on-drop=", exitondrop));
 		
 		if (tooltip == true)
 			lst.add("--tooltip");
 		
-		txt.append("# Dialog '" + sec + "'\n" + yad);
+		if (runFlag == false)
+			txt.append("# Dialog '" + sec + "'\n" + yad);
+		else
+			txt.append(yad);
+		
 		for (String s : lst) {
 			txt.append(s + " ");
 		}
@@ -207,7 +290,8 @@ public class ProjectScript {
 		if (general != null)
 			txt.append(general);
 		
-		txt.append("\n# -----\n");
+		if (runFlag == false)
+			txt.append("\n# -----\n");
 		
 		return txt.toString();
 	}
@@ -233,19 +317,19 @@ public class ProjectScript {
 		boolean numoutput = ini.getBoolean(sec, "numoutput");
 		
 		if (label != null && label.isEmpty() == false)
-			lst.add("--entry-label=\"" + label + "\"");
+			lst.add(quote("--entry-label=", label));
 		if (text != null && text.isEmpty() == false)
-			lst.add("--entry-text=\"" + text + "\"");
+			lst.add(quote("--entry-text=", text));
 		if (lefticon != null && lefticon.isEmpty() == false)
-			lst.add("--licon=\"" + lefticon + "\"");
+			lst.add(quote("--licon=", lefticon));
 		if (leftaction != null && leftaction.isEmpty() == false)
-			lst.add("--licon-cmd=\"" + leftaction + "\"");
+			lst.add(quote("--licon-cmd=", leftaction));
 		if (righticon != null && righticon.isEmpty() == false)
-			lst.add("--ricon=\"" + righticon + "\"");
+			lst.add(quote("--ricon=", righticon));
 		if (rightaction != null && rightaction.isEmpty() == false)
-			lst.add("--ricon-cmd=\"" + rightaction + "\"");
+			lst.add(quote("--ricon-cmd=", rightaction));
 		if (precision != null && precision.isEmpty() == false)
-			lst.add("--float-precision=\"" + precision + "\"");
+			lst.add(quote("--float-precision=", precision));
 		
 		if (completion == true)
 			lst.add("--completion");
@@ -254,7 +338,11 @@ public class ProjectScript {
 		if (numoutput == true)
 			lst.add("--num-output");
 		
-		txt.append("# Dialog '" + sec + "'\n" + yad);
+		if (runFlag == false)
+			txt.append("# Dialog '" + sec + "'\n" + yad);
+		else
+			txt.append(yad);
+		
 		for (String s : lst) {
 			txt.append(s + " ");
 		}
@@ -264,7 +352,8 @@ public class ProjectScript {
 		if (general != null)
 			txt.append(general);
 		
-		txt.append("\n# -----\n");
+		if (runFlag == false)
+			txt.append("\n# -----\n");
 		
 		return txt.toString();
 	}
@@ -288,11 +377,11 @@ public class ProjectScript {
 		boolean overwrite = ini.getBoolean(sec, "overwrite");
 		
 		if (filename != null && filename.isEmpty() == false)
-			lst.add("--filename=\"" + filename + "\"");
+			lst.add(quote("--filename=", filename));
 		if (sep != null && sep.isEmpty() == false)
-			lst.add("--separator=\"" + sep + "\"");
+			lst.add(quote("--separator=", sep));
 		if (owtext != null && owtext.isEmpty() == false)
-			lst.add("--confirm-overwrite=\"" + owtext + "\"");
+			lst.add(quote("--confirm-overwrite=", owtext));
 		
 		if (multiple == true)
 			lst.add("--multiple");
@@ -309,7 +398,11 @@ public class ProjectScript {
 				lst.add("--confirm-overwrite");
 		}
 		
-		txt.append("# Dialog '" + sec + "'\n" + yad);
+		if (runFlag == false)
+			txt.append("# Dialog '" + sec + "'\n" + yad);
+		else
+			txt.append(yad);
+		
 		for (String s : lst) {
 			txt.append(s + " ");
 		}
@@ -319,7 +412,8 @@ public class ProjectScript {
 		if (general != null)
 			txt.append(general);
 		
-		txt.append("\n# -----\n");
+		if (runFlag == false)
+			txt.append("\n# -----\n");
 		
 		return txt.toString();
 	}
@@ -340,9 +434,9 @@ public class ProjectScript {
 		boolean quoted = ini.getBoolean(sec, "quoted");
 		
 		if (fontname != null && fontname.isEmpty() == false)
-			lst.add("--fontname=\"" + fontname + "\"");
+			lst.add(quote("--fontname=", fontname));
 		if (sep != null && sep.isEmpty() == false)
-			lst.add("--separator=\"" + sep + "\"");
+			lst.add(quote("--separator=", sep));
 		
 		if (preview == true)
 			lst.add("--preview");
@@ -351,7 +445,11 @@ public class ProjectScript {
 		if (quoted == true)
 			lst.add("--quoted-output");
 		
-		txt.append("# Dialog '" + sec + "'\n" + yad);
+		if (runFlag == false)
+			txt.append("# Dialog '" + sec + "'\n" + yad);
+		else
+			txt.append(yad);
+		
 		for (String s : lst) {
 			txt.append(s + " ");
 		}
@@ -361,7 +459,8 @@ public class ProjectScript {
 		if (general != null)
 			txt.append(general);
 		
-		txt.append("\n# -----\n");
+		if (runFlag == false)
+			txt.append("\n# -----\n");
 		
 		return txt.toString();
 	}
@@ -395,30 +494,37 @@ public class ProjectScript {
 			
 			for (String f : flds) {
 				String[] a = f.split(":");
-				String[] b = a[1].split("-");
+				if (a.length > 1) {
+					String[] b = a[1].split("-");
 				
-				lst.add("--field=\"" + a[0] + ":" + b[1] + "\"");
+					if (b.length > 1)
+						lst.add(quote("--field=", a[0] + ":" + b[1]));
+					else
+						lst.add(quote("--field=", a[0]));
+				} else {
+					lst.add(quote("--field=", a[0]));
+				}
 			}
 		}
 		
 		if (columns != null && columns.isEmpty() == false)
-			lst.add("--columns=\"" + columns + "\"");
+			lst.add(quote("--columns=", columns));
 		if (sep != null && sep.isEmpty() == false)
-			lst.add("--separator=\"" + sep + "\"");
+			lst.add(quote("--separator=", sep));
 		if (items != null && items.isEmpty() == false)
-			lst.add("--items-separator=\"" + items + "\"");
+			lst.add(quote("--items-separator=", items));
 		if (format != null && format.isEmpty() == false)
-			lst.add("--date-foramt=\"" + format + "\"");
+			lst.add(quote("--date-foramt=", format));
 		if (outputnum != null && outputnum.isEmpty() == false)
-			lst.add("--focus-field=\"" + outputnum + "\"");
+			lst.add(quote("--focus-field=", outputnum));
 		if (precision != null && precision.isEmpty() == false)
-			lst.add("--float-precision=\"" + precision + "\"");
+			lst.add(quote("--float-precision=", precision));
 		if (align != null && align.isEmpty() == false)
-			lst.add("--align=\"" + align + "\"");
+			lst.add(quote("--align=", align));
 		if (complete != null && complete.isEmpty() == false)
-			lst.add("--complete=\"" + complete + "\"");
+			lst.add(quote("--complete=", complete));
 		if (focus != null && focus.isEmpty() == false)
-			lst.add("--focus-field=\"" + focus + "\"");
+			lst.add(quote("--focus-field=", focus));
 		
 		if (cycle == true)
 			lst.add("--read-cycle");
@@ -429,7 +535,11 @@ public class ProjectScript {
 		if (quoted == true)
 			lst.add("--quoted-output");
 		
-		txt.append("# Dialog '" + sec + "'\n" + yad);
+		if (runFlag == false)
+			txt.append("# Dialog '" + sec + "'\n" + yad);
+		else
+			txt.append(yad);
+		
 		for (String s : lst) {
 			txt.append(s + " ");
 		}
@@ -439,7 +549,8 @@ public class ProjectScript {
 		if (general != null)
 			txt.append(general);
 		
-		txt.append("\n# -----\n");
+		if (runFlag == false)
+			txt.append("\n# -----\n");
 		
 		return txt.toString();
 	}
@@ -462,15 +573,15 @@ public class ProjectScript {
 		boolean printuri = ini.getBoolean(sec, "printuri");
 		
 		if (uri != null && uri.isEmpty() == false)
-			lst.add("--uri=\"" + uri + "\"");
+			lst.add(quote("--uri=", uri));
 		if (mime != null && mime.isEmpty() == false)
-			lst.add("--mime=\"" + mime + "\"");
+			lst.add(quote("--mime=", mime));
 		if (encoding != null && encoding.isEmpty() == false)
-			lst.add("--encoding=\"" + encoding + "\"");
+			lst.add(quote("--encoding=", encoding));
 		if (useragent != null && useragent.isEmpty() == false)
-			lst.add("--user-agent=\"" + useragent + "\"");
+			lst.add(quote("--user-agent=", useragent));
 		if (userstyle != null && userstyle.isEmpty() == false)
-			lst.add("--user-style=\"" + userstyle + "\"");
+			lst.add(quote("--user-style=", userstyle));
 		
 		
 		if (browser == true)
@@ -478,7 +589,11 @@ public class ProjectScript {
 		if (printuri == true)
 			lst.add("--print-uri");
 		
-		txt.append("# Dialog '" + sec + "'\n" + yad);
+		if (runFlag == false)
+			txt.append("# Dialog '" + sec + "'\n" + yad);
+		else
+			txt.append(yad);
+		
 		for (String s : lst) {
 			txt.append(s + " ");
 		}
@@ -488,7 +603,8 @@ public class ProjectScript {
 		if (general != null)
 			txt.append(general);
 		
-		txt.append("\n# -----\n");
+		if (runFlag == false)
+			txt.append("\n# -----\n");
 		
 		return txt.toString();
 	}
@@ -515,11 +631,11 @@ public class ProjectScript {
 		boolean singleclick = ini.getBoolean(sec, "singleclick");
 		
 		if (readdir != null && readdir.isEmpty() == false)
-			lst.add("--read-dir=\"" + readdir + "\"");
+			lst.add(quote("--read-dir=", readdir));
 		if (itemwidth != null && itemwidth.isEmpty() == false)
-			lst.add("--item-width=\"" + itemwidth + "\"");
+			lst.add(quote("--item-width=", itemwidth));
 		if (term != null && term.isEmpty() == false)
-			lst.add("--term=" + term);
+			lst.add(quote("--term=", term));
 		
 		if (monitor == true)
 			lst.add("--monitor");
@@ -536,7 +652,11 @@ public class ProjectScript {
 		if (singleclick == true)
 			lst.add("--single-click");
 		
-		txt.append("# Dialog '" + sec + "'\n" + yad);
+		if (runFlag == false)
+			txt.append("# Dialog '" + sec + "'\n" + yad);
+		else
+			txt.append(yad);
+		
 		for (String s : lst) {
 			txt.append(s + " ");
 		}
@@ -546,7 +666,8 @@ public class ProjectScript {
 		if (general != null)
 			txt.append(general);
 		
-		txt.append("\n# -----\n");
+		if (runFlag == false)
+			txt.append("\n# -----\n");
 		
 		return txt.toString();
 	}
@@ -577,23 +698,23 @@ public class ProjectScript {
 		boolean listen = ini.getBoolean(sec, "listen");
 		
 		if (filename != null && filename.isEmpty() == false)
-			lst.add("--filename=\"" + filename + "\"");
+			lst.add(quote("--filename=", filename));
 		if (fontname != null && fontname.isEmpty() == false)
-			lst.add("--fontname=\"" + fontname + "\"");
+			lst.add(quote("--fontname=", fontname));
 		if (justify != null && justify.isEmpty() == false)
-			lst.add("--justify=\"" + justify + "\"");
+			lst.add(quote("--justify=", justify));
 		if (margins != null && margins.isEmpty() == false)
-			lst.add("--margins=\"" + margins + "\"");
+			lst.add(quote("--margins=", margins));
 		if (language != null && language.isEmpty() == false)
-			lst.add("--lang=\"" + language + "\"");
+			lst.add(quote("--lang=", language));
 		if (theme != null && theme.isEmpty() == false)
-			lst.add("--theme=\"" + theme + "\"");
+			lst.add(quote("--theme=", theme));
 		if (fgcolor != null && fgcolor.isEmpty() == false)
-			lst.add("--fore=\"" + fgcolor + "\"");
+			lst.add(quote("--fore=", fgcolor));
 		if (bgcolor != null && bgcolor.isEmpty() == false)
-			lst.add("--back=\"" + bgcolor + "\"");
+			lst.add(quote("--back=", bgcolor));
 		if (uricolor != null && uricolor.isEmpty() == false)
-			lst.add("--uri-color=\"" + uricolor + "\"");
+			lst.add(quote("--uri-color=", uricolor));
 		
 		if (editable == true)
 			lst.add("--editable");
@@ -606,7 +727,11 @@ public class ProjectScript {
 		if (listen == true)
 			lst.add("--listen");
 		
-		txt.append("# Dialog '" + sec + "'\n" + yad);
+		if (runFlag == false)
+			txt.append("# Dialog '" + sec + "'\n" + yad);
+		else
+			txt.append(yad);
+		
 		for (String s : lst) {
 			txt.append(s + " ");
 		}
@@ -616,7 +741,8 @@ public class ProjectScript {
 		if (general != null)
 			txt.append(general);
 		
-		txt.append("\n# -----\n");
+		if (runFlag == false)
+			txt.append("\n# -----\n");
 		
 		return txt.toString();
 	}
@@ -675,43 +801,43 @@ public class ProjectScript {
 			}
 		}
 		if (sep != null && sep.isEmpty() == false)
-			lst.add("--separator=\"" + sep + "\"");
+			lst.add(quote("--separator=", sep));
 		if (editablecols != null && editablecols.isEmpty() == false)
-			lst.add("--editable-cols=\"" + editablecols + "\"");
+			lst.add(quote("--editable-cols=", editablecols));
 		if (gridlines != null && gridlines.isEmpty() == false)
-			lst.add("--grid-lines=\"" + gridlines + "\"");
+			lst.add(quote("--grid-lines=", gridlines));
 		if (printcolumn != null && printcolumn.isEmpty() == false)
-			lst.add("--print-column=\"" + printcolumn + "\"");
+			lst.add(quote("--print-column=", printcolumn));
 		if (hidecolumn != null && hidecolumn.isEmpty() == false)
-			lst.add("--hide-column=\"" + hidecolumn + "\"");
+			lst.add(quote("--hide-column=", hidecolumn));
 		if (expandcolumn != null && expandcolumn.isEmpty() == false)
-			lst.add("--expand-column=\"" + expandcolumn + "\"");
+			lst.add(quote("--expand-column=", expandcolumn));
 		if (searchcolumn != null && searchcolumn.isEmpty() == false)
-			lst.add("--search-column=\"" + searchcolumn + "\"");
+			lst.add(quote("--search-column=", searchcolumn));
 		if (tooltipcolumn != null && tooltipcolumn.isEmpty() == false)
-			lst.add("--tooltip-column=\"" + tooltipcolumn + "\"");
+			lst.add(quote("--tooltip-column=", tooltipcolumn));
 		if (sepcolumn != null && sepcolumn.isEmpty() == false)
-			lst.add("--sep-column=\"" + sepcolumn + "\"");
+			lst.add(quote("--sep-column=", sepcolumn));
 		if (sepvalue != null && sepvalue.isEmpty() == false)
-			lst.add("--sep-vlaue=\"" + sepvalue + "\"");
+			lst.add(quote("--sep-vlaue=", sepvalue));
 		if (limit != null && limit.isEmpty() == false)
-			lst.add("--limit=\"" + limit + "\"");
+			lst.add(quote("--limit=", limit));
 		if (wrapcols != null && wrapcols.isEmpty() == false)
-			lst.add("--wrap-cols=\"" + wrapcols + "\"");
+			lst.add(quote("--wrap-cols=", wrapcols));
 		if (wrapwidth != null && wrapwidth.isEmpty() == false)
-			lst.add("--wrap-width=\"" + wrapwidth + "\"");
+			lst.add(quote("--wrap-width=", wrapwidth));
 		if (ellipsize != null && ellipsize.isEmpty() == false)
-			lst.add("--ellipsize=\"" + ellipsize + "\"");
+			lst.add(quote("--ellipsize=", ellipsize));
 		if (ellipsizecols != null && ellipsizecols.isEmpty() == false)
-			lst.add("--ellipsize-cols=\"" + ellipsizecols + "\"");
+			lst.add(quote("--ellipsize-cols=", ellipsizecols));
 		if (dclickaction != null && dclickaction.isEmpty() == false)
-			lst.add("--dclick-action=\"" + dclickaction + "\"");
+			lst.add(quote("--dclick-action=", dclickaction));
 		if (selectaction != null && selectaction.isEmpty() == false)
-			lst.add("--select-action=\"" + selectaction + "\"");
+			lst.add(quote("--select-action=", selectaction));
 		if (addaction != null && addaction.isEmpty() == false)
-			lst.add("--add-action=\"" + addaction + "\"");
+			lst.add(quote("--add-action=", addaction));
 		if (precision != null && precision.isEmpty() == false)
-			lst.add("--float-precision=\"" + precision + "\"");
+			lst.add(quote("--float-precision=", precision));
 		
 		if (checklist == true)
 			lst.add("--checklist");
@@ -742,7 +868,11 @@ public class ProjectScript {
 		if (iecformat == true)
 			lst.add("--iec-format");
 		
-		txt.append("# Dialog '" + sec + "'\n" + yad);
+		if (runFlag == false)
+			txt.append("# Dialog '" + sec + "'\n" + yad);
+		else
+			txt.append(yad);
+		
 		for (String s : lst) {
 			txt.append(s + " ");
 		}
@@ -752,7 +882,8 @@ public class ProjectScript {
 		if (general != null)
 			txt.append(general);
 		
-		txt.append("\n# -----\n");
+		if (runFlag == false)
+			txt.append("\n# -----\n");
 		
 		return txt.toString();
 	}
@@ -782,13 +913,17 @@ public class ProjectScript {
 			}
 		}
 		if (tabpos != null && tabpos.isEmpty() == false)
-			lst.add("--tab-pos=" + tabpos);
+			lst.add(quote("--tab-pos=", tabpos));
 		if (tabborders != null && tabborders.isEmpty() == false)
-			lst.add("--tab-borders=" + tabborders);
+			lst.add(quote("--tab-borders=", tabborders));
 		if (activetab != null && activetab.isEmpty() == false)
-			lst.add("--active-tab=" + activetab);
+			lst.add(quote("--active-tab=", activetab));
 		
-		txt.append("# Dialog '" + sec + "'\n" + yad);
+		if (runFlag == false)
+			txt.append("# Dialog '" + sec + "'\n" + yad);
+		else
+			txt.append(yad);
+		
 		for (String s : lst) {
 			txt.append(s + " ");
 		}
@@ -798,7 +933,8 @@ public class ProjectScript {
 		if (general != null)
 			txt.append(general);
 		
-		txt.append("\n# -----\n");
+		if (runFlag == false)
+			txt.append("\n# -----\n");
 		
 		return txt.toString();
 	}
@@ -823,15 +959,15 @@ public class ProjectScript {
 		boolean hidden = ini.getBoolean(sec, "hidden");
 		
 		if (command != null && command.isEmpty() == false)
-			lst.add("--command=\"" + command + "\"");
+			lst.add(quote("--command=", command));
 		if (sep != null && sep.isEmpty() == false)
-			lst.add("--separator=\"" + sep + "\"");
+			lst.add(quote("--separator=", sep));
 		if (itemsep != null && itemsep.isEmpty() == false)
-			lst.add("--item-separator=\"" + itemsep + "\"");
+			lst.add(quote("--item-separator=", itemsep));
 		if (menu != null && menu.isEmpty() == false)
-			lst.add("--menu=\"" + menu + "\"");
+			lst.add(quote("--menu=", menu));
 		if (iconsize != null && iconsize.isEmpty() == false)
-			lst.add("--icon-size=\"" + iconsize + "\"");
+			lst.add(quote("--icon-size=", iconsize));
 		
 		if (listen == true)
 			lst.add("--listen");
@@ -840,7 +976,11 @@ public class ProjectScript {
 		if (hidden == true)
 			lst.add("--hidden");
 		
-		txt.append("# Dialog '" + sec + "'\n" + yad);
+		if (runFlag == false)
+			txt.append("# Dialog '" + sec + "'\n" + yad);
+		else
+			txt.append(yad);
+		
 		for (String s : lst) {
 			txt.append(s + " ");
 		}
@@ -850,7 +990,8 @@ public class ProjectScript {
 		if (general != null)
 			txt.append(general);
 		
-		txt.append("\n# -----\n");
+		if (runFlag == false)
+			txt.append("\n# -----\n");
 		
 		return txt.toString();
 	}
@@ -871,16 +1012,20 @@ public class ProjectScript {
 		boolean headers = ini.getBoolean(sec, "headers");
 		
 		if (type != null && type.isEmpty() == false)
-			lst.add("--type=\"" + type + "\"");
+			lst.add(quote("--type=", type));
 		if (filename != null && filename.isEmpty() == false)
-			lst.add("--filename=\"" + filename + "\"");
+			lst.add(quote("--filename=", filename));
 		if (fontname != null && fontname.isEmpty() == false)
-			lst.add("--fontname=\"" + fontname + "\"");
+			lst.add(quote("--fontname=", fontname));
 		
 		if (headers == true)
 			lst.add("--headers");
 		
-		txt.append("# Dialog '" + sec + "'\n" + yad);
+		if (runFlag == false)
+			txt.append("# Dialog '" + sec + "'\n" + yad);
+		else
+			txt.append(yad);
+		
 		for (String s : lst) {
 			txt.append(s + " ");
 		}
@@ -890,7 +1035,8 @@ public class ProjectScript {
 		if (general != null)
 			txt.append(general);
 		
-		txt.append("\n# -----\n");
+		if (runFlag == false)
+			txt.append("\n# -----\n");
 		
 		return txt.toString();
 	}
@@ -918,12 +1064,12 @@ public class ProjectScript {
 		boolean logheight = ini.getBoolean(sec, "logheight");
 		
 		if (progresstext != null && progresstext.isEmpty() == false)
-			lst.add("--progress-text=\"" + progresstext + "\"");
+			lst.add(quote("--progress-text=", progresstext));
 		if (percentage != null && percentage.isEmpty() == false)
-			lst.add("--percentage=\"" + percentage + "\"");
+			lst.add(quote("--percentage=", percentage));
 		if (enablelog == true) {
 			if (enablelogtext != null && enablelogtext.isEmpty() == false)
-				lst.add("--enable-log=\"" + enablelogtext + "\"");
+				lst.add(quote("--enable-log=", enablelogtext));
 			else
 				lst.add("--enable-log");
 		}
@@ -944,7 +1090,11 @@ public class ProjectScript {
 		if (logheight == true)
 			lst.add("--log-height");
 		
-		txt.append("# Dialog '" + sec + "'\n" + yad);
+		if (runFlag == false)
+			txt.append("# Dialog '" + sec + "'\n" + yad);
+		else
+			txt.append(yad);
+		
 		for (String s : lst) {
 			txt.append(s + " ");
 		}
@@ -954,7 +1104,8 @@ public class ProjectScript {
 		if (general != null)
 			txt.append(general);
 		
-		txt.append("\n# -----\n");
+		if (runFlag == false)
+			txt.append("\n# -----\n");
 		
 		return txt.toString();
 	}
@@ -980,21 +1131,25 @@ public class ProjectScript {
 			
 			for (String b : s) {
 				String[] d = b.split(":");
-				lst.add("--bar=\"" + d[0] + ":" + d[1] + "\"");
+				lst.add(quote("--bar=", d[0] + ":" + d[1]));
 			}
 		}
 			
 		if (watchbar != null && watchbar.isEmpty() == false)
-			lst.add("--watch-bar=\"" + watchbar + "\"");
+			lst.add(quote("--watch-bar=", watchbar));
 		if (align != null && align.isEmpty() == false)
-			lst.add("--align=\"" + align + "\"");
+			lst.add(quote("--align=", align));
 		
 		if (autoclose == true)
 			lst.add("--auto-close");
 		if (autokill == true)
 			lst.add("--auto-kill");
 		
-		txt.append("# Dialog '" + sec + "'\n" + yad);
+		if (runFlag == false)
+			txt.append("# Dialog '" + sec + "'\n" + yad);
+		else
+			txt.append(yad);
+		
 		for (String s : lst) {
 			txt.append(s + " ");
 		}
@@ -1004,7 +1159,8 @@ public class ProjectScript {
 		if (general != null)
 			txt.append(general);
 		
-		txt.append("\n# -----\n");
+		if (runFlag == false)
+			txt.append("\n# -----\n");
 		
 		return txt.toString();
 	}
@@ -1043,9 +1199,9 @@ public class ProjectScript {
 			for (String mark : mks) {
 				String[] a = mark.split(":");
 				if (a.length == 2) {
-					lst.add("--mark=\"" + a[0] + ":" + a[1] + "\"");
+					lst.add(quote("--mark=", a[0] + ":" + a[1]));
 				} else {
-					lst.add("--mark=\"" + a[0] + "\"");		// NAME is optional
+					lst.add(quote("--mark=", a[0]));		// NAME is optional
 				}
 			}
 		}
@@ -1066,7 +1222,11 @@ public class ProjectScript {
 		if (incbuttons == true)
 		lst.add("--inc-buttons");
 		
-		txt.append("# Dialog '" + sec + "'\n" + yad);
+		if (runFlag == false)
+			txt.append("# Dialog '" + sec + "'\n" + yad);
+		else
+			txt.append(yad);
+		
 		for (String s : lst) {
 			txt.append(s + " ");
 		}
@@ -1076,7 +1236,8 @@ public class ProjectScript {
 		if (general != null)
 			txt.append(general);
 		
-		txt.append("\n# -----\n");
+		if (runFlag == false)
+			txt.append("\n# -----\n");
 		
 		return txt.toString();
 	}
@@ -1139,49 +1300,49 @@ public class ProjectScript {
 		Boolean enablespell = ini.getBoolean(sec + "-General", "enablespell");
 		
 		if (title != null && title.isEmpty() == false)
-			lst.add("--title=\"" + title + "\"");
+			lst.add(quote("--title=", title));
 		if (icon != null && icon.isEmpty() == false)
-			lst.add("--icon=\"" + icon + "\"");
+			lst.add(quote("--icon=", icon));
 		if (timeoutsecs != null && timeoutsecs.isEmpty() == false)
-			lst.add("--timeout=\"" + timeoutsecs + "\"");
+			lst.add(quote("--timeout=", timeoutsecs));
 		if (text != null && text.isEmpty() == false)
-			lst.add("--text=\"" + text + "\"");
+			lst.add(quote("--text=", text));
 		if (image != null && image.isEmpty() == false)
-			lst.add("--image=\"" + image + "\"");
+			lst.add(quote("--image=", image));
 		if (width != null && width.isEmpty() == false)
-			lst.add("--width=\"" + width + "\"");
+			lst.add(quote("--width=", width));
 		if (height != null && height.isEmpty() == false)
-			lst.add("--height=\"" + height + "\"");
+			lst.add(quote("--height=", height));
 		if (posx != null && posx.isEmpty() == false)
-			lst.add("--posx=\"" + posx + "\"");
+			lst.add(quote("--posx=", posx));
 		if (posy != null && posy.isEmpty() == false)
-			lst.add("--posy=\"" + posy + "\"");
+			lst.add(quote("--posy=", posy));
 		if (plug != null && plug.isEmpty() == false)
-			lst.add("--plug=\"" + plug + "\"");
+			lst.add(quote("--plug=", plug));
 		if (tabnum != null && tabnum.isEmpty() == false)
-			lst.add("--tabnum=\"" + tabnum + "\"");
+			lst.add(quote("--tabnum=", tabnum));
 		if (borders != null && borders.isEmpty() == false)
-			lst.add("--borders=\"" + borders + "\"");
+			lst.add(quote("--borders=", borders));
 		if (imagepath != null && imagepath.isEmpty() == false)
-			lst.add("--image-path=\"" + imagepath + "\"");
+			lst.add(quote("--image-path=", imagepath));
 		if (rest != null && rest.isEmpty() == false)
-			lst.add("--rest=\"" + rest + "\"");
+			lst.add(quote("--rest=", rest));
 		if (response != null && response.isEmpty() == false)
-			lst.add("--response=\"" + response + "\"");
+			lst.add(quote("--response=", response));
 		if (gtkrc != null && gtkrc.isEmpty() == false)
-			lst.add("--gtkrc=\"" + gtkrc + "\"");
+			lst.add(quote("--gtkrc=", gtkrc));
 		if (spelllang != null && spelllang.isEmpty() == false)
-			lst.add("--spell-lang=\"" + spelllang + "\"");
+			lst.add(quote("--spell-lang=", spelllang));
 		if (btnlayout != null && btnlayout.isEmpty() == false)
-			lst.add("--buttons-layout=\"" + btnlayout + "\"");
+			lst.add(quote("--buttons-layout=", btnlayout));
 		if (textalign != null && textalign.isEmpty() == false)
-			lst.add("--text-align=\"" + textalign + "\"");
+			lst.add(quote("--text-align=", textalign));
 		if (hscroll != null && hscroll.isEmpty() == false)
-			lst.add("--hscroll-policy=\"" + hscroll.toLowerCase() + "\"");
+			lst.add(quote("--hscroll-policy=", hscroll.toLowerCase()));
 		if (vscroll != null && vscroll.isEmpty() == false)
-			lst.add("--vscroll-policy=\"" + vscroll.toLowerCase() + "\"");
+			lst.add(quote("--vscroll-policy=", vscroll.toLowerCase()));
 		if (timeoutposition != null && timeoutposition.isEmpty() == false && timeoutsecs != null && timeoutsecs.isEmpty() == false)
-			lst.add("--timeout-indicator=" + timeoutposition);
+			lst.add(quote("--timeout-indicator=", timeoutposition));
 		
 		
 		if (buttons != null) {
@@ -1191,7 +1352,7 @@ public class ProjectScript {
 			for (String s : a) {
 				String[] b = s.split("!");
 				
-				lst.add("--button=\"" + b[0] + "\\!" + b[1] + "\\!" + b[2] + "\"");
+				lst.add(quote("--button=", b[0] + "\\!" + b[1] + "\\!" + b[2]));
 //				System.out.println("--button=\"" + b[0] + "\\!" + b[1] + "\\!" + b[2] + "\"");
 			}
 		}
@@ -1255,5 +1416,20 @@ public class ProjectScript {
 		}
 		
 		return txt.toString();
+	}
+	
+	private static String quote(String s1, String s2) {
+		String r = null;
+		
+//		s2.matches("[ \\|;]");
+		
+//		if (s2.indexOf(' ') != -1 || s2.indexOf('|') != -1 || s2.indexOf(';') != -1) {
+		if (s2.matches("[ \\|;]") == true) {
+			r = s1 + "\"" + s2 + "\"";
+		} else {
+			r = s1 + s2;
+		}
+		
+		return r;
 	}
 }

@@ -7,20 +7,46 @@
 	type = Calendar
 	detailfile = /home/kelly/wiles.dd
 	dateformat = %m/%d/%Y
+	showweeks = true
 
 [Calendar-General]
 	buttonlayout = End
 	textalign = Fill
-	killparent = SIGTERM
+	killparent = false
 	timeoutposition = Top
 	response = 0
 	hscroll = Auto
 	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
 
 [Color]
 	type = Color
 	mode = Hex
 	palette = /etc/X11/rgb.txt
+	expand = true
 
 [Color-General]
 	buttonlayout = End
@@ -92,6 +118,7 @@
 	complete = Any
 	precision = 3
 	align = Left
+	fields = kelly!Text-TXT,wiles!Button-BTN
 
 [Form-General]
 	buttonlayout = End
