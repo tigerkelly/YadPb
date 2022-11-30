@@ -172,7 +172,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cbAlign" onAction="#doAlign" prefWidth="95.0" style="-fx-font-size: 14px;">
+                  <ComboBox fx:id="cbAlign" onAction="#doAlign" prefWidth="100.0" style="-fx-font-size: 14px;">
                      <tooltip>
                         <Tooltip text="Set alignment of field labels." />
                      </tooltip></ComboBox>

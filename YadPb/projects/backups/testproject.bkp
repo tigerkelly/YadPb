@@ -14966,3 +14966,1183 @@
 	response = 0
 	hscroll = Auto
 	vscroll = Auto
+
+[[[testproject]]] 2022/10/30 05:52:37
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = true
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Form]
+	type = Form
+	sep = |
+	items = !
+	complete = Any
+	precision = 3
+	align = Left
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = Info
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	itemsep = !
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/10/30 05:55:28
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = true
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Form]
+	type = Form
+	sep = |
+	items = !
+	complete = Any
+	precision = 3
+	align = Left
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = Info
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	itemsep = !
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/10/30 05:56:01
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/richard.dd
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = true
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Form]
+	type = Form
+	sep = |
+	items = !
+	complete = Any
+	precision = 3
+	align = Left
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = Info
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	itemsep = !
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/10/30 06:11:52
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = true
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Form]
+	type = Form
+	sep = |
+	items = !
+	complete = Any
+	precision = 3
+	align = Left
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = Info
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	itemsep = !
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/10/30 06:12:24
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %d/%m/%Y
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = true
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Form]
+	type = Form
+	sep = |
+	items = !
+	complete = Any
+	precision = 3
+	align = Left
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = Info
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	itemsep = !
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto

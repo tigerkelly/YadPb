@@ -125,7 +125,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cbGridLines" onAction="#doGridLines" prefWidth="100.0" style="-fx-font-size: 14px;">
+                  <ComboBox fx:id="cbGridLines" onAction="#doGridLines" prefWidth="125.0" style="-fx-font-size: 14px;">
                      <tooltip>
                         <Tooltip text="Draw grid lines of type TYPE in list dialog." />
                      </tooltip>

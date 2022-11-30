@@ -47,9 +47,9 @@
                         <Tooltip text="Read days description from FILENAME." />
                      </tooltip>
                   </TextField>
-                  <Button fx:id="btnArrow" mnemonicParsing="false" onAction="#doFileDialog" text="^">
+                  <Button fx:id="btnCreateDetail" mnemonicParsing="false" onAction="#doCreateDetail" prefWidth="100.0" text="Detail">
                      <font>
-                        <Font name="System Bold" size="14.0" />
+                        <Font size="14.0" />
                      </font>
                   </Button>
                </children>
@@ -84,7 +84,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="dpDefaultDate" editable="false" style="-fx-font-size: 14px; -fx-control0inner-background: LemonChiffon;" styleClass="readonly">
+                  <DatePicker fx:id="dpDefaultDate" editable="false" style="-fx-font-size: 14px;" styleClass="readonly">
                      <tooltip>
                         <Tooltip text="Select init data." />
                      </tooltip></DatePicker>

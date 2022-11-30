@@ -5,6 +5,8 @@
 
 [Calendar]
 	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
 
 [Calendar-General]
 	buttonlayout = End
@@ -144,6 +146,8 @@
 	printcolumn = 0
 	searchcolumn = 0
 	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
 
 [List-General]
 	buttonlayout = End

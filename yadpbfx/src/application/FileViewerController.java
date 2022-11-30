@@ -164,6 +164,14 @@ public class FileViewerController implements Initializable {
 	
 				String line = null;
 				while ((line = br.readLine()) != null) {
+					if (line.length() > 0 && line.charAt(0) == '#')		// Skip comments.
+						continue;
+						
+					if (fileName.endsWith("about.txt")) {
+						if (line.endsWith("Version:")) {
+							line += " " + yg.yadPbVersion;
+						}
+					}
 					lstText.getItems().add(line);
 				}
 				br.close();
@@ -173,6 +181,14 @@ public class FileViewerController implements Initializable {
 
 					String line = null;
 					while ((line = br.readLine()) != null) {
+						if (line.length() > 0 && line.charAt(0) == '#')		// Skip comments.
+							continue;
+						
+						if (fileName.endsWith("about.txt")) {
+							if (line.endsWith("Version:")) {
+								line += " " + yg.yadPbVersion;
+							}
+						}
 						lstText.getItems().add(line);
 					}
 					br.close();

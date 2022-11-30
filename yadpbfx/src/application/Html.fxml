@@ -59,17 +59,13 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cbEncoding" editable="true" onAction="#doEncoding" prefWidth="175.0" style="-fx-font-size: 14px;">
-                     <tooltip>
-                        <Tooltip text="Set encoding of data passed to standard input to ENCODING." />
-                     </tooltip>
-                  </ComboBox>
+                  <ComboBox fx:id="cbEncoding" editable="true" onAction="#doEncoding" prefWidth="175.0" style="-fx-font-size: 14px;" />
                   <Label text="Uri Handler:">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtUriHandler" onKeyTyped="#onUriHandler" prefWidth="285.0">
+                  <TextField fx:id="txtUriHandler" onKeyTyped="#onUriHandler" prefWidth="275.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -129,7 +125,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtMime" prefWidth="200.0">
+                  <TextField fx:id="txtMime" editable="false" prefWidth="200.0" styleClass="readonly" stylesheets="@application.css">
                      <font>
                         <Font size="14.0" />
                      </font>

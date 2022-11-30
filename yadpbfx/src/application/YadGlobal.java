@@ -287,7 +287,7 @@ public class YadGlobal {
 		try {
     		InputStream in = null;
 			
-			in = getClass().getResourceAsStream("txts/defaults.ini");
+			in = getClass().getResourceAsStream("/txts/defaults.ini");
 			
 			if (in != null) {
     		
@@ -452,6 +452,45 @@ public class YadGlobal {
 //			stage.resizableProperty().setValue(Boolean.FALSE);
 
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("GeneralSettings.fxml"));
+
+			stage.initModality(Modality.APPLICATION_MODAL);
+
+			stage.setScene(new Scene(loader.load()));
+			stage.hide();	// Hides the stage repositioning.
+
+			Stage ps = (Stage) btn.getScene().getWindow();
+
+			ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
+				double stageWidth = newValue.doubleValue();
+				stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
+			};
+			ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
+				double stageHeight = newValue.doubleValue();
+				stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
+			};
+
+			stage.widthProperty().addListener(widthListener);
+			stage.heightProperty().addListener(heightListener);
+
+			// Once the window is visible, remove the listeners
+			stage.setOnShown(e2 -> {
+				stage.widthProperty().removeListener(widthListener);
+				stage.heightProperty().removeListener(heightListener);
+			});
+
+			stage.showAndWait();
+
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+	
+	public void showDetail(Button btn) {
+		try {
+			Stage stage = new Stage();
+			stage.setTitle("Detail Settings for Calendar " + currDialog);
+
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("DetailSettings.fxml"));
 
 			stage.initModality(Modality.APPLICATION_MODAL);
 

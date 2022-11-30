@@ -1,0 +1,11 @@
+
+2022-11-20
+1.0.0 		- First release.
+
+2022-11-30
+1.0.1		- Many bug fixes.
+			  Increased all ToggleButton widths to allow checkmark without truncating text with ...
+			  Added Detail file creation in the Calendar dialog.
+			  Fixed format of date field in Calendar screen.
+			  Added ability to create a new Date Detail file and corrected date format.
+			  About screen now reads the vdata.txt file for program version.

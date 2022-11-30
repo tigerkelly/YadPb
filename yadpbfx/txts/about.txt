@@ -1,5 +1,8 @@
+# When the FileViewerController loads this file it looks for 'Version:' and appends the version to that line.
+# It also ignores any line beginning with '#'.
 
-YadPb Version 1.0.0
+YadPb Version:
 Date 11/01/2022
 
 Written by Kelly Wiles
+Email: rkwiles@twc.com

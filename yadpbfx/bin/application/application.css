@@ -13,8 +13,8 @@
     -fx-font-family: "monospace";
 }
 
-.text-area .content {
-   -fx-background-color: Ivory ;
+.ta-readonly .content {
+	-fx-background-color: Ivory ;
 }
 
 .readonly {

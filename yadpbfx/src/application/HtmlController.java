@@ -126,6 +126,8 @@ public class HtmlController implements Initializable, DialogInterface {
 	public void initialize(URL arg0, ResourceBundle arg1) {
     	cbEncoding.getItems().add("UTF-8");
 		cbEncoding.getSelectionModel().select(0);
+		
+		aPane.getStylesheets().add(getClass().getResource("application.css").toString());
 	}
     
     @FXML
@@ -198,7 +200,7 @@ public class HtmlController implements Initializable, DialogInterface {
 		if (encoding != null)
 			cbEncoding.getSelectionModel().select(encoding);
 		if (mime != null)
-			cbEncoding.getSelectionModel().select(mime);
+			txtMime.setText(mime);
 		
 		setToggleButton(btnPrintUri, printuri);
 		setToggleButton(btnBrowser, browser);
@@ -211,7 +213,6 @@ public class HtmlController implements Initializable, DialogInterface {
 
 	@Override
 	public void setData(String data) {
-		// TODO Auto-generated method stub
 		
 	}
 

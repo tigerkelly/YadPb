@@ -31,6 +31,6 @@ public class ColumnType {
 
 	@Override
 	public String toString() {
-		return "TextType [text=" + text + ", type=" + type + "]";
+		return "ColumnType [text=" + text + ", type=" + type + "]";
 	}
 }

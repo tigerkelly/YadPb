@@ -1,3 +1,4 @@
+# Common mime types list.
 .aac 	AAC audio 	audio/aac
 .abw 	AbiWord document 	application/x-abiword
 .arc 	Archive document (multiple files embedded) 	application/x-freearc

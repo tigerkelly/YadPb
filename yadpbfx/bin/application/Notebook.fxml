@@ -130,7 +130,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <ComboBox fx:id="cbTabPosition" onAction="#doTabPosition" prefWidth="100.0">
+                  <ComboBox fx:id="cbTabPosition" onAction="#doTabPosition" prefWidth="125.0">
                      <tooltip>
                         <Tooltip text="Set the tabs position." />
                      </tooltip></ComboBox>

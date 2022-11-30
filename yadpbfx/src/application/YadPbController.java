@@ -87,7 +87,7 @@ public class YadPbController implements Initializable, DialogInterface {
 
 		    stage.setScene(new Scene(loader.load()));
 		    FileViewerController controller = loader.<FileViewerController>getController();
-		    controller.setFileName("txts/about.txt", 300.0, 200.0, false);
+		    controller.setFileName("txts/about.txt", 300.0, 225.0, false);
 		    
 		    Stage ps = (Stage) aPane.getScene().getWindow();
 
@@ -312,7 +312,7 @@ public class YadPbController implements Initializable, DialogInterface {
 		ContextMenu cm = new ContextMenu();
 		
 		MenuItem mProjectTitle = new MenuItem("Project Menu");
-//		mProjectTitle.setDisable(true);
+		mProjectTitle.setDisable(true);
 		
 		MenuItem mOpenProject = new MenuItem("Open Project");
 		mOpenProject.setOnAction((ActionEvent e) -> {
@@ -433,7 +433,7 @@ public class YadPbController implements Initializable, DialogInterface {
 
 		ContextMenu cm2 = new ContextMenu();
 		MenuItem mDialogTitle = new MenuItem("Dialog Menu");
-//		mDialogTitle.setDisable(true);
+		mDialogTitle.setDisable(true);
 		
 		MenuItem mNewDialog = new MenuItem("New Dialog");
 		mNewDialog.setOnAction((ActionEvent e) -> {

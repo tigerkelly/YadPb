@@ -552,7 +552,6 @@ public class ListController implements Initializable, DialogInterface {
 		colType.setCellValueFactory(new PropertyValueFactory<ColumnType, String>("type"));
 
 		colName.setCellFactory(TextFieldTableCell.<ColumnType>forTableColumn());
-//		colName.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).setText(e.getNewValue()));
 
 		colName.setOnEditCommit((TableColumn.CellEditEvent<ColumnType, String> t) -> {
 	        t.getTableView().getItems().get(t.getTablePosition().getRow()).setText(t.getNewValue());
@@ -561,7 +560,6 @@ public class ListController implements Initializable, DialogInterface {
 	    });
 
 		colType.setCellFactory(ComboBoxTableCell.forTableColumn(FXCollections.observableArrayList(types)));
-//		colType.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).setType(e.getNewValue()));
 
 		colType.setOnEditCommit((TableColumn.CellEditEvent<ColumnType, String> t) -> {
 	        t.getTableView().getItems().get(t.getTablePosition().getRow()).setType(t.getNewValue());
