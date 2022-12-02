@@ -34,6 +34,7 @@ public class Main extends Application {
 		    	primaryStage.setY(sb.getHeight() - 1220.0);
 		    }
 //			primaryStage.getIcons().add(new Image("/images/bloodhound.png"));
+		    primaryStage.setTitle("Yad Project Builder");
 		    primaryStage.setAlwaysOnTop(true);
 			primaryStage.setScene(createScene(loadMainPane()));
 		} catch (IOException e) {

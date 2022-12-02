@@ -40,6 +40,6 @@ public class TextType {
 
 	@Override
 	public String toString() {
-		return "TextType [text=" + text + ", type=" + type + ", values" + values + "]";
+		return "TextType [text=" + text + ", type=" + type + ", values=" + values + "]";
 	}
 }

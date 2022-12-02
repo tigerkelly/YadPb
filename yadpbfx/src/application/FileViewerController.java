@@ -93,6 +93,8 @@ public class FileViewerController implements Initializable {
 						
 					} else if (fileName.endsWith("yad_manual.txt")) {
 						
+					} else if (fileName.endsWith("Form_value_help.txt")) {
+						
 					}
 				}
 			}
@@ -123,6 +125,8 @@ public class FileViewerController implements Initializable {
 					} else if (fileName.endsWith("about.txt")) {
 						
 					} else if (fileName.endsWith("yad_manual.txt")) {
+						
+					} else if (fileName.endsWith("Form_value_help.txt")) {
 						
 					}
 					Stage stage = (Stage) btnCancel.getScene().getWindow();

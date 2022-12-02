@@ -64,6 +64,8 @@ public class BackupsController implements Initializable {
     			
     			File f = new File(yg.workDir.getAbsolutePath() + File.separator + "backups" + File.separator + parent.getValue() + ".bkp");
     			
+    			StringBuilder sb = new StringBuilder();
+    			
     			try {
 					BufferedReader br = new BufferedReader(new FileReader(f));
 					String st = null;
@@ -75,17 +77,21 @@ public class BackupsController implements Initializable {
 								d = st.substring(x + 2);
 								
 								if (d.equals(ti.getValue()) == true) {
-									taData.setText("");
+									taData.clear();
 									while ((st = br.readLine()) != null) {
 										if (st.startsWith("[[[") == true)
 											break;
-										taData.appendText(st + "\n");
+										sb.append(st + "\n");
+//										taData.appendText(st + "\n");
+//										taData.setScrollTop(Double.MIN_VALUE);
 									}
+									taData.setText(sb.toString());
 								}
 							}
 						}
 					}
 					br.close();
+					
     			} catch (FileNotFoundException e1) {
 					e1.printStackTrace();
 				} catch (IOException e1) {

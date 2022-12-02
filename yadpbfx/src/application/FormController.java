@@ -32,6 +32,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import tbl.FileFilter;
 import tbl.TextType;
 
 public class FormController implements Initializable, DialogInterface {
@@ -47,6 +48,9 @@ public class FormController implements Initializable, DialogInterface {
     
     @FXML
     private Button btnGeneral;
+    
+    @FXML
+    private Button btnFormValueHelp;
     
     @FXML
     private TitledPane titledPane;
@@ -229,6 +233,51 @@ public class FormController implements Initializable, DialogInterface {
 			e1.printStackTrace();
 		}
     }
+    
+    @FXML
+    void doFormValueHelp(ActionEvent event) {
+//    	System.out.println(lblDialog.getText());
+    	
+    	try {
+		    Stage stage = new Stage();
+		    stage.hide();
+		    stage.setTitle("Field Types Help");
+		    
+		    FXMLLoader loader = new FXMLLoader(getClass().getResource("FileViewer.fxml"));
+		    
+		    stage.initModality(Modality.APPLICATION_MODAL);
+
+		    stage.setScene(new Scene(loader.load()));
+		    FileViewerController controller = loader.<FileViewerController>getController();
+		    controller.setFileName("txts/Form_value_help.txt", 1100.0, 700.0, false);
+		    
+		 // Code to center dialog within parent.
+		    Stage ps = (Stage) aPane.getScene().getWindow();
+
+			ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
+				double stageWidth = newValue.doubleValue();
+				stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
+			};
+			ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
+				double stageHeight = newValue.doubleValue();
+				stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
+			};
+
+			stage.widthProperty().addListener(widthListener);
+			stage.heightProperty().addListener(heightListener);
+
+			// Once the window is visible, remove the listeners
+			stage.setOnShown(e2 -> {
+				stage.widthProperty().removeListener(widthListener);
+				stage.heightProperty().removeListener(heightListener);
+			});
+			
+		    stage.showAndWait();
+		    
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+    }
 
     @FXML
     void doToggleButton(ActionEvent event) {
@@ -258,16 +307,16 @@ public class FormController implements Initializable, DialogInterface {
     	String txt = cbType.getSelectionModel().getSelectedItem();
     	
     	int idx = txt.lastIndexOf('-');
-    	String s = txt.substring(idx);
+    	String s = txt.substring(idx+1);
     	
     	switch(s) {
-    	case "-NUM":
-    	case "-CHK":
-    	case "-CB":
-    	case "-MFL":
-    	case "-MDIR":
-    	case "-BTN":
-    	case "-FBTN":
+    	case "BTN":
+    	case "NUM":
+    	case "CHK":
+    	case "CB":
+    	case "MFL":
+    	case "MDIR":
+    	case "FBTN":
     		txtValues.setDisable(false);
     		break;
     	default:
@@ -442,13 +491,46 @@ public class FormController implements Initializable, DialogInterface {
 		colValues.setCellValueFactory(new PropertyValueFactory<TextType, String>("values"));
 		
 		colText.setCellFactory(TextFieldTableCell.forTableColumn());
-		colText.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).setText(e.getNewValue()));
+//		colText.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).setText(e.getNewValue()));
+		colText.setOnEditCommit((TableColumn.CellEditEvent<TextType, String> t) -> {
+	        ((TextType) t.getTableView().getItems().get(t.getTablePosition().getRow())).setText(t.getNewValue());
+	        saveButtons();
+	    });
 		
 		colType.setCellFactory(ComboBoxTableCell.forTableColumn(FXCollections.observableArrayList(types)));
-		colType.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).setType(e.getNewValue()));
+		colType.setOnEditCommit((TableColumn.CellEditEvent<TextType, String> t) -> {
+	        ((TextType) t.getTableView().getItems().get(t.getTablePosition().getRow())).setType(t.getNewValue());
+	        saveButtons();
+	    });
 		
 		colValues.setCellFactory(TextFieldTableCell.forTableColumn());
-		colValues.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).setValues(e.getNewValue()));
+		colValues.setOnEditCommit((TableColumn.CellEditEvent<TextType, String> t) -> {
+			int row = t.getTablePosition().getRow();
+			
+			TextType tt = ((TextType) t.getTableView().getItems().get(row));
+//	        ((TextType) t.getTableView().getItems().get(t.getTablePosition().getRow())).setValues(t.getNewValue());
+			String typ = tt.getType();
+			int idx = typ.lastIndexOf('-');
+	    	String s = typ.substring(idx+1);
+	    	
+	    	switch(s) {
+	    	case "BTN":
+	    	case "NUM":
+	    	case "CHK":
+	    	case "CB":
+	    	case "MFL":
+	    	case "MDIR":
+	    	case "FBTN":
+	    		tt.setValues(t.getNewValue());
+	    		break;
+	    	default:
+	    		
+	    		break;
+	    	}
+			
+	        saveButtons();
+	        reloadFields();
+	    });
 		
 		TxtLimitListener limitCount = new TxtLimitListener(txtSeparator, 1);
     	txtSeparator.textProperty().addListener(limitCount);
@@ -466,26 +548,51 @@ public class FormController implements Initializable, DialogInterface {
     		String typ = tt.getType();
     		String val = tt.getValues();
     		
-    		if (txt.isEmpty() == false && typ.isEmpty() == false && val.isEmpty() == false) {
-	    		if (fields == null)
-	    			fields = tt.getText() + "!" + tt.getType() + "!" + tt.getValues();
-	    		else
-	    			fields += "," + tt.getText() + "!" + tt.getType() + "!" + tt.getValues();
-    		} else if (txt.isEmpty() == false && typ.isEmpty() == false && val.isEmpty() == true) {
-    			if (fields == null)
-	    			fields = tt.getText() + "!" + tt.getType();
-	    		else
-	    			fields += "," + tt.getText() + "!" + tt.getType();
-    		} else if (txt.isEmpty() == false && typ.isEmpty() == true && val.isEmpty() == true) {
-    			if (fields == null)
-	    			fields = tt.getText();
-	    		else
-	    			fields += "," + tt.getText();
-    		}
+    		if (fields == null)
+    			fields = txt;
+    		else
+    			fields += "," + txt;
+    		
+    		if (typ != null)
+    			fields += "?" + typ;
+    		
+    		if (val != null)
+    			fields += "?" + val;
     	}
     	
     	if (fields != null)
     		yg.iniUpdate("fields", fields);
+    }
+    
+    private void reloadFields() {
+    	tblButtons.getItems().clear();
+    	String fields = yg.currIni.getString(yg.currDialog, "fields");
+    	if (fields != null) {
+			fieldNames.clear();
+			
+			String[] a = fields.split(",");
+			
+			for (String s : a) {
+				String lbl = null;
+				String typ = null;
+				String val = null;
+				
+				String[] b = s.split("\\?");
+				if (b.length == 1) {
+					lbl = b[0];
+					typ = "TXT";
+				} else if (b.length == 2) {
+					lbl = b[0];
+					typ = b[1];
+				} else if (b.length == 3) {
+					lbl = b[0];
+					typ = b[1];
+					val = b[2];
+				}
+				
+				tblButtons.getItems().add(new TextType(lbl, typ, val));
+			}
+		}
     }
 
 	@Override
@@ -531,16 +638,26 @@ public class FormController implements Initializable, DialogInterface {
 			fieldNames.clear();
 			
 			String[] a = fields.split(",");
-
+			
 			for (String s : a) {
-				String[] b = s.split(":");
-				if (b.length > 1) {
-					String[] c = b[1].split("!");
-					
-					tblButtons.getItems().add(new TextType(b[0], c[0], c[1]));
-					
-					fieldNames.add(b[0]);
+				String lbl = null;
+				String typ = null;
+				String val = null;
+				
+				String[] b = s.split("\\?");
+				if (b.length == 1) {
+					lbl = b[0];
+					typ = "TXT";
+				} else if (b.length == 2) {
+					lbl = b[0];
+					typ = b[1];
+				} else if (b.length == 3) {
+					lbl = b[0];
+					typ = b[1];
+					val = b[2];
 				}
+				
+				tblButtons.getItems().add(new TextType(lbl, typ, val));
 			}
 			
 			txtText.setText("");
@@ -560,7 +677,6 @@ public class FormController implements Initializable, DialogInterface {
 
 	@Override
 	public void setData(String data) {
-		// TODO Auto-generated method stub
 		
 	}
 

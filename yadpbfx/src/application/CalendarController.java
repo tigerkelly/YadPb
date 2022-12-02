@@ -67,11 +67,11 @@ public class CalendarController implements Initializable, DialogInterface {
     void doDateFormat(ActionEvent event) {
     	yg.iniUpdate("dateformat", txtDateFormat.getText());
     }
-
-//    @FXML
-//    void doDefaultDate(MouseEvent   event) {
-//    	yg.iniUpdate("defaultdate", dpDefaultDate.getValue().toString().replaceAll("-", "/"));
-//    }
+    
+    @FXML
+    void doDefaultDate(ActionEvent event) {
+    	yg.iniUpdate("defaultdate", dpDefaultDate.getValue().toString());
+    }
 
     @FXML
     void doFileDialog(ActionEvent event) {

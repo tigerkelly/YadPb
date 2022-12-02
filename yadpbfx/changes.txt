@@ -1,6 +1,16 @@
 
-2022-11-20
-1.0.0 		- First release.
+2022-12-02
+1.0.3		- Timestamp was wrong, needed to add 1 to month casue it is 0-11 value.
+			  Fixed bug in Backups screen that caused the text to always scroll to the end.
+			  Added text area that will show the command line used to execute a dialog.
+			  Added 'Show Command' checkbox to Settings screen.
+			  Added field for yad executable path in Settings screen.
+			  Program now uses the 'which' program to find the yad executable.
+			  Will not run dialogs if no yad program found or given.
+			  Worked on the Form screen, it was not working correctly.
+			  
+2022-11-30
+1.0.2		- Added the ability to run a dialog. Output will be in users console.
 
 2022-11-30
 1.0.1		- Many bug fixes.
@@ -10,5 +20,5 @@
 			  Added ability to create a new Date Detail file and corrected date format.
 			  About screen now reads the vdata.txt file for program version.
 
-2022-11-30
-1.0.2		- Added the ability to run a dialog. Output will be in users console.
+2022-11-20
+1.0.0 		- First release.

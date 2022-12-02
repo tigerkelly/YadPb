@@ -35,9 +35,15 @@ public class SettingsController implements Initializable {
     
     @FXML
     private CheckBox chkAutoSelect;
+    
+    @FXML
+    private CheckBox chkShowCommand;
 
     @FXML
     private TextField txtWorkDir;
+    
+    @FXML
+    private TextField txtYad;
     
     private YadGlobal yg = YadGlobal.getInstance();
     
@@ -47,6 +53,15 @@ public class SettingsController implements Initializable {
     	File selectedFile = fileChooser.showOpenDialog(aPane.getScene().getWindow());
         if (selectedFile != null) {
         	txtWorkDir.setText(selectedFile.getAbsolutePath());
+        }
+    }
+    
+    @FXML
+    void doYad(ActionEvent event) {
+    	FileChooser fileChooser = new FileChooser();
+    	File selectedFile = fileChooser.showOpenDialog(aPane.getScene().getWindow());
+        if (selectedFile != null) {
+        	txtYad.setText(selectedFile.getAbsolutePath());
         }
     }
 
@@ -59,8 +74,10 @@ public class SettingsController implements Initializable {
     @FXML
     void doSave(ActionEvent event) {
     	yg.sysIni.addValuePair("System", "workdir", txtWorkDir.getText());
+    	yg.sysIni.addValuePair("System", "yad", txtYad.getText());
 		yg.sysIni.addValuePair("System", "backup", chkBackupProject.isSelected() ? "true" : "false");
-		yg.sysIni.addValuePair("System", "backup", chkAutoSelect.isSelected() ? "true" : "false");
+		yg.sysIni.addValuePair("System", "autoselect", chkAutoSelect.isSelected() ? "true" : "false");
+		yg.sysIni.addValuePair("System", "showcommand", chkShowCommand.isSelected() ? "true" : "false");
 		
 		yg.sysIni.writeFile(true);
 		
@@ -71,12 +88,15 @@ public class SettingsController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		txtWorkDir.setText(yg.workDir.getAbsolutePath());
+		txtYad.setText(yg.yad.getAbsolutePath());
 		
 		boolean backup = yg.sysIni.getBoolean("System", "backup");
 		boolean autoselect = yg.sysIni.getBoolean("System", "autoselect");
+		boolean showcommand = yg.sysIni.getBoolean("System", "showcommand");
 		
 		chkBackupProject.setSelected(backup);
 		chkAutoSelect.setSelected(autoselect);
+		chkShowCommand.setSelected(showcommand);
 		
 	}
 

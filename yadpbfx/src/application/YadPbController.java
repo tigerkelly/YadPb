@@ -29,6 +29,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -71,6 +72,9 @@ public class YadPbController implements Initializable, DialogInterface {
 
 	@FXML
 	private Label lblVersion;
+	
+	@FXML
+	private TextArea taData;
 
 	@FXML
 	private StackPane stackPane;
@@ -327,9 +331,10 @@ public class YadPbController implements Initializable, DialogInterface {
 			
 		});
 
-		MenuItem mCreateScript = new MenuItem("Create Script");
+		MenuItem mCreateScript = new MenuItem("Show Script");
 		mCreateScript.setOnAction((ActionEvent e) -> {
-			String dlg = ProjectScript.createAllDialogs(yg.currIni);
+			ProjectScript ps = new ProjectScript();
+			String dlg = ps.createAllDialogs(yg.currIni);
 
 			if (dlg != null && dlg.isEmpty() == false) {
 				
@@ -588,18 +593,110 @@ public class YadPbController implements Initializable, DialogInterface {
 			});
 		});
 		
-		MenuItem mRunDialog = new MenuItem("Run Dialog");
-		mRunDialog.setOnAction((ActionEvent e) -> {
-			String dlg = ProjectScript.createDialog(yg.currIni, yg.currDialog);
+		MenuItem mDialogScript = new MenuItem("Show Script");
+		mDialogScript.setOnAction((ActionEvent e) -> {
+			
+			if (yg.yad == null) {
+				Alert messageBox = new Alert(Alert.AlertType.INFORMATION);
+				
+				Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
+				stage.hide();
+				
+				messageBox.setTitle("Warning");
+//				ButtonType type = new ButtonType("Ok", ButtonData.OK_DONE);
+//				messageBox.getDialogPane().getButtonTypes().add(type);
+
+				messageBox.setContentText("Use the Settings screen to add yad executable.\nIt was not found during startup.");
+				
+				// Code to center dialog within parent.
+				Stage ps = (Stage) lblTitle.getScene().getWindow();
+
+				ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
+					double stageWidth = newValue.doubleValue();
+					stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
+				};
+				ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
+					double stageHeight = newValue.doubleValue();
+					stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
+				};
+
+				stage.widthProperty().addListener(widthListener);
+				stage.heightProperty().addListener(heightListener);
+
+				// Once the window is visible, remove the listeners
+				stage.setOnShown(e2 -> {
+					stage.widthProperty().removeListener(widthListener);
+					stage.heightProperty().removeListener(heightListener);
+				});
+				messageBox.showAndWait();
+				return;
+			}
+			
+			ProjectScript ps = new ProjectScript();
+			String dlg = ps.createDialog(yg.currIni, yg.currDialog);
 			
 //			System.out.println("dlg " + dlg);
+			
+			if (dlg != null && dlg.isEmpty() == false)
+				taData.appendText(dlg + "\n\n");
+			
+		});
+		
+		MenuItem mRunDialog = new MenuItem("Run Dialog");
+		mRunDialog.setOnAction((ActionEvent e) -> {
+			
+			if (yg.yad == null) {
+				Alert messageBox = new Alert(Alert.AlertType.INFORMATION);
+				
+				Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
+				stage.hide();
+				
+				messageBox.setTitle("Warning");
+//				ButtonType type = new ButtonType("Ok", ButtonData.OK_DONE);
+//				messageBox.getDialogPane().getButtonTypes().add(type);
+
+				messageBox.setContentText("Use the Settings screen to add yad executable.\nIt was not found during startup.");
+				
+				// Code to center dialog within parent.
+				Stage ps = (Stage) lblTitle.getScene().getWindow();
+
+				ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
+					double stageWidth = newValue.doubleValue();
+					stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
+				};
+				ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
+					double stageHeight = newValue.doubleValue();
+					stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
+				};
+
+				stage.widthProperty().addListener(widthListener);
+				stage.heightProperty().addListener(heightListener);
+
+				// Once the window is visible, remove the listeners
+				stage.setOnShown(e2 -> {
+					stage.widthProperty().removeListener(widthListener);
+					stage.heightProperty().removeListener(heightListener);
+				});
+				messageBox.showAndWait();
+				return;
+			}
+			
+			ProjectScript ps = new ProjectScript();
+			String dlg = ps.createDialog(yg.currIni, yg.currDialog);
+			
+//			System.out.println("dlg " + dlg);
+			
+			if (dlg != null && dlg.isEmpty() == false)
+				taData.appendText(dlg + "\n\n");
 			
 			runDialog(dlg);
 		});
 
 		SeparatorMenuItem sep2 = new SeparatorMenuItem();
 		SeparatorMenuItem sep3 = new SeparatorMenuItem();
-		cm2.getItems().addAll(mDialogTitle, sep2, mNewDialog, mDeleteDialog, sep3, mRunDialog);
+		SeparatorMenuItem sep4 = new SeparatorMenuItem();
+		
+		cm2.getItems().addAll(mDialogTitle, sep2, mNewDialog, mDeleteDialog, sep3, mDialogScript, sep4, mRunDialog);
 		
 		cm2.setOnShowing(new EventHandler<WindowEvent>() {
 			public void handle(WindowEvent e) {
@@ -749,7 +846,7 @@ public class YadPbController implements Initializable, DialogInterface {
 				
 				Calendar c = Calendar.getInstance();
 				String createDate = String.format("%d/%02d/%02d %02d:%02d:%02d",
-						c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH),
+						c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DAY_OF_MONTH),
 						c.get(Calendar.HOUR), c.get(Calendar.MINUTE), c.get(Calendar.SECOND));
 				
 				try {

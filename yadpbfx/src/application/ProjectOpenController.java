@@ -45,7 +45,7 @@ public class ProjectOpenController implements Initializable {
 
     @FXML
     void doOpenProject(ActionEvent event) {
-    	if(tblProjects.getItems().isEmpty() == false) {
+    	if(tblProjects.getItems().isEmpty() == false && tblProjects.getSelectionModel().getSelectedItem() != null) {
 	    	TableViewSelectionModel<Projectx> selectionModel = tblProjects.getSelectionModel();
 	    	ObservableList<Projectx> selectedItems = selectionModel.getSelectedItems();
 	    	yg.openPrjName = ((Projectx)selectedItems.get(0)).getProject();

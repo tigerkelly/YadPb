@@ -105,6 +105,27 @@ public class YadGlobal {
 		}
 		
 		sysIni = new IniFile(f.getAbsolutePath());
+		
+		String y = sysIni.getString("System", "yad");
+		
+		if (y != null && y.isEmpty() == false)
+				yad = new File(y);
+		
+		if (yad == null) {
+			try {
+				ProcessBuilder pb = new ProcessBuilder("/usr/bin/which", "yad");
+				Process process = pb.start();
+				String result = new String(process.getInputStream().readAllBytes());
+				process.waitFor();
+				System.out.println("result " + result);
+				if (result != null && result.isEmpty() == false)
+					yad = new File(result);
+			} catch (IOException e1) {
+				e1.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 
 		sceneNav = new SceneNav();
 		
@@ -136,6 +157,7 @@ public class YadGlobal {
 	public Map<String, IniFile> prjBackupList = null;
 	public File workDir = null;
 	public File backupDir = null;
+	public File yad = null;
 	
 //	public String[] dialogNames = {"Calendar", "Color", "DnD", "Entry", "File", "Font", "Form", "General", "HTML", 
 //			"Icons", "Info", "List", "Notebook", "Notification", "Print", "Progress", "Progress Multi", "Scale"};
@@ -428,7 +450,7 @@ public class YadGlobal {
 		try {
 			Calendar c = Calendar.getInstance();
 			String dt = String.format("%d/%02d/%02d %02d:%02d:%02d", 
-					c.get(Calendar.YEAR), c.get(Calendar.MONTH), c.get(Calendar.DAY_OF_MONTH),
+					c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DAY_OF_MONTH),
 					c.get(Calendar.HOUR), c.get(Calendar.MINUTE), c.get(Calendar.SECOND));
 			
 			FileWriter fw = new FileWriter(b.getAbsolutePath(), true);
@@ -528,7 +550,7 @@ public class YadGlobal {
 		FXMLLoader loader = null;
 		try {
 			Stage stage = new Stage();
-			stage.setTitle(title + " " + currProject);
+			stage.setTitle(title);
 
 			loader = new FXMLLoader(getClass().getResource(fxml));
 

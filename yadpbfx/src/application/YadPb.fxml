@@ -6,6 +6,7 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Region?>
@@ -66,11 +67,11 @@
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </padding>
             </HBox>
-            <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+            <VBox VBox.vgrow="ALWAYS">
                <children>
-                  <HBox prefHeight="581.0" prefWidth="1272.0" spacing="4.0" VBox.vgrow="ALWAYS">
+                  <HBox prefHeight="725.0" prefWidth="1272.0" spacing="4.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <VBox minWidth="250.0" prefWidth="250.0">
+                        <VBox minWidth="250.0" prefWidth="225.0">
                            <children>
                               <HBox alignment="CENTER_LEFT" spacing="12.0">
                                  <children>
@@ -104,7 +105,7 @@
                                     </Label>
                                  </children>
                               </HBox>
-                              <ListView fx:id="lstDialogs" prefHeight="300.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
+                              <ListView fx:id="lstDialogs" prefHeight="250.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
                            </children>
                         </VBox>
                         <VBox HBox.hgrow="ALWAYS">
@@ -129,6 +130,14 @@
                      <VBox.margin>
                         <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                      </VBox.margin>
+                  </HBox>
+                  <HBox spacing="4.0">
+                     <children>
+                        <TextArea fx:id="taData" editable="false" prefHeight="125.0" styleClass="ta-readonly" stylesheets="@application.css" wrapText="true" HBox.hgrow="ALWAYS" />
+                     </children>
+                     <padding>
+                        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+                     </padding>
                   </HBox>
                </children>
             </VBox>

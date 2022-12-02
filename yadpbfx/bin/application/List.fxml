@@ -47,7 +47,7 @@
                                   <TableColumn fx:id="colType" prefWidth="175.0" text="Type" />
                                 </columns>
                               </TableView>
-                              <VBox prefWidth="275.0" spacing="4.0">
+                              <VBox prefWidth="290.0" spacing="4.0">
                                  <children>
                                     <Label text="Name:">
                                        <font>
@@ -156,12 +156,12 @@
                         <Tooltip text="Hide a specific column." />
                      </tooltip>
                   </TextField>
-                  <Label text="Expand:">
+                  <Label prefWidth="60.0" text="Expand:">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtExpand" onKeyTyped="#onExpand" prefWidth="50.0">
+                  <TextField fx:id="txtExpand" onKeyTyped="#onExpand" prefWidth="55.0">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -233,7 +233,7 @@
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtPrecision" onKeyTyped="#onPrecision" prefWidth="50.0" text="3">
+                  <TextField fx:id="txtPrecision" onKeyTyped="#onPrecision" prefWidth="55.0" text="3">
                      <font>
                         <Font size="14.0" />
                      </font>

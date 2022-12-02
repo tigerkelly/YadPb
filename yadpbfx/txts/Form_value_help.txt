@@ -1,0 +1,35 @@
+Form options
+--field=LABEL[:TYPE]
+      Add field to form. Type may be H, RO, NUM, CHK, CB, CBE, CE, FL, SFL, DIR, CDIR, FN, MFL, MDIR,  DT,  SCL,  CLR,
+      BTN, FBTN, LBL or TXT.
+      
+      H    - hidden field type. All characters are displayed as the invisible char.
+      RO   - field is in read-only mode.
+      NUM  - field is a numeric. Initial value format for this field is VALUE[!RANGE[!STEP![PREC]]], where RANGE must
+             be in form MIN..MAX. `!' is a default item separator. PREC is a precision for decimals.
+      CHK  - checkbox field. Initial value is a case insensitive boolean constant (TRUE or FALSE).
+      CB   - combo-box field. Initial value is a list VAL1!VAL2!.... The separator is the same as in  NUM  field.  Value
+             started with `^' threats as default for combo-box.
+      CBE  - editable combo-box field. Initial value same as for combo-box.
+      CE   - entry with completion. Initial value same as for combo-box.
+      FL   - file selection button.
+      SFL  - field for create file.
+      DIR  - directory selection button.
+      CDIR - field for create folder.
+      FN   - font selection button. Initial value same as in font dialog.
+      MFL  - select multiple files. Value of this field is a list of files separated by item-separator.
+      MDIR - select multiple folders. Value of this field is a list of folders separated by item-separator.
+      DT   - date field.
+      SCL  - scale field. Value of this field in a range 0..100.
+      CLR  - color selection button. Output values for this field generates in the same manner as for color dialog.
+      BTN  - button field. Label may be in form text in a form LABEL[!ICON[!TOOLTIP]] where `!' is an item separator.
+             LABEL is a text of button label or gtk stock id. ICON is a buttons icon (stock id or file name). TOOLTIP is an
+             optional  text for popup help string. Initial value is a command which is running when button is clicked. A
+             special sympols %N in command are replaced by value of field N. If command starts with @, the output of command
+             will  be  parsed  and lines started with number and colon will be treats as a new field values.  A quoting style
+             for value when sh -c is used - a single quotes around command and double quotes around -c argument.
+      FBTN - same as button field, but with full relief of a button.
+      LBL  - text label. If field name is empty, horizontal separator line will be shown.
+      TXT  - multiline text entry. This field is always occupy all of form width.
+
+      Without type field will be a simple text entry.

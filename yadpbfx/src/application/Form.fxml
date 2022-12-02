@@ -46,11 +46,11 @@
                            <children>
                               <HBox layoutX="14.0" layoutY="-13.0" spacing="4.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                                  <children>
-                                    <TableView fx:id="tblButtons" editable="true" prefWidth="475.0" style="-fx-font-size: 14px;">
+                                    <TableView fx:id="tblButtons" editable="true" prefWidth="575.0" style="-fx-font-size: 14px;">
                                       <columns>
                                         <TableColumn fx:id="colText" prefWidth="175.0" style="-fx-font-size: 14px;" text="Text" />
                                         <TableColumn fx:id="colType" prefWidth="150.0" style="-fx-font-size: 14px;" text="Type" />
-                                          <TableColumn fx:id="colValues" prefWidth="125.0" style="-fx-font-size: 14px;" text="Values" />
+                                          <TableColumn fx:id="colValues" prefWidth="225.0" style="-fx-font-size: 14px;" text="Values" />
                                       </columns>
                                        <tooltip>
                                           <Tooltip text="Double click to edit cell.">
@@ -80,7 +80,7 @@
                                           <HBox spacing="4.0">
                                              <children>
                                                 <ComboBox fx:id="cbType" onAction="#doType" prefWidth="225.0" style="-fx-font-size: 14px;" />
-                                                <Button fx:id="btnTypeHelp" mnemonicParsing="false" onAction="#doTypeHelp" prefWidth="35.0" text="?">
+                                                <Button fx:id="btnTypeHelp" mnemonicParsing="false" onAction="#doTypeHelp" text="?">
                                                    <font>
                                                       <Font size="14.0" />
                                                    </font>
@@ -95,11 +95,20 @@
                                                 <Font size="14.0" />
                                              </font>
                                           </Label>
-                                          <TextField fx:id="txtValues" disable="true">
-                                             <font>
-                                                <Font size="14.0" />
-                                             </font>
-                                          </TextField>
+                                          <HBox spacing="4.0">
+                                             <children>
+                                                <TextField fx:id="txtValues" disable="true" HBox.hgrow="ALWAYS">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </TextField>
+                                                <Button fx:id="btnFormValueHelp" mnemonicParsing="false" onAction="#doFormValueHelp" text="?">
+                                                   <font>
+                                                      <Font size="14.0" />
+                                                   </font>
+                                                </Button>
+                                             </children>
+                                          </HBox>
                                           <HBox alignment="BOTTOM_RIGHT" spacing="4.0" VBox.vgrow="ALWAYS">
                                              <children>
                                                 <Button fx:id="btnAdd" mnemonicParsing="false" onAction="#doButtonAdd" prefWidth="100.0" text="Add">

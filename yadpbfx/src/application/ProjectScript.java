@@ -7,11 +7,14 @@ import com.rkw.IniFile;
 
 public class ProjectScript {
 	
-	static String yad = "/usr/bin/yad ";
-	static boolean runFlag = false;
+	 private String yad = null;
+	 private boolean runFlag = false;
+	 private YadGlobal yg = YadGlobal.getInstance();
 	
-	static public String createDialog(IniFile ini, String dialog) {
+	 public String createDialog(IniFile ini, String dialog) {
 		StringBuilder txt = new StringBuilder();
+		
+		yad = yg.yad.getAbsolutePath();
 		
 		runFlag = true;
 		
@@ -71,13 +74,15 @@ public class ProjectScript {
 			break;
 		}
 		
-		txt.append("\n");
+//		txt.append("\n");
 		
 		return txt.toString();
 	}
 
-	static public String createAllDialogs(IniFile ini) {
+	 public String createAllDialogs(IniFile ini) {
 		StringBuilder txt = new StringBuilder();
+		
+		yad = yg.yad.getAbsolutePath();
 		
 		runFlag = false;
 		
@@ -153,7 +158,7 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
-	static private String buildCalendar(IniFile ini, String sec) {
+	 private String buildCalendar(IniFile ini, String sec) {
 		StringBuilder txt = new StringBuilder();
 		List<String> lst = new ArrayList<String>();
 		
@@ -183,7 +188,7 @@ public class ProjectScript {
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
 		else
-			txt.append(yad);
+			txt.append(yad + " ");
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -200,7 +205,7 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
-	static private String buildColor(IniFile ini, String sec) {
+	 private String buildColor(IniFile ini, String sec) {
 		StringBuilder txt = new StringBuilder();
 		List<String> lst = new ArrayList<String>();
 		
@@ -237,7 +242,7 @@ public class ProjectScript {
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
 		else
-			txt.append(yad);
+			txt.append(yad + " ");
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -254,7 +259,7 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
-	static private String buildDnD(IniFile ini, String sec) {
+	 private String buildDnD(IniFile ini, String sec) {
 		StringBuilder txt = new StringBuilder();
 		List<String> lst = new ArrayList<String>();
 		
@@ -279,7 +284,7 @@ public class ProjectScript {
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
 		else
-			txt.append(yad);
+			txt.append(yad + " ");
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -296,7 +301,7 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
-	static private String buildEntry(IniFile ini, String sec) {
+	 private String buildEntry(IniFile ini, String sec) {
 		StringBuilder txt = new StringBuilder();
 		List<String> lst = new ArrayList<String>();
 		
@@ -341,7 +346,7 @@ public class ProjectScript {
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
 		else
-			txt.append(yad);
+			txt.append(yad + " ");
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -358,7 +363,7 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
-	static private String buildFile(IniFile ini, String sec) {
+	 private String buildFile(IniFile ini, String sec) {
 		StringBuilder txt = new StringBuilder();
 		List<String> lst = new ArrayList<String>();
 		
@@ -401,7 +406,7 @@ public class ProjectScript {
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
 		else
-			txt.append(yad);
+			txt.append(yad + " ");
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -418,7 +423,7 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
-	static private String buildFont(IniFile ini, String sec) {
+	 private String buildFont(IniFile ini, String sec) {
 		StringBuilder txt = new StringBuilder();
 		List<String> lst = new ArrayList<String>();
 		
@@ -448,7 +453,7 @@ public class ProjectScript {
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
 		else
-			txt.append(yad);
+			txt.append(yad + " ");
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -465,7 +470,7 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
-	static private String buildForm(IniFile ini, String sec) {
+	 private String buildForm(IniFile ini, String sec) {
 		StringBuilder txt = new StringBuilder();
 		List<String> lst = new ArrayList<String>();
 		
@@ -493,17 +498,26 @@ public class ProjectScript {
 			String[] flds = fields.split(",");
 			
 			for (String f : flds) {
-				String[] a = f.split(":");
-				if (a.length > 1) {
-					String[] b = a[1].split("-");
-				
-					if (b.length > 1)
-						lst.add(quote("--field=", a[0] + ":" + b[1]));
-					else
-						lst.add(quote("--field=", a[0]));
-				} else {
-					lst.add(quote("--field=", a[0]));
+				String[] a = f.split("!");
+				if (a.length == 1) {
+					lst.add(quote("--field=", a[0] + ":TXT"));
+				} else if (a.length == 2) {
+					String[] c = a[1].split("-");
+					lst.add(quote("--field=", a[0] + ":" + c[1]));
+				} else if (a.length == 3) {
+					String[] c = a[1].split("-");
+					lst.add(quote("--field=", a[0] + ":" + c[1] + "!" + a[2]));
 				}
+//				if (a.length > 1) {
+//					String[] b = a[1].split("-");
+//				
+//					if (b.length > 1)
+//						lst.add(quote("--field=", a[0] + ":" + b[1]));
+//					else
+//						lst.add(quote("--field=", a[0]));
+//				} else {
+//					lst.add(quote("--field=", a[0]));
+//				}
 			}
 		}
 		
@@ -538,7 +552,7 @@ public class ProjectScript {
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
 		else
-			txt.append(yad);
+			txt.append(yad + " ");
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -555,7 +569,7 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
-	static private String buildHtml(IniFile ini, String sec) {
+	 private String buildHtml(IniFile ini, String sec) {
 		StringBuilder txt = new StringBuilder();
 		List<String> lst = new ArrayList<String>();
 		
@@ -592,7 +606,7 @@ public class ProjectScript {
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
 		else
-			txt.append(yad);
+			txt.append(yad + " ");
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -609,7 +623,7 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
-	static private String buildIcons(IniFile ini, String sec) {
+	 private String buildIcons(IniFile ini, String sec) {
 		StringBuilder txt = new StringBuilder();
 		List<String> lst = new ArrayList<String>();
 		
@@ -655,7 +669,7 @@ public class ProjectScript {
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
 		else
-			txt.append(yad);
+			txt.append(yad + " ");
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -672,7 +686,7 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
-	static private String buildInfo(IniFile ini, String sec) {
+	 private String buildInfo(IniFile ini, String sec) {
 		StringBuilder txt = new StringBuilder();
 		List<String> lst = new ArrayList<String>();
 		
@@ -730,7 +744,7 @@ public class ProjectScript {
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
 		else
-			txt.append(yad);
+			txt.append(yad + " ");
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -747,7 +761,7 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
-	static private String buildList(IniFile ini, String sec) {
+	 private String buildList(IniFile ini, String sec) {
 		StringBuilder txt = new StringBuilder();
 		List<String> lst = new ArrayList<String>();
 		
@@ -871,7 +885,7 @@ public class ProjectScript {
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
 		else
-			txt.append(yad);
+			txt.append(yad + " ");
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -888,7 +902,7 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
-	static private String buildNotebook(IniFile ini, String sec) {
+	 private String buildNotebook(IniFile ini, String sec) {
 		StringBuilder txt = new StringBuilder();
 		List<String> lst = new ArrayList<String>();
 		
@@ -922,7 +936,7 @@ public class ProjectScript {
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
 		else
-			txt.append(yad);
+			txt.append(yad + " ");
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -939,7 +953,7 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
-	static private String buildNotification(IniFile ini, String sec) {
+	 private String buildNotification(IniFile ini, String sec) {
 		StringBuilder txt = new StringBuilder();
 		List<String> lst = new ArrayList<String>();
 		
@@ -979,7 +993,7 @@ public class ProjectScript {
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
 		else
-			txt.append(yad);
+			txt.append(yad + " ");
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -996,7 +1010,7 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
-	static private String buildPrint(IniFile ini, String sec) {
+	 private String buildPrint(IniFile ini, String sec) {
 		StringBuilder txt = new StringBuilder();
 		List<String> lst = new ArrayList<String>();
 		
@@ -1024,7 +1038,7 @@ public class ProjectScript {
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
 		else
-			txt.append(yad);
+			txt.append(yad + " ");
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -1041,7 +1055,7 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
-	static private String buildProgress(IniFile ini, String sec) {
+	 private String buildProgress(IniFile ini, String sec) {
 		StringBuilder txt = new StringBuilder();
 		List<String> lst = new ArrayList<String>();
 		
@@ -1093,7 +1107,7 @@ public class ProjectScript {
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
 		else
-			txt.append(yad);
+			txt.append(yad + " ");
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -1110,7 +1124,7 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
-	static private String buildProgressMulti(IniFile ini, String sec) {
+	 private String buildProgressMulti(IniFile ini, String sec) {
 		StringBuilder txt = new StringBuilder();
 		List<String> lst = new ArrayList<String>();
 		
@@ -1148,7 +1162,7 @@ public class ProjectScript {
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
 		else
-			txt.append(yad);
+			txt.append(yad + " ");
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -1165,7 +1179,7 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
-	static private String buildScale(IniFile ini, String sec) {
+	 private String buildScale(IniFile ini, String sec) {
 		StringBuilder txt = new StringBuilder();
 		List<String> lst = new ArrayList<String>();
 		
@@ -1225,7 +1239,7 @@ public class ProjectScript {
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
 		else
-			txt.append(yad);
+			txt.append(yad + " ");
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -1242,7 +1256,7 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
-	static private String buildGeneral(IniFile ini, String sec) {
+	 private String buildGeneral(IniFile ini, String sec) {
 		StringBuilder txt = new StringBuilder();
 		List<String> lst = new ArrayList<String>();
 		
@@ -1418,7 +1432,7 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
-	private static String quote(String s1, String s2) {
+	private  String quote(String s1, String s2) {
 		String r = null;
 		
 //		s2.matches("[ \\|;]");

@@ -22,12 +22,34 @@
             </Label>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <TextField fx:id="txtWorkDir" editable="false" prefWidth="400.0">
+                  <TextField fx:id="txtWorkDir" editable="false" prefWidth="400.0" styleClass="readonly" stylesheets="@application.css">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </TextField>
                   <Button fx:id="btnWorkDir" mnemonicParsing="false" onAction="#doWorkDir" text="^">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <Label text="YAD Executable:">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <TextField fx:id="txtYad" prefWidth="400.0" styleClass="readonly" stylesheets="@application.css">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </TextField>
+                  <Button fx:id="btnYad" mnemonicParsing="false" onAction="#doYad" text="^">
                      <font>
                         <Font size="14.0" />
                      </font>
@@ -59,6 +81,18 @@
                <padding>
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </padding>
+            </HBox>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <CheckBox fx:id="chkShowCommand" mnemonicParsing="false" selected="true" text="Show command.">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Show Command line when executing a dialog." />
+                     </tooltip>
+                  </CheckBox>
+               </children>
             </HBox>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="4.0" VBox.vgrow="ALWAYS">
                <padding>

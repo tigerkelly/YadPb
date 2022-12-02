@@ -10,15 +10,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane fx:id="aPane" prefHeight="500.0" prefWidth="900.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/19" fx:controller="application.BackupsController">
+<AnchorPane fx:id="aPane" prefHeight="500.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.BackupsController">
    <children>
       <VBox AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
             <HBox spacing="4.0" VBox.vgrow="ALWAYS">
                <children>
                   <TreeView fx:id="treeBackups" onContextMenuRequested="#treeSelectItem" onMouseClicked="#treeSelectItem" prefWidth="250.0" />
-                  <TextArea fx:id="taData" editable="false" prefWidth="400.0" stylesheets="@application.css" HBox.hgrow="ALWAYS" />
+                  <TextArea fx:id="taData" editable="false" prefWidth="400.0" styleClass="ta-readonly" stylesheets="@application.css" HBox.hgrow="ALWAYS" />
                </children>
                <padding>
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />

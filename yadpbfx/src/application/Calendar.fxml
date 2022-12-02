@@ -84,7 +84,7 @@
                         <Font size="18.0" />
                      </font>
                   </Label>
-                  <DatePicker fx:id="dpDefaultDate" editable="false" style="-fx-font-size: 14px;" styleClass="readonly">
+                  <DatePicker fx:id="dpDefaultDate" editable="false" onAction="#doDefaultDate" style="-fx-font-size: 14px;" styleClass="readonly">
                      <tooltip>
                         <Tooltip text="Select init data." />
                      </tooltip></DatePicker>
