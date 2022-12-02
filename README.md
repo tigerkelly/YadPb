@@ -1,5 +1,5 @@
 # YadPb
-(YAD Project Builder)
+  *(YAD Project Builder)*
 
 This is a GUI frontend for the YAD program.  Allow you to create a project(s) to keep your YAD dailogs.
 
@@ -17,10 +17,13 @@ tutorials online to help with this.
 
 Linux tiger 5.15.0-52-generic #58-Ubuntu SMP Thu Oct 13 08:03:55 UTC 2022 x86\_64 x86\_64 x86\_64 GNU/Linux
 
-I created this with Java 18 and JavaFX 19 on a Ubuntu system
+I created this with Java 18 and JavaFX 19 on a Ubuntu system.
+
+'''
 openjdk version "18.0.2-ea" 2022-07-19
 OpenJDK Runtime Environment (build 18.0.2-ea+9-Ubuntu-222.04)
 OpenJDK 64-Bit Server VM (build 18.0.2-ea+9-Ubuntu-222.04, mixed mode, sharing)
+'''
 
 OpenFX SDK 19
 
@@ -31,6 +34,7 @@ The environment varaible PATH\_TO\_FX needs to point to the lib directory of the
 
 The file yadpbfx.zip is an export of my Eclipse project.
 The directory YabPb if the home directory of the YadPb program.  Copy this directory to you home directory.
+
     cp -r YadPb ~/
 
 Also copy the yadpb script in the bin directory to you bin directory.
