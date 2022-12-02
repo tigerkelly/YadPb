@@ -30,7 +30,7 @@ OpenFX SDK 19
 I used apt install to get Java 18 and downloaded openfx 19 from the web. I installed javafx into my local
 directory but you can install it whereever.
 
-The environment varaible PATH\_TO\_FX needs to point to the lib directory of the javafx install.
+The environment varaible **PATH\_TO\_FX** needs to point to the lib directory of the javafx install.
 
 The file yadpbfx.zip is an export of my Eclipse project.
 The directory YabPb if the home directory of the YadPb program.  Copy this directory to you home directory.
