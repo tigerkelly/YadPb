@@ -19,11 +19,11 @@ Linux tiger 5.15.0-52-generic #58-Ubuntu SMP Thu Oct 13 08:03:55 UTC 2022 x86\_6
 
 I created this with Java 18 and JavaFX 19 on a Ubuntu system.
 
-'''
+```
 openjdk version "18.0.2-ea" 2022-07-19
 OpenJDK Runtime Environment (build 18.0.2-ea+9-Ubuntu-222.04)
 OpenJDK 64-Bit Server VM (build 18.0.2-ea+9-Ubuntu-222.04, mixed mode, sharing)
-'''
+```
 
 OpenFX SDK 19
 
