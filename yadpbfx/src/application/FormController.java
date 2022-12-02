@@ -32,7 +32,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import tbl.FileFilter;
 import tbl.TextType;
 
 public class FormController implements Initializable, DialogInterface {
