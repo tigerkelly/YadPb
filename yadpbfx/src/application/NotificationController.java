@@ -82,7 +82,7 @@ public class NotificationController implements Initializable, DialogInterface{
 
     @FXML
     void onItemSep(KeyEvent event) {
-    	yg.iniUpdate("itemsep", txtItemSep.getText());
+    	yg.iniUpdate("isep", txtItemSep.getText());
     }
 
     @FXML
@@ -116,7 +116,7 @@ public class NotificationController implements Initializable, DialogInterface{
 	@Override
 	public void updateDialog() {
 		String sep = yg.currIni.getString(yg.currDialog, "sep");
-		String itemsep = yg.currIni.getString(yg.currDialog, "itemsep");
+		String isep = yg.currIni.getString(yg.currDialog, "isep");
 		String menu = yg.currIni.getString(yg.currDialog, "menu");
 
 		boolean listen = yg.currIni.getBoolean(yg.currDialog, "listen");
@@ -125,8 +125,8 @@ public class NotificationController implements Initializable, DialogInterface{
 
 		if (sep != null)
 			txtSep.setText(sep);
-		if (itemsep != null)
-			txtItemSep.setText(itemsep);
+		if (isep != null)
+			txtItemSep.setText(isep);
 		if (menu != null)
 			txtMenu.setText(menu);
 

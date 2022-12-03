@@ -1,5 +1,6 @@
 package application;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -912,11 +913,22 @@ public class YadPbController implements Initializable, DialogInterface {
 	
 	private void runDialog(String dlg) {
 		
+		File f = new File(System.getProperty("user.home") + File.separator + "YadPb" + File.separator + "test.sh");
+		try {
+			BufferedWriter w = new BufferedWriter(new FileWriter(f));
+			w.write("#!/usr/bin/bash\n# Created by YadPb.\n\n" + dlg);
+			w.close();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+		
+		f.setExecutable(true);
+		
 //		System.out.println("dlg " + dlg);
-		String[] a = dlg.split(" ");
+//		String[] a = dlg.split(" ");
 		
 		try {
-			ProcessBuilder pb = new ProcessBuilder(a);
+			ProcessBuilder pb = new ProcessBuilder(f.getAbsolutePath());
 			
 			pb.inheritIO();
 			pb.start();

@@ -1,0 +1,10 @@
+# Form field syntax.
+
+UM = VALUE,MIN..MAX,STEP,PRECISION
+CHK = TRUE|FALE
+CB = VAL1,VAL2,VAL3,... (Use ^ to mark default)
+CBE = VAL1,VAL2,VAL3,... (use ^ to mark default)
+CE = VALUE (Prefix VALUE with ^ for default)
+SCL = RANGE (0..100)
+
+The commas above are the --item-separator value.

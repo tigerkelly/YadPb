@@ -82,7 +82,7 @@
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
                </padding>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="200.0">
+            <HBox>
                <children>
                   <CheckBox fx:id="chkShowCommand" mnemonicParsing="false" selected="true" text="Show command.">
                      <font>
@@ -93,6 +93,18 @@
                      </tooltip>
                   </CheckBox>
                </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Button fx:id="btnRebuildIconList" mnemonicParsing="false" onAction="#doRebuildIconList" text="Rebuild Icon List">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
             </HBox>
             <HBox alignment="BOTTOM_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="4.0" VBox.vgrow="ALWAYS">
                <padding>

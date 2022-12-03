@@ -1,6 +1,7 @@
 package application;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
@@ -95,6 +96,14 @@ public class FileViewerController implements Initializable {
 						
 					} else if (fileName.endsWith("Form_value_help.txt")) {
 						
+					} else if (fileName.endsWith("icons.txt")) {
+						yg.currIcon = null;
+						File f = new File(newVal);
+						String n = f.getName();
+						int r = n.lastIndexOf('.');
+						if (r != -1) {
+							yg.currIcon = n.substring(0, r);
+						}
 					}
 				}
 			}
@@ -127,6 +136,8 @@ public class FileViewerController implements Initializable {
 					} else if (fileName.endsWith("yad_manual.txt")) {
 						
 					} else if (fileName.endsWith("Form_value_help.txt")) {
+						
+					} else if (fileName.endsWith("icons.txt")) {
 						
 					}
 					Stage stage = (Stage) btnCancel.getScene().getWindow();
@@ -161,7 +172,28 @@ public class FileViewerController implements Initializable {
     		else
     			in = getClass().getResourceAsStream("/" + fileName);
 			
-			if (in != null) {
+			if (fileName.endsWith("icons.txt") == true) {
+	    		File f = new File(System.getProperty("user.home") + File.separator + "YadPb" + File.separator + "icons.txt");
+	    		try {
+					BufferedReader br = new BufferedReader(new FileReader(f.getAbsolutePath()));
+
+					String line = null;
+					while ((line = br.readLine()) != null) {
+						if (line.length() > 0 && line.charAt(0) == '#')		// Skip comments.
+							continue;
+						
+						if (fileName.endsWith("about.txt")) {
+							if (line.endsWith("Version:")) {
+								line += " " + yg.yadPbVersion;
+							}
+						}
+						lstText.getItems().add(line);
+					}
+					br.close();
+				} catch (IOException ex2) {
+					ex2.printStackTrace();
+				}
+	    	} else if (in != null) {
 //    			System.out.println(jarFile.getAbsolutePath());
     		
 				BufferedReader br = new BufferedReader(new InputStreamReader(in, "UTF-8"));

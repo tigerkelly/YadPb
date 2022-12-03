@@ -1,6 +1,7 @@
 package application;
 
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
@@ -23,6 +24,9 @@ public class SettingsController implements Initializable {
 
     @FXML
     private AnchorPane aPane;
+    
+    @FXML
+    private Button btnRebuildIconList;
 
     @FXML
     private Button btnCancel;
@@ -69,6 +73,24 @@ public class SettingsController implements Initializable {
     void doCancel(ActionEvent event) {
     	Stage stage = (Stage) aPane.getScene().getWindow();
         stage.close();
+    }
+    
+    @FXML
+    void doRebuildIconList(ActionEvent event) {
+    	// Build icon list.
+		File f = new File(System.getProperty("user.home") + File.separator + "YadPb" + File.separator + "mk_icons_list.sh");
+		
+		if (f.exists() == true) {
+			try {
+				ProcessBuilder pb = new ProcessBuilder(f.getAbsolutePath());
+				Process process = pb.start();
+				process.waitFor();
+			} catch (IOException e2) {
+				e2.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
     }
 
     @FXML

@@ -142,11 +142,11 @@
 [Form]
 	type = Form
 	sep = |
-	items = !
+	isep = ,
 	complete = Any
 	precision = 3
 	align = Left
-	fields = kelly?Text-TXT,wiles?Button-BTN?Tooltip for me
+	fields = kelly~Text-TXT~~~,wiles~Button-BTN~~Tooltip for I~1234
 
 [Form-General]
 	buttonlayout = End
@@ -229,7 +229,7 @@
 [Notification]
 	type = Notification
 	sep = |
-	itemsep = !
+	isep = ,
 
 [Notification-General]
 	buttonlayout = End

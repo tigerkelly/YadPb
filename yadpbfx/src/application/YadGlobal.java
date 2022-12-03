@@ -47,6 +47,22 @@ public class YadGlobal {
 		
 		getDefaults();
 		
+		// Build icon list.
+		File f = new File(System.getProperty("user.home") + File.separator + "YadPb" + File.separator + "mk_icons_list.sh");
+		File f2 = new File(System.getProperty("user.home") + File.separator + "YadPb" + File.separator + "icons.txt");
+		
+		if (f.exists() == true && f2.exists() == false) {
+			try {
+				ProcessBuilder pb = new ProcessBuilder(f.getAbsolutePath());
+				Process process = pb.start();
+				process.waitFor();
+			} catch (IOException e2) {
+				e2.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		
 		checkImage = new Image(getClass().getResourceAsStream("/images/check.png"));
 		
 		dialogNames.put("Calendar", "Calendar.fxml");
@@ -85,7 +101,7 @@ public class YadGlobal {
 			backupDir.mkdirs();
 		}
 		
-		File f = new File(workDir.getAbsolutePath() + File.separator + "yadpb.ini");
+		f = new File(workDir.getAbsolutePath() + File.separator + "yadpb.ini");
 		if (f.exists() == false) {
 			try {
 				f.createNewFile();
@@ -150,6 +166,7 @@ public class YadGlobal {
 	public String currMime = null;
 	public String currFilter = null;
 	public String currColumnType = null;
+	public String currIcon = null;
 	public IniFile sysIni = null;
 	public IniFile currIni = null;
 	public IniFile currBackupIni = null;

@@ -481,7 +481,7 @@ public class ProjectScript {
 		String fields = ini.getString(sec, "fields");
 		String columns = ini.getString(sec, "columns");
 		String sep = ini.getString(sec, "sep");
-		String items = ini.getString(sec, "item");
+		String isep = ini.getString(sec, "isep");
 		String format = ini.getString(sec, "format");
 		String outputnum = ini.getString(sec, "outputnum");
 		String precision = ini.getString(sec, "precision");
@@ -498,26 +498,98 @@ public class ProjectScript {
 			String[] flds = fields.split(",");
 			
 			for (String f : flds) {
-				String[] a = f.split("!");
+				String[] a = f.split("~", -1);
+				
+				String lbl = null;
+				String typ = null;
+				String icn = null;
+				String tip = null;
+				String val = null;
+				
 				if (a.length == 1) {
-					lst.add(quote("--field=", a[0] + ":TXT"));
+					lbl = a[0];
+					typ = "TXT";
 				} else if (a.length == 2) {
+					lbl = a[0];
 					String[] c = a[1].split("-");
-					lst.add(quote("--field=", a[0] + ":" + c[1]));
+					typ = c[1];
 				} else if (a.length == 3) {
+					lbl = a[0];
 					String[] c = a[1].split("-");
-					lst.add(quote("--field=", a[0] + ":" + c[1] + "!" + a[2]));
+					typ = c[1];
+					icn = a[2];
+				} else if (a.length == 4) {
+					lbl = a[0];
+					String[] c = a[1].split("-");
+					typ = c[1];
+					icn = a[2];
+					tip = a[3];
+				} else if (a.length == 5) {
+					lbl = a[0];
+					String[] c = a[1].split("-");
+					typ = c[1];
+					icn = a[2];
+					tip = a[3];
+					val = a[4];
 				}
-//				if (a.length > 1) {
-//					String[] b = a[1].split("-");
-//				
-//					if (b.length > 1)
-//						lst.add(quote("--field=", a[0] + ":" + b[1]));
-//					else
-//						lst.add(quote("--field=", a[0]));
-//				} else {
-//					lst.add(quote("--field=", a[0]));
-//				}
+				
+				switch (a[1]) {
+				case "Button-BTN":
+				case "Button Full-FBTN":
+					if (icn != null && icn.isEmpty() == false)
+						lbl += isep + icn;
+					else
+						lbl += isep;
+					if (tip != null && tip.isEmpty() == false)
+						lbl += isep + tip;
+					else
+						lbl += isep;
+					lst.add("--field=" + quote(lbl) + ":" + typ);
+					break;
+				case "Numeric-NUM":
+				case "Checkbox-CHK":
+					lbl = quote(lbl) + ":" + typ;
+					if (val != null && val.isEmpty() == false)
+						lbl += isep + val;
+					lst.add("--field=" + quote(lbl) + ":" + typ);
+					break;
+					
+				case "Color-CLR":
+					break;
+				case "Combobox-CB":
+					break;
+				case "Combobox Editable-CBE":
+					break;
+				case "Completion-CE":
+					break;
+				case "Date-DT":
+					break;
+				case "Directory Create-CDIR":
+					break;
+				case "Directory-DIR":
+					break;
+				case "Directory Multiple-MDIR":
+					break;
+				case "File Create-SFL":
+					break;
+				case "File-FL":
+					break;
+				case "File Multiple-MFL":
+					break;
+				case "Font Selector-FN":
+					break;
+				case "Hidden-H":
+					break;
+				case "Label-LBL":
+					break;
+				case "Read-Only-RO":
+					break;
+				case "Scale-SCL":
+					break;
+				case "Text-TXT":
+					lst.add("--field=" + quote(lbl) + ":" + typ);
+					break;
+				}
 			}
 		}
 		
@@ -525,8 +597,8 @@ public class ProjectScript {
 			lst.add(quote("--columns=", columns));
 		if (sep != null && sep.isEmpty() == false)
 			lst.add(quote("--separator=", sep));
-		if (items != null && items.isEmpty() == false)
-			lst.add(quote("--items-separator=", items));
+		if (isep != null && isep.isEmpty() == false)
+			lst.add(quote("--item-separator=", isep));
 		if (format != null && format.isEmpty() == false)
 			lst.add(quote("--date-foramt=", format));
 		if (outputnum != null && outputnum.isEmpty() == false)
@@ -964,7 +1036,7 @@ public class ProjectScript {
 		
 		String command = ini.getString(sec, "command");
 		String sep = ini.getString(sec, "sep");
-		String itemsep = ini.getString(sec, "itemsep");
+		String isep = ini.getString(sec, "isep");
 		String menu = ini.getString(sec, "menu");
 		String iconsize = ini.getString(sec, "iconsize");
 		
@@ -976,8 +1048,8 @@ public class ProjectScript {
 			lst.add(quote("--command=", command));
 		if (sep != null && sep.isEmpty() == false)
 			lst.add(quote("--separator=", sep));
-		if (itemsep != null && itemsep.isEmpty() == false)
-			lst.add(quote("--item-separator=", itemsep));
+		if (isep != null && isep.isEmpty() == false)
+			lst.add(quote("--item-separator=", isep));
 		if (menu != null && menu.isEmpty() == false)
 			lst.add(quote("--menu=", menu));
 		if (iconsize != null && iconsize.isEmpty() == false)
@@ -1432,14 +1504,26 @@ public class ProjectScript {
 		return txt.toString();
 	}
 	
+	private  String quote(String s) {
+
+		s = s.replaceAll("\\|", "\\\\|");
+		s = s.replaceAll("\\!", "\\\\!");
+		
+		if (s.indexOf(" ") != -1) {
+			s = "\"" + s + "\"";
+		}
+		
+		return s;
+	}
+	
 	private  String quote(String s1, String s2) {
 		String r = null;
+
+		s2 = s2.replaceAll("\\|", "\\\\|");
+		s2 = s2.replaceAll("\\!", "\\\\!");
 		
-//		s2.matches("[ \\|;]");
-		
-//		if (s2.indexOf(' ') != -1 || s2.indexOf('|') != -1 || s2.indexOf(';') != -1) {
-		if (s2.matches("[ \\|;]") == true) {
-			r = s1 + "\"" + s2 + "\"";
+		if (s2.indexOf(" ") != -1) {
+			r = s1 + "'" + s2 + "'";
 		} else {
 			r = s1 + s2;
 		}
