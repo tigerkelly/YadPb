@@ -1,5 +1,8 @@
 package application;
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -59,6 +62,7 @@ public class FormController implements Initializable, DialogInterface {
     
     private YadGlobal yg = YadGlobal.getInstance();
     private java.util.List<String> fieldNames = new ArrayList<String>();
+    private java.util.List<String> iconNames = new ArrayList<String>();
 	private String[] types = {
 			"Button-BTN",
 			"Button Full-FBTN",
@@ -68,21 +72,23 @@ public class FormController implements Initializable, DialogInterface {
 			"Combobox Editable-CBE",
 			"Completion-CE",
 			"Date-DT",
-			"Directory Create-CDIR",
-			"Directory-DIR",
-			"Directory Multiple-MDIR",
+			"Dir Create-CDIR",
+			"Dir-DIR",
+			"Dir Multiple-MDIR",
 			"File Create-SFL",
 			"File-FL",
 			"File Multiple-MFL",
 			"Font Selector-FN",
 			"Hidden-H",
+			"Horizontal-HZ",
 			"Label-LBL",
 			"Numeric-NUM",
 			"Read-Only-RO",
 			"Scale-SCL",
-			"Text-TXT"
+			"TextArea-TXT",
+			"TextField-TF"
 			};
-	private final int defaultType = 20;
+	private final int defaultType = 21;
     
     @FXML
     private Button btnAdd;
@@ -408,29 +414,7 @@ public class FormController implements Initializable, DialogInterface {
     void doButtonType(ActionEvent event) {
     	String txt = cbButtonType.getSelectionModel().getSelectedItem();
     	
-    	int idx = txt.lastIndexOf('-');
-    	String s = txt.substring(idx+1);
-    	
-    	switch(s) {
-    	case "BTN":
-    		txtButtonValues.setDisable(false);
-    		txtButtonIcon.setDisable(false);
-    		txtButtonTooltip.setDisable(false);
-    		break;
-    	case "NUM":
-    	case "CHK":
-    	case "CB":
-    	case "MFL":
-    	case "MDIR":
-    	case "FBTN":
-    		txtButtonValues.setDisable(false);
-    		break;
-    	default:
-    		txtButtonValues.setDisable(true);
-    		txtButtonIcon.setDisable(true);
-    		txtButtonTooltip.setDisable(true);
-    		break;
-    	}
+    	setFields(txt);
     }
 
     @FXML
@@ -456,8 +440,14 @@ public class FormController implements Initializable, DialogInterface {
     @FXML
     void doButtonAdd(ActionEvent event) {
     	String txt = txtButtonText.getText();
-		if (txt == null || txt.length() <= 0)
+    	String typ = cbButtonType.getSelectionModel().getSelectedItem();
+    	
+    	if (typ.endsWith("HZ") == true)
+			txt = "HORZ";
+    	
+		if (txt == null || txt.isEmpty() == true) {
 			return;
+		}
 		
 //		System.out.println(txt);
 		
@@ -497,7 +487,7 @@ public class FormController implements Initializable, DialogInterface {
 			return;
 		}
 		
-		tblButtons.getItems().add(new TextType(txt, cbButtonType.getSelectionModel().getSelectedItem(),
+		tblButtons.getItems().add(new TextType(txt, typ,
 				txtButtonIcon.getText(), txtButtonTooltip.getText(), txtButtonValues.getText()));
 		
 		txtButtonText.setText("");
@@ -577,6 +567,8 @@ public class FormController implements Initializable, DialogInterface {
 
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+    	buildIconList();
+    	
 		cbButtonType.getItems().addAll(types);
 		cbButtonType.getSelectionModel().select(defaultType);
 		
@@ -588,10 +580,13 @@ public class FormController implements Initializable, DialogInterface {
 		
 		tblButtons.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
 		    if (newVal != null) {
-//		        System.out.println(newVal);
 		        txtButtonText.setText(newVal.getText());
 		        cbButtonType.getSelectionModel().select(newVal.getType());
+		        txtButtonIcon.setText(newVal.getIcon());
+		        txtButtonTooltip.setText(newVal.getTooltip());
 		        txtButtonValues.setText(newVal.getValues());
+		        
+		        setFields(newVal.getType());
 		    }
 		});
 		
@@ -603,8 +598,15 @@ public class FormController implements Initializable, DialogInterface {
 		
 		colText.setCellFactory(TextFieldTableCell.forTableColumn());
 		colText.setOnEditCommit((TableColumn.CellEditEvent<TextType, String> t) -> {
-	        ((TextType) t.getTableView().getItems().get(t.getTablePosition().getRow())).setText(t.getNewValue());
+			int row = t.getTablePosition().getRow();
+			
+			TextType tt = ((TextType) t.getTableView().getItems().get(row));
+			if (tt.getType().endsWith("HZ") == false)
+				((TextType) t.getTableView().getItems().get(t.getTablePosition().getRow())).setText(t.getNewValue());
+			else
+				((TextType) t.getTableView().getItems().get(t.getTablePosition().getRow())).setText("HORZ");
 	        saveButtons();
+	        reloadFields();
 	    });
 		
 		colType.setCellFactory(ComboBoxTableCell.forTableColumn(FXCollections.observableArrayList(types)));
@@ -613,16 +615,27 @@ public class FormController implements Initializable, DialogInterface {
 	        saveButtons();
 	    });
 		
-		colIcon.setCellFactory(TextFieldTableCell.forTableColumn());
+		colIcon.setCellFactory(ComboBoxTableCell.forTableColumn(FXCollections.observableArrayList(iconNames)));
+
 		colIcon.setOnEditCommit((TableColumn.CellEditEvent<TextType, String> t) -> {
-	        ((TextType) t.getTableView().getItems().get(t.getTablePosition().getRow())).setIcon(t.getNewValue());
-	        saveButtons();
+			int row = t.getTablePosition().getRow();
+			
+			TextType tt = ((TextType) t.getTableView().getItems().get(row));
+			if (tt.getType().endsWith("BTN") == true)
+				t.getTableView().getItems().get(t.getTablePosition().getRow()).setIcon(t.getNewValue());
+			saveButtons();
+			reloadFields();
 	    });
 		
 		colTooltip.setCellFactory(TextFieldTableCell.forTableColumn());
 		colTooltip.setOnEditCommit((TableColumn.CellEditEvent<TextType, String> t) -> {
-	        ((TextType) t.getTableView().getItems().get(t.getTablePosition().getRow())).setTooltip(t.getNewValue());
+			int row = t.getTablePosition().getRow();
+			
+			TextType tt = ((TextType) t.getTableView().getItems().get(row));
+			if (tt.getType().endsWith("BTN") == true)
+				((TextType) t.getTableView().getItems().get(t.getTablePosition().getRow())).setTooltip(t.getNewValue());
 	        saveButtons();
+	        reloadFields();
 	    });
 		
 		colValues.setCellFactory(TextFieldTableCell.forTableColumn());
@@ -635,13 +648,15 @@ public class FormController implements Initializable, DialogInterface {
 	    	String s = typ.substring(idx+1);
 	    	
 	    	switch(s) {
-	    	case "BTN":
+	    	case "TXT":
+	    	case "TF":
 	    	case "NUM":
 	    	case "CHK":
 	    	case "CB":
+	    	case "CBE":
+	    	case "CE":
 	    	case "MFL":
 	    	case "MDIR":
-	    	case "FBTN":
 	    		tt.setValues(t.getNewValue());
 	    		break;
 	    	default:
@@ -658,7 +673,32 @@ public class FormController implements Initializable, DialogInterface {
     	
     	TxtLimitListener limitCount2 = new TxtLimitListener(txtItemSeparator, 1);
     	txtItemSeparator.textProperty().addListener(limitCount2);
+    	
 	}
+    
+    private void buildIconList() {
+    	File f = new File(System.getProperty("user.home") + File.separator + "YadPb" + File.separator + "icons.txt");
+    	iconNames.clear();
+		try {
+			BufferedReader br = new BufferedReader(new FileReader(f.getAbsolutePath()));
+
+			String line = null;
+			while ((line = br.readLine()) != null) {
+				if (line.length() > 0 && line.charAt(0) == '#')		// Skip comments.
+					continue;
+				
+				File fn = new File(line);
+				String name = fn.getName();
+				int idx = name.lastIndexOf('.');
+				iconNames.add(name.substring(0, idx));
+			}
+			br.close();
+//			for( String s : iconNames)
+//				System.out.println(s);
+		} catch (IOException ex2) {
+			ex2.printStackTrace();
+		}
+    }
     
     private void saveButtons() {
     	ObservableList<TextType> obs = tblButtons.getItems();
@@ -671,12 +711,15 @@ public class FormController implements Initializable, DialogInterface {
     		String tip = tt.getTooltip();
     		String val = tt.getValues();
     		
+    		if (typ.endsWith("HZ") == true)
+    			txt = "HORZ";
+    		
     		if (fields == null)
     			fields = txt;
     		else
     			fields += "," + txt;
     		
-    		if (typ != null)
+    		if (typ != null && typ.isEmpty() == false)
     			fields += "~" + typ;
     		else
     			fields += "~";
@@ -719,7 +762,7 @@ public class FormController implements Initializable, DialogInterface {
 				String[] b = s.split("~", -1);
 				if (b.length == 1) {
 					lbl = b[0];
-					typ = "TXT";
+					typ = null;
 				} else if (b.length == 2) {
 					lbl = b[0];
 					typ = b[1];
@@ -740,14 +783,60 @@ public class FormController implements Initializable, DialogInterface {
 					val = b[4];
 				}
 				
+				if (typ.endsWith("HZ") == true)
+					lbl = "HORZ";
+				
 				tblButtons.getItems().add(new TextType(lbl, typ, icn, tip, val));
 			}
 		}
     }
+    
+    private void setFields(String txt) {
+    	int idx = txt.lastIndexOf('-');
+    	String s = txt.substring(idx+1);
+    	
+    	switch(s) {
+    	case "BTN":
+    	case "FBTN":
+    		txtButtonValues.setDisable(false);
+    		txtButtonIcon.setDisable(false);
+    		txtButtonTooltip.setDisable(false);
+    		break;
+    	case "NUM":
+    	case "CHK":
+    	case "CB":
+    	case "CBE":
+    	case "SCL":
+    	case "CE":
+    	case "CLR":
+    	case "FL":
+    	case "FN":
+    	case "SFL":
+    	case "DIR":
+    	case "CDIR":
+    	case "MDIR":
+    	case "MFL":
+    	case "DT":
+    	case "H":
+    		txtButtonValues.setDisable(false);
+    		txtButtonIcon.setDisable(true);
+    		txtButtonTooltip.setDisable(true);
+    		break;
+    	case "TXT":
+    		txtButtonValues.setDisable(false);
+    		txtButtonIcon.setDisable(true);
+    		txtButtonTooltip.setDisable(true);
+    		break;
+    	default:
+    		txtButtonValues.setDisable(true);
+    		txtButtonIcon.setDisable(true);
+    		txtButtonTooltip.setDisable(true);
+    		break;
+    	}
+    }
 
 	@Override
 	public void updateDialog() {
-		String fields = yg.currIni.getString(yg.currDialog, "fields");
 		String columns = yg.currIni.getString(yg.currDialog, "columns");
 		String sep = yg.currIni.getString(yg.currDialog, "sep");
 		String isep = yg.currIni.getString(yg.currDialog, "isep");
@@ -782,56 +871,63 @@ public class FormController implements Initializable, DialogInterface {
 		if (focus != null)
 			txtFocus.setText(focus);
 		
-		tblButtons.getItems().clear();
+		reloadFields();
 		
-		if (fields != null) {
-			fieldNames.clear();
-			
-			String[] a = fields.split(",");
-			
-			for (String s : a) {
-				String lbl = null;
-				String typ = null;
-				String icn = null;
-				String tip = null;
-				String val = null;
-				
-				String[] b = s.split("~", -1);
-				System.out.println(b.length);
-				if (b.length == 1) {
-					lbl = b[0];
-					typ = "TXT";
-				} else if (b.length == 2) {
-					lbl = b[0];
-					typ = b[1];
-				} else if (b.length == 3) {
-					lbl = b[0];
-					typ = b[1];
-					val = b[2];
-				} else if (b.length == 4) {
-					lbl = b[0];
-					typ = b[1];
-					icn = b[2];
-					val = b[3];
-				} else if (b.length == 5) {
-					lbl = b[0];
-					typ = b[1];
-					icn = b[2];
-					tip = b[3];
-					val = b[4];
-				}
-				
-				tblButtons.getItems().add(new TextType(lbl, typ, icn, tip, val));
-			}
-			
-			txtButtonText.setText("");
-			cbButtonType.getSelectionModel().select(defaultType);
-		}
+//		tblButtons.getItems().clear();
+//		
+//		if (fields != null) {
+//			fieldNames.clear();
+//			
+//			String[] a = fields.split(",");
+//			
+//			for (String s : a) {
+//				String lbl = null;
+//				String typ = null;
+//				String icn = null;
+//				String tip = null;
+//				String val = null;
+//				
+//				String[] b = s.split("~", -1);
+////				System.out.println(b.length);
+//				if (b.length == 1) {
+//					lbl = b[0];
+//					typ = "TXT";
+//				} else if (b.length == 2) {
+//					lbl = b[0];
+//					typ = b[1];
+//				} else if (b.length == 3) {
+//					lbl = b[0];
+//					typ = b[1];
+//					val = b[2];
+//				} else if (b.length == 4) {
+//					lbl = b[0];
+//					typ = b[1];
+//					icn = b[2];
+//					val = b[3];
+//				} else if (b.length == 5) {
+//					lbl = b[0];
+//					typ = b[1];
+//					icn = b[2];
+//					tip = b[3];
+//					val = b[4];
+//				}
+//				
+//				tblButtons.getItems().add(new TextType(lbl, typ, icn, tip, val));
+//			}
+//			
+//			txtButtonText.setText("");
+//			cbButtonType.getSelectionModel().select(defaultType);
+//		}
+		
+		txtButtonText.setText("");
+		cbButtonType.getSelectionModel().select(defaultType);
 
 		setToggleButton(btnScroll, scroll);
 		setToggleButton(btnOutputByRow, outputrow);
 		setToggleButton(btnQuotedOutput, quoted);
 		setToggleButton(btnCycle, cycle);
+		
+		setFields("Text-TXT");
 	}
 
 	@Override

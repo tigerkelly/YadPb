@@ -146,7 +146,7 @@
 	complete = Any
 	precision = 3
 	align = Left
-	fields = kelly~Text-TXT~~~,wiles~Button-BTN~~Tooltip for I~1234
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans
 
 [Form-General]
 	buttonlayout = End

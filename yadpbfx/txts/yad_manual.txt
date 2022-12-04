@@ -1,7 +1,7 @@
 YAD(1)                                              General Commands Manual                                             YAD(1)
 
 NAME
-       yad - display GTK+ dialogs in shell scripts
+       yad - display GTK+ dialogs in shell scripts (Version: 0.40.0)
 
 SYNOPSIS
        yad [OPTIONS]

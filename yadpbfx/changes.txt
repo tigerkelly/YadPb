@@ -1,4 +1,8 @@
 
+2022-12-04
+1.0.5		- Lots of work on the forms screen and the script generation and still not done :(.
+			  Added HZ for horizontal line.
+			  
 2022-12-03
 1.0.4		- Lots of work on Forms screen and trying to get command line syntax correct for Forms.
 			  Added syntax help for form fields.

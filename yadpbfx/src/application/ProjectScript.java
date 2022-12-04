@@ -507,27 +507,27 @@ public class ProjectScript {
 				String val = null;
 				
 				if (a.length == 1) {
-					lbl = a[0];
+					lbl = quote(a[0]);
 					typ = "TXT";
 				} else if (a.length == 2) {
-					lbl = a[0];
+					lbl = quote(a[0]);
 					String[] c = a[1].split("-");
-					typ = c[1];
+					typ = c[c.length - 1];
 				} else if (a.length == 3) {
-					lbl = a[0];
+					lbl = quote(a[0]);
 					String[] c = a[1].split("-");
-					typ = c[1];
+					typ = c[c.length - 1];
 					icn = a[2];
 				} else if (a.length == 4) {
-					lbl = a[0];
+					lbl = quote(a[0]);
 					String[] c = a[1].split("-");
-					typ = c[1];
+					typ = c[c.length - 1];
 					icn = a[2];
 					tip = a[3];
 				} else if (a.length == 5) {
-					lbl = a[0];
+					lbl = quote(a[0]);
 					String[] c = a[1].split("-");
-					typ = c[1];
+					typ = c[c.length - 1];
 					icn = a[2];
 					tip = a[3];
 					val = a[4];
@@ -541,53 +541,118 @@ public class ProjectScript {
 					else
 						lbl += isep;
 					if (tip != null && tip.isEmpty() == false)
-						lbl += isep + tip;
+						lbl += isep + quote(tip);
 					else
 						lbl += isep;
-					lst.add("--field=" + quote(lbl) + ":" + typ);
+					lst.add("--field=" + lbl + ":" + typ);
 					break;
 				case "Numeric-NUM":
-				case "Checkbox-CHK":
-					lbl = quote(lbl) + ":" + typ;
+					lbl +=  ":" + typ;
 					if (val != null && val.isEmpty() == false)
-						lbl += isep + val;
-					lst.add("--field=" + quote(lbl) + ":" + typ);
+						lbl += " " + quote(val);
+					lst.add("--field=" + lbl);
+					break;
+				case "Checkbox-CHK":
+					lbl += ":" + typ;
+					if (val != null && val.isEmpty() == false)
+						lbl += " " + quote(val);
+					lst.add("--field=" + lbl);
 					break;
 					
 				case "Color-CLR":
+					lbl += ":" + typ;
+					if (val != null && val.isEmpty() == false)
+						lbl += " " + quote(val);
+					lst.add("--field=" + lbl);
 					break;
 				case "Combobox-CB":
-					break;
 				case "Combobox Editable-CBE":
+					lbl += ":" + typ;
+					if (val != null && val.isEmpty() == false)
+						lbl += " " + quote(val);
+					lst.add("--field=" + lbl);
 					break;
 				case "Completion-CE":
+					lbl += ":" + typ;
+					if (val != null && val.isEmpty() == false)
+						lbl += " " + quote(val);
+					lst.add("--field=" + lbl);
 					break;
 				case "Date-DT":
+					lbl += ":" + typ;
+					if (val != null && val.isEmpty() == false)
+						lbl += " " + quote(val);
+					lst.add("--field=" + lbl);
 					break;
-				case "Directory Create-CDIR":
-					break;
-				case "Directory-DIR":
-					break;
-				case "Directory Multiple-MDIR":
-					break;
+				case "Dir-DIR":
 				case "File Create-SFL":
-					break;
 				case "File-FL":
-					break;
 				case "File Multiple-MFL":
+				case "Dir Create-CDIR":
+				case "Dir Multiple-MDIR":
+					lbl += ":" + typ;
+					if (val != null && val.isEmpty() == false) {
+						String[] ff = val.split("\\s");
+						String p = null;
+						for (String fp : ff) {
+							if (p == null)
+								p = isep + fp;
+							else
+								p += isep + fp;
+						}
+						if (p != null && p.isEmpty() == false)
+							lbl += " " + quote(p);
+					}
+					lst.add("--field=" + lbl);
 					break;
 				case "Font Selector-FN":
+					lbl += ":" + typ;
+					if (val != null && val.isEmpty() == false)
+						lbl += " " + quote(val);
+					lst.add("--field=" + lbl);
 					break;
 				case "Hidden-H":
+					lbl += ":" + typ;
+					if (val != null && val.isEmpty() == false)
+						lbl += " " + quote(val);
+					lst.add("--field=" + lbl);
 					break;
 				case "Label-LBL":
+					lbl += ":" + typ;
+					if (val != null && val.isEmpty() == false)
+						lbl += " " + quote(val);
+					lst.add("--field=" + lbl);
+					break;
+				case "Horizontal-HZ":
+					lbl = "\"\":LBL";
+					lst.add("--field=" + lbl);
 					break;
 				case "Read-Only-RO":
+					lbl += ":" + typ;
+					if (val != null && val.isEmpty() == false)
+						lbl += " " + quote(val);
+					lst.add("--field=" + lbl);
 					break;
 				case "Scale-SCL":
+					lbl += ":" + typ;
+					if (val != null && val.isEmpty() == false)
+						lbl += " " + quote(val);
+					lst.add("--field=" + lbl);
 					break;
 				case "Text-TXT":
-					lst.add("--field=" + quote(lbl) + ":" + typ);
+					lbl += ":" + typ;
+					if (val != null && val.isEmpty() == false)
+						lbl += " " + quote(val);
+					else
+						lbl += " \"\"";
+					lst.add("--field=" + lbl);
+					break;
+				case "TextField-TF":
+					if (val != null && val.isEmpty() == false)
+						lbl += " " + quote(val);
+					else
+						lbl += " \"\"";
+					lst.add("--field=" + lbl);
 					break;
 				}
 			}
