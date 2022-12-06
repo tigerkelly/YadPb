@@ -67,7 +67,7 @@ public class PanedController implements Initializable, DialogInterface {
 	public void initialize(URL arg0, ResourceBundle arg1) {
     	ContextMenu cm = new ContextMenu();
 		
-		MenuItem mMenuTitle = new MenuItem("Notebook Menu");
+		MenuItem mMenuTitle = new MenuItem("Paned Menu");
 		mMenuTitle.setDisable(true);
 		
 		MenuItem mLinkDialog = new MenuItem("Link Dialog");
