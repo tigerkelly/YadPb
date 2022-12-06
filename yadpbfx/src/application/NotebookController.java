@@ -10,12 +10,18 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
+import javafx.scene.control.ListView;
+import javafx.scene.control.MenuItem;
+import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -24,6 +30,7 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import tbl.TabInfo;
 
@@ -55,6 +62,9 @@ public class NotebookController implements Initializable, DialogInterface {
 
     @FXML
     private ComboBox<String> cbTabPosition;
+    
+    @FXML
+    private ListView<String> lvDialogs;
 
     @FXML
     private TableColumn<TabInfo, String> colIcon;
@@ -82,6 +92,9 @@ public class NotebookController implements Initializable, DialogInterface {
 
     @FXML
     private TextField txtTabTooltip;
+    
+    @FXML
+    private FlowPane fpLinkedDialogs;
 
     @FXML
     void doTabAdd(ActionEvent event) {
@@ -320,6 +333,152 @@ public class NotebookController implements Initializable, DialogInterface {
 		        txtTabTooltip.setText(newVal.getTooltip());
 		    }
 		});
+		
+//		lvDialogs.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
+//			@Override
+//			public void changed(ObservableValue<? extends String> ov, String oldVal, String newVal) {
+////				System.out.println("new " + newVal + " old " + oldVal);
+//				if (newVal != null && newVal.equals(yg.currProject) == false) {
+//					yg.currIni = yg.prjList.get(newVal);
+//					yg.currBackupIni = yg.prjBackupList.get(newVal);
+//					yg.currProject = newVal;
+//				}
+//			}
+//		});
+		
+		ContextMenu cm = new ContextMenu();
+		
+		MenuItem mMenuTitle = new MenuItem("Notebook Menu");
+		mMenuTitle.setDisable(true);
+		
+		MenuItem mLinkDialog = new MenuItem("Link Dialog");
+		mLinkDialog.setOnAction((ActionEvent e) -> {
+			String d = lvDialogs.getSelectionModel().getSelectedItem();
+			String dialog = d.split("-")[0];
+			ObservableList<Node> lst = fpLinkedDialogs.getChildren();
+			
+			String keyNum = yg.currIni.getString(yg.currDialog, "key");
+			if (keyNum == null || keyNum.isEmpty() == true) {
+				Alert messageBox = new Alert(Alert.AlertType.ERROR);
+				Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
+				stage.hide();
+
+				messageBox.setContentText("The 'Key' field if blank.");
+				
+				// Code to center dialog within parent.
+				Stage ps = (Stage) btnTabAdd.getScene().getWindow();
+
+				ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
+					double stageWidth = newValue.doubleValue();
+					stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
+				};
+				ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
+					double stageHeight = newValue.doubleValue();
+					stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
+				};
+
+				stage.widthProperty().addListener(widthListener);
+				stage.heightProperty().addListener(heightListener);
+
+				// Once the window is visible, remove the listeners
+				stage.setOnShown(e2 -> {
+					stage.widthProperty().removeListener(widthListener);
+					stage.heightProperty().removeListener(heightListener);
+				});
+
+				messageBox.showAndWait();
+				return;
+			}
+			
+			boolean found = false;
+			for (Node n : lst) {
+				Label lbl = (Label)n;
+				
+				if (lbl.getText().equals(dialog) == true) {
+					found = true;
+					break;
+				}
+			}
+			
+			if (found == false) {
+				// May want to sort the list.
+				Label lbl = new Label(dialog);
+				lbl.setStyle("-fx-border-color: black;");
+				lbl.setAlignment(Pos.CENTER);
+				lbl.setPrefWidth(135.0);
+				fpLinkedDialogs.getChildren().add(lbl);
+				
+				yg.currIni.addValuePair(dialog + "-General", "plug", keyNum);
+			}
+		});
+		
+		MenuItem mUnlinkDialog = new MenuItem("Unlink Dialog");
+		mUnlinkDialog.setOnAction((ActionEvent e) -> {
+			String d = lvDialogs.getSelectionModel().getSelectedItem();
+			String dialog = d.split("-")[0];
+			ObservableList<Node> lst = fpLinkedDialogs.getChildren();
+			
+			String keyNum = yg.currIni.getString(yg.currDialog, "key");
+			if (keyNum == null || keyNum.isEmpty() == true) {
+				Alert messageBox = new Alert(Alert.AlertType.ERROR);
+				Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
+				stage.hide();
+
+				messageBox.setContentText("The 'Key' field if blank.");
+				
+				// Code to center dialog within parent.
+				Stage ps = (Stage) btnTabAdd.getScene().getWindow();
+
+				ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
+					double stageWidth = newValue.doubleValue();
+					stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
+				};
+				ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
+					double stageHeight = newValue.doubleValue();
+					stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
+				};
+
+				stage.widthProperty().addListener(widthListener);
+				stage.heightProperty().addListener(heightListener);
+
+				// Once the window is visible, remove the listeners
+				stage.setOnShown(e2 -> {
+					stage.widthProperty().removeListener(widthListener);
+					stage.heightProperty().removeListener(heightListener);
+				});
+
+				messageBox.showAndWait();
+				return;
+			}
+		
+			int found = -1;
+			int idx = 0;
+			for (Node n : lst) {
+				Label lbl = (Label)n;
+				
+//				System.out.println(lbl.getText() + ", " + dialog);
+				
+				if (lbl.getText().equals(dialog) == true) {
+					found = idx;
+					break;
+				}
+				
+				idx++;
+			}
+			
+			if (found != -1) {
+				lst.remove(found);
+				
+				yg.currIni.removeValuePair(dialog + "-General", "plug");
+			}
+		});
+		
+		SeparatorMenuItem sep = new SeparatorMenuItem();
+		SeparatorMenuItem sep2 = new SeparatorMenuItem();
+		
+		cm.getItems().addAll(mMenuTitle, sep, mLinkDialog, sep2, mUnlinkDialog);
+		
+		lvDialogs.setContextMenu(cm);
 
 		colText.setCellValueFactory(new PropertyValueFactory<TabInfo, String>("text"));
 		colIcon.setCellValueFactory(new PropertyValueFactory<TabInfo, String>("icon"));
@@ -334,19 +493,67 @@ public class NotebookController implements Initializable, DialogInterface {
 	    });
 
 		colIcon.setCellFactory(ComboBoxTableCell.forTableColumn(FXCollections.observableArrayList(iconTypes)));
-//		colIcon.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).setIcon(e.getNewValue()));
 		colIcon.setOnEditCommit((TableColumn.CellEditEvent<TabInfo, String> t) -> {
 	        t.getTableView().getItems().get(t.getTablePosition().getRow()).setIcon(t.getNewValue());
 	        saveTabs();
 	    });
 
 		colTooltip.setCellFactory(TextFieldTableCell.forTableColumn());
-//		colTooltip.setOnEditCommit(e->e.getTableView().getItems().get(e.getTablePosition().getRow()).setTooltip(e.getNewValue()));
 		colTooltip.setOnEditCommit((TableColumn.CellEditEvent<TabInfo, String> t) -> {
 	        t.getTableView().getItems().get(t.getTablePosition().getRow()).setTooltip(t.getNewValue());
 	        saveTabs();
 	    });
 	}
+    
+    private void loadDialogs() {
+    	if (lvDialogs == null)
+    		return;
+    	
+    	lvDialogs.getItems().clear();
+    	
+    	Object[] secs = yg.currIni.getSectionNames();
+    	
+    	for (Object sec : secs) {
+    		String s = (String)sec;
+    		if (s.endsWith("-General") == false)
+    			continue;
+    		if (s.equals(yg.currDialog) == true)
+    			continue;
+    		
+    		lvDialogs.getItems().add(s.split("-")[0]);
+    	}
+    }
+    
+    private void linkedDialogs() {
+    	if (fpLinkedDialogs.getChildren() != null)
+    		fpLinkedDialogs.getChildren().clear();
+    	
+    	String keyNum = yg.currIni.getString(yg.currDialog, "key");
+    	
+    	if (keyNum == null || keyNum.isEmpty() == true)
+    		return;
+    	
+    	Object[] secs = yg.currIni.getSectionNames();
+    	
+    	for (Object sec : secs) {
+    		String s = (String)sec;
+    		
+    		if (s.equals(yg.currDialog) == true)
+    			continue;
+    		
+    		String plug = yg.currIni.getString(s + "-General", "plug");
+    		if (plug == null || plug.isEmpty() == true)
+    			continue;
+    		
+    		if (plug.equals(keyNum) == true) {
+    			Label lbl = new Label(s.split("-")[0]);
+				lbl.setStyle("-fx-border-color: black;");
+				lbl.setAlignment(Pos.CENTER);
+				lbl.setPrefWidth(135.0);
+				fpLinkedDialogs.getChildren().add(lbl);
+    		}
+    	}
+    }
 
     private void saveTabs() {
     	ObservableList<TabInfo> obs = tblTabs.getItems();
@@ -356,19 +563,19 @@ public class NotebookController implements Initializable, DialogInterface {
     		if (tabs == null) {
     			tabs = ti.getText();
     			if (ti.getIcon().equals("None"))
-    				tabs += "!";
+    				tabs += "~";
     			else
-    				tabs += "!" + ti.getIcon();
+    				tabs += "~" + ti.getIcon();
 
-    			tabs += "!" + ti.getTooltip();
+    			tabs += "~" + ti.getTooltip();
     		} else {
     			tabs += "," + ti.getText();
     			if (ti.getIcon().equals("None"))
-    				tabs += "!";
+    				tabs += "~";
     			else
-    				tabs += "!" + ti.getIcon();
+    				tabs += "~" + ti.getIcon();
 
-    			tabs += "!" + ti.getTooltip();
+    			tabs += "~" + ti.getTooltip();
     		}
     	}
 
@@ -389,7 +596,7 @@ public class NotebookController implements Initializable, DialogInterface {
 			String[] a = tabs.split(",");
 
 			for (String s : a) {
-				String[] b = s.split("!");
+				String[] b = s.split("~");
 
 				if (b.length == 3)
 					tblTabs.getItems().add(new TabInfo(b[0], b[1], b[2]));
@@ -417,6 +624,9 @@ public class NotebookController implements Initializable, DialogInterface {
 			txtTabBorders.setText(tabborders);
 		if (activetab != null)
 			txtActiveTab.setText(activetab);
+		
+		loadDialogs();
+		linkedDialogs();
 	}
 
 	@Override
@@ -426,7 +636,6 @@ public class NotebookController implements Initializable, DialogInterface {
 
 	@Override
 	public void setData(String data) {
-		// TODO Auto-generated method stub
 		
 	}
 

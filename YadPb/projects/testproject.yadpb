@@ -77,7 +77,7 @@
 	precision = 3
 	justify = Left
 	uricolor = Blue
-	completion = true
+	completion = false
 	numeric = false
 	entrylabel = Kelly
 	entrytext = Wiles
@@ -113,6 +113,7 @@
 	fixed = false
 	splash = false
 	nofocus = false
+	plug = 3456
 
 [File]
 	type = File
@@ -185,7 +186,9 @@
 	vscroll = Auto
 
 [Info]
-	type = Info
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
 
 [Info-General]
 	buttonlayout = End
@@ -203,6 +206,7 @@
 	precision = 3
 	gridlines = Horizontal
 	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
 
 [List-General]
 	buttonlayout = End
@@ -216,6 +220,7 @@
 [Notebook]
 	type = Notebook
 	tabpos = Left
+	key = 3456
 
 [Notebook-General]
 	buttonlayout = End
@@ -232,6 +237,32 @@
 	isep = ,
 
 [Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
 	buttonlayout = End
 	textalign = Fill
 	killparent = SIGTERM

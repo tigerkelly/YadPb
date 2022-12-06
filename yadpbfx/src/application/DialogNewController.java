@@ -102,7 +102,7 @@ public class DialogNewController implements Initializable {
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
 		cbDialogType.getItems().addAll("Calendar", "Color", "DnD", "Entry", "File", "Font", "Form", 
-				"HTML", "Icons", "Info", "List", "Notebook", "Notification", "Print", 
+				"HTML", "Icons", "Text-Info", "List", "Notebook", "Notification", "Paned", "Picture", "Print", 
 				"Progress", "Progress Multi", "Scale");
 		
 		

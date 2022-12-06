@@ -74,10 +74,12 @@ public class YadGlobal {
 		dialogNames.put("Form", "Form.fxml");
 		dialogNames.put("HTML", "Html.fxml"); 
 		dialogNames.put("Icons", "Icons.fxml");
-		dialogNames.put("Info", "Info.fxml");
+		dialogNames.put("TextInfo", "TextInfo.fxml");
 		dialogNames.put("List", "List.fxml");
 		dialogNames.put("Notebook", "Notebook.fxml");
 		dialogNames.put("Notification", "Notification.fxml");
+		dialogNames.put("Paned", "Paned.fxml");
+		dialogNames.put("Picture", "Picture.fxml");
 		dialogNames.put("Print", "Print.fxml");
 		dialogNames.put("Progress", "Progress.fxml");
 		dialogNames.put("Progress Multi", "ProgressMulti.fxml");
@@ -177,7 +179,7 @@ public class YadGlobal {
 	public File yad = null;
 	
 //	public String[] dialogNames = {"Calendar", "Color", "DnD", "Entry", "File", "Font", "Form", "General", "HTML", 
-//			"Icons", "Info", "List", "Notebook", "Notification", "Print", "Progress", "Progress Multi", "Scale"};
+//			"Icons", "Text-Info", "List", "Notebook", "Notification", "Paned", "Picture", "Print", "Progress", "Progress Multi", "Scale"};
 	
 	Map<String, String> dialogNames = new HashMap<String, String>();
 

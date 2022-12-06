@@ -14,8 +14,7 @@ import javafx.scene.control.ToggleButton;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.stage.FileChooser;
-import javafx.stage.Stage;
+import javafx.stage.DirectoryChooser;
 
 public class IconsController implements Initializable, DialogInterface {
 
@@ -78,10 +77,10 @@ public class IconsController implements Initializable, DialogInterface {
     
     @FXML
     void doReadDir(ActionEvent event) {
-    	FileChooser fileChooser = new FileChooser();
-    	File selectedFile = fileChooser.showOpenDialog((Stage)aPane.getScene().getWindow());
-        if (selectedFile != null) {
-        	txtReadDir.setText(selectedFile.getAbsolutePath());
+    	DirectoryChooser dc = new DirectoryChooser();
+    	File selectedDir = dc.showDialog(aPane.getScene().getWindow());
+        if (selectedDir != null) {
+        	txtReadDir.setText(selectedDir.getAbsolutePath());
         	yg.iniUpdate("readdir", txtReadDir.getText());
         }
     }
@@ -161,7 +160,6 @@ public class IconsController implements Initializable, DialogInterface {
 
 	@Override
 	public void setData(String data) {
-		// TODO Auto-generated method stub
 		
 	}
 

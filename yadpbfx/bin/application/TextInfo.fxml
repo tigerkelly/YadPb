@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="aPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.TextInfoController">
+   <children>
+      <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER_LEFT">
+               <children>
+                  <Label text="Text-Info" textFill="BLUE">
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="btnGeneral" mnemonicParsing="false" onAction="#doGeneral" text="General">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Label prefWidth="75.0" text="File Name:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtFileName" editable="false" prefWidth="400.0" styleClass="readonly">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Open specified file." />
+                     </tooltip>
+                  </TextField>
+                  <Button fx:id="btnFileName" mnemonicParsing="false" onAction="#doFileName" text="^">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Label prefWidth="75.0" text="FG Color:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ColorPicker fx:id="cpFgColor" onAction="#doFgColor" style="-fx-font-size: 14px;">
+                     <value>
+                        <Color />
+                     </value>
+                  </ColorPicker>
+                  <Label text="BG Color:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ColorPicker fx:id="cpBgColor" onAction="#doBgColor" style="-fx-font-size: 14px;" />
+                  <Label text="Font Name:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtFontName" onKeyTyped="#onFontName" prefWidth="200.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Set text font.&#10;FONTNAME must be in a Pango font description format.&#10;By default Monospace is used." />
+                     </tooltip>
+                  </TextField>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Label prefWidth="75.0" text="Justify:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cbJustify" prefWidth="100.0" style="-fx-font-size: 14px;">
+                     <tooltip>
+                        <Tooltip text="Set justification." />
+                     </tooltip></ComboBox>
+                  <Label text="Margins:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtMargins" onKeyTyped="#onMargins" prefWidth="75.0" text="0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Set text margins to NUMBER." />
+                     </tooltip>
+                  </TextField>
+                  <Label text="Language:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox prefWidth="200.0" style="-fx-font-size: 14px;">
+                     <tooltip>
+                        <Tooltip text="Empty TooltipHighlight syntax for specified LANGUAGE. This option works only if yad builds with gtksourceview." />
+                     </tooltip>
+                  </ComboBox>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <Label prefWidth="75.0" text="Theme:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ComboBox fx:id="cbTheme" onAction="#doTheme" prefWidth="250.0" style="-fx-font-size: 14px;">
+                     <tooltip>
+                        <Tooltip text="Set used theme to THEME. This option works only if yad builds with gtksourceview." />
+                     </tooltip>
+                  </ComboBox>
+                  <Label text="Uri Color:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <ColorPicker fx:id="cpUriColor" onAction="#doUriColor" style="-fx-font-size: 14px;">
+                     <tooltip>
+                        <Tooltip text="Set color for links. Default is blue." />
+                     </tooltip></ColorPicker>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <children>
+                  <ToggleButton fx:id="btnEditable" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Editable">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Allow changes to text." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnShowUri" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Show Uri">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Make links in text clickable. Links opens with xdg-open command." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnListen" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Listen">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Listen data from stdin even if filename was specified." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnWrapText" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Wrap Text">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Enable text wrapping." />
+                     </tooltip>
+                  </ToggleButton>
+                  <ToggleButton fx:id="btnTail" mnemonicParsing="false" onAction="#doToggleButton" prefWidth="150.0" text="Tail">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="Empty TooltipAutoscroll to end when new text appears. Works only when text is read from stdin." />
+                     </tooltip>
+                  </ToggleButton>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+         </children>
+         <padding>
+            <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+         </padding>
+      </VBox>
+   </children>
+</AnchorPane>

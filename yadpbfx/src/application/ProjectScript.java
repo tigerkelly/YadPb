@@ -48,7 +48,7 @@ public class ProjectScript {
 		case "Icons":
 			txt.append( buildIcons(ini, dialog));
 			break;
-		case "Info":
+		case "TextInfo":
 			txt.append( buildInfo(ini, dialog));
 			break;
 		case "List":
@@ -57,8 +57,14 @@ public class ProjectScript {
 		case "Notebook":
 			txt.append( buildNotebook(ini, dialog));
 			break;
-		case "Notifaction":
+		case "Notification":
 			txt.append( buildNotification(ini, dialog));
+			break;
+		case "Paned":
+			txt.append( buildPaned(ini, dialog));
+			break;
+		case "Picture":
+			txt.append( buildPicture(ini, dialog));
 			break;
 		case "Print":
 			txt.append( buildPrint(ini, dialog));
@@ -126,7 +132,7 @@ public class ProjectScript {
 			case "Icons":
 				txt.append( buildIcons(ini, s));
 				break;
-			case "Info":
+			case "TextInfo":
 				txt.append( buildInfo(ini, s));
 				break;
 			case "List":
@@ -135,8 +141,14 @@ public class ProjectScript {
 			case "Notebook":
 				txt.append( buildNotebook(ini, s));
 				break;
-			case "Notifaction":
+			case "Notification":
 				txt.append( buildNotification(ini, s));
+				break;
+			case "Paned":
+				txt.append( buildPaned(ini, s));
+				break;
+			case "Picture":
+				txt.append( buildPicture(ini, s));
 				break;
 			case "Print":
 				txt.append( buildPrint(ini, s));
@@ -829,7 +841,7 @@ public class ProjectScript {
 		
 //		System.out.println("In Info");
 		
-		lst.add("--info");
+		lst.add("--text-info");
 		
 		
 		String filename = ini.getString(sec, "filename");
@@ -1060,6 +1072,8 @@ public class ProjectScript {
 			String[] ts = tabs.split(",");
 			
 			for (String t : ts) {
+				String[] b = t.split("~");
+				lst.add("--tabnum=" + b[3]);
 				lst.add("--tab=\"" + t + "\"");
 			}
 		}
@@ -1146,6 +1160,84 @@ public class ProjectScript {
 		
 		return txt.toString();
 	}
+	 
+	 private String buildPaned(IniFile ini, String sec) {
+			StringBuilder txt = new StringBuilder();
+			List<String> lst = new ArrayList<String>();
+			
+//			System.out.println("In Print");
+			
+			lst.add("--paned");
+			
+			String key = ini.getString(sec, "key");
+			String orient = ini.getString(sec, "orient");
+			String splitter = ini.getString(sec, "splitter");
+			
+			if (key != null && key.isEmpty() == false)
+				lst.add(quote("--key=", key));
+			if (orient != null && orient.isEmpty() == false)
+				lst.add(quote("--orient=", orient));
+			if (splitter != null && splitter.isEmpty() == false)
+				lst.add(quote("--splitter=", splitter));
+			
+			if (runFlag == false)
+				txt.append("# Dialog '" + sec + "'\n" + yad);
+			else
+				txt.append(yad + " ");
+			
+			for (String s : lst) {
+				txt.append(s + " ");
+			}
+
+			String general = buildGeneral(ini, sec);
+			
+			if (general != null)
+				txt.append(general);
+			
+			if (runFlag == false)
+				txt.append("\n# -----\n");
+			
+			return txt.toString();
+	 }
+	 
+	 private String buildPicture(IniFile ini, String sec) {
+			StringBuilder txt = new StringBuilder();
+			List<String> lst = new ArrayList<String>();
+			
+//			System.out.println("In Print");
+			
+			lst.add("--picture");
+			
+			String size = ini.getString(sec, "size");
+			String increment = ini.getString(sec, "increment");
+			String filename = ini.getString(sec, "filename");
+			
+			if (size != null && size.isEmpty() == false)
+				lst.add(quote("--size=", size));
+			if (increment != null && increment.isEmpty() == false)
+				lst.add(quote("--inc=", increment));
+			if (filename != null && filename.isEmpty() == false)
+				lst.add(quote("--filename=", filename));
+			
+			if (runFlag == false)
+				txt.append("# Dialog '" + sec + "'\n" + yad);
+			else
+				txt.append(yad + " ");
+			
+			for (String s : lst) {
+				txt.append(s + " ");
+			}
+
+			String general = buildGeneral(ini, sec);
+			
+			if (general != null)
+				txt.append(general);
+			
+			if (runFlag == false)
+				txt.append("\n# -----\n");
+			
+			return txt.toString();
+	 }
 	
 	 private String buildPrint(IniFile ini, String sec) {
 		StringBuilder txt = new StringBuilder();

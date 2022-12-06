@@ -20,7 +20,7 @@
          <children>
             <HBox fx:id="hbox" alignment="BASELINE_CENTER" spacing="5.0">
                <children>
-                  <Label fx:id="lblTitle" text="Yad Project Builder">
+                  <Label fx:id="lblTitle" text="Yad Project Builder" textFill="#0055ff">
                      <font>
                         <Font name="System Bold" size="36.0" />
                      </font>
@@ -98,7 +98,7 @@
                                           <Font name="System Bold" size="14.0" />
                                        </font>
                                     </Label>
-                                    <Label text="(Name,Dialog)">
+                                    <Label text="(Name,Dialog Type)">
                                        <font>
                                           <Font size="14.0" />
                                        </font>

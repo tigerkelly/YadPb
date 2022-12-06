@@ -67,6 +67,6 @@
 .xhtml  XHTML  application/xhtml+xml
 .xls  Microsoft Excel  application/vnd.ms-excel
 .xlsx  Microsoft Excel (OpenXML)  application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-.xml  XML  application/xml is recommended as of RFC 7303 (section 4.1), but text/xml is still used sometimes.
+.xml  XML  application/xml is recommended as of RFC 7303 (section 4.1), but text/xml is still used sometimes. application/xml
 .xul  XUL  application/vnd.mozilla.xul+xml
 .zip  ZIP archive  application/zip

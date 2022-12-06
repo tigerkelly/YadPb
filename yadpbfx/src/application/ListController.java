@@ -557,12 +557,14 @@ public class ListController implements Initializable, DialogInterface {
 	        t.getTableView().getItems().get(t.getTablePosition().getRow()).setText(t.getNewValue());
 	        columnNames.remove(t.getOldValue());
 	        columnNames.add(t.getNewValue());
+	        saveColumns();
 	    });
 
 		colType.setCellFactory(ComboBoxTableCell.forTableColumn(FXCollections.observableArrayList(types)));
 
 		colType.setOnEditCommit((TableColumn.CellEditEvent<ColumnType, String> t) -> {
 	        t.getTableView().getItems().get(t.getTablePosition().getRow()).setType(t.getNewValue());
+	        saveColumns();
 	    });
 
 		tblColumns.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
@@ -587,7 +589,7 @@ public class ListController implements Initializable, DialogInterface {
 		String dclickaction = yg.currIni.getString(yg.currDialog, "dclickaction");
 		String selectaction = yg.currIni.getString(yg.currDialog, "selectaction");
 		String addaction = yg.currIni.getString(yg.currDialog, "addaction");
-		String type = yg.currIni.getString(yg.currDialog, "type");
+//		String type = yg.currIni.getString(yg.currDialog, "type");
 		String gridlines = yg.currIni.getString(yg.currDialog, "gridlines");
 		String ellipsize = yg.currIni.getString(yg.currDialog, "ellipsize");
 		String printcolumn = yg.currIni.getString(yg.currDialog, "printcolumn");
@@ -643,8 +645,8 @@ public class ListController implements Initializable, DialogInterface {
 			txtSelectAction.setText(selectaction);
 		if (addaction != null)
 			txtAddAction.setText(addaction);
-		if (type != null)
-			cbColumnType.getSelectionModel().select(type);
+//		if (type != null)
+//			cbColumnType.getSelectionModel().select(type);
 		if (gridlines != null)
 			cbGridLines.getSelectionModel().select(gridlines);
 		if (ellipsize != null)

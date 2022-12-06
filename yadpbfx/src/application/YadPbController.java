@@ -332,14 +332,14 @@ public class YadPbController implements Initializable, DialogInterface {
 			
 		});
 
-		MenuItem mCreateScript = new MenuItem("Show Script");
+		MenuItem mCreateScript = new MenuItem("Show Commands");
 		mCreateScript.setOnAction((ActionEvent e) -> {
 			ProjectScript ps = new ProjectScript();
 			String dlg = ps.createAllDialogs(yg.currIni);
 
 			if (dlg != null && dlg.isEmpty() == false) {
 				
-				yg.centerScene(lstProjects, "OpenScript.fxml", "Project Script for", dlg);
+				yg.centerScene(lstProjects, "OpenScript.fxml", "Project Comamnds for", dlg);
 			}
 			
 		});
@@ -594,7 +594,7 @@ public class YadPbController implements Initializable, DialogInterface {
 			});
 		});
 		
-		MenuItem mDialogScript = new MenuItem("Show Script");
+		MenuItem mDialogScript = new MenuItem("Show Command");
 		mDialogScript.setOnAction((ActionEvent e) -> {
 			
 			if (yg.yad == null) {

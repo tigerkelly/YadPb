@@ -1,4 +1,14 @@
 
+2022-12-06
+1.0.6		- Icon screen was selecting file instead of a directory.
+			  Changed 'Info' to 'TextInfo'
+			  Edited cells in the List screen was not saving the changed columns.
+			  List screen column type was showing an invalid type on screen init.
+			  On the Notebook screen add tabnum field in tabs table.
+			  Added code to allow you to link or unlink other dialogs to the Notebook dialog.
+			  Added paned screen which also allows you to link dialogs to the Paned dialog.
+			  Added picture screen.
+
 2022-12-04
 1.0.5		- Lots of work on the forms screen and the script generation and still not done :(.
 			  Added HZ for horizontal line.
