@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="aPane" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.PlugManagerController">
+   <children>
+      <VBox spacing="4.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER">
+               <children>
+                  <Label fx:id="lblScreenTitle" text="Label" textFill="#0077ff">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox spacing="4.0">
+               <children>
+                  <TableView fx:id="tblPlugs" editable="true" prefHeight="250.0" prefWidth="400.0">
+                    <columns>
+                      <TableColumn fx:id="colPlugName" prefWidth="225.0" text="Plug Name" />
+                      <TableColumn fx:id="colPlugNum" prefWidth="140.0" text="Plug Num" />
+                    </columns>
+                  </TableView>
+               </children>
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="4.0">
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+               <children>
+                  <Label text="Plug Name:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtPlugName" prefWidth="150.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="A unique name for the plug." />
+                     </tooltip>
+                  </TextField>
+                  <Label text="Plug Num:">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="txtPlugNum" prefWidth="75.0">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                     <tooltip>
+                        <Tooltip text="A unique number for this plug name." />
+                     </tooltip>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" spacing="4.0">
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+               <children>
+                  <Button fx:id="btnPlugAdd" mnemonicParsing="false" onAction="#doPlugAdd" prefWidth="100.0" text="Add">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Button fx:id="btnPlugDelete" mnemonicParsing="false" onAction="#doPlugDelete" prefWidth="100.0" text="Delete">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+            <HBox alignment="BOTTOM_LEFT" prefHeight="50.0" spacing="4.0">
+               <padding>
+                  <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+               </padding>
+               <children>
+                  <Button fx:id="btnSave" mnemonicParsing="false" onAction="#doSave" prefWidth="150.0" text="Save">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+                  <Region HBox.hgrow="ALWAYS" />
+                  <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#doCancel" prefWidth="150.0" text="Cancel">
+                     <font>
+                        <Font size="14.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

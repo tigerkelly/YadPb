@@ -274,57 +274,62 @@ public class FileController implements Initializable, DialogInterface {
 		}
 		
 		int n = 0;
+		int found = -1;
 		for (String f : mimeNames) {
 			if (f.equals(name) == true) {
+				found = n;
 				break;
 			}
 			n++;
 		}
 		
-		if (n >= mimeNames.size())
+		if (found == -1 || found >= mimeNames.size())
 			return;
 		
-		MimeFilter mf = tblMimeFilter.getItems().get(n);
+//		MimeFilter mf = tblMimeFilter.getItems().get(n);
+//		
+//		Alert messageBox = new Alert(Alert.AlertType.CONFIRMATION);
+//		messageBox.setTitle("Warning");
+//		ButtonType yesButton = new ButtonType("Yes", ButtonData.YES);
+//		ButtonType noButton = new ButtonType("No", ButtonData.NO);
+//		messageBox.getButtonTypes().setAll(yesButton, noButton);
+//		
+//		messageBox.setContentText("Delete '" + name + "'?");
+//		
+//		// Code to center dialog within parent.
+//		Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
+//	    Stage ps = (Stage) btnGeneral.getScene().getWindow();
+//
+//		ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
+//			double stageWidth = newValue.doubleValue();
+//			stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
+//		};
+//		ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
+//			double stageHeight = newValue.doubleValue();
+//			stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
+//		};
+//
+//		stage.widthProperty().addListener(widthListener);
+//		stage.heightProperty().addListener(heightListener);
+//
+//		// Once the window is visible, remove the listeners
+//		stage.setOnShown(e2 -> {
+//			stage.widthProperty().removeListener(widthListener);
+//			stage.heightProperty().removeListener(heightListener);
+//		});
+//		
+//		messageBox.showAndWait().ifPresent(type -> {
+//			if (type.getButtonData() == ButtonData.YES) {
+////				System.out.println("mf " + mf);
+//				tblMimeFilter.getItems().remove(mf);
+//				mimeNames.remove(mf.getName());
+//			} else if (type == ButtonType.NO) {
+//				return;
+//			}
+//		});
 		
-		Alert messageBox = new Alert(Alert.AlertType.CONFIRMATION);
-		messageBox.setTitle("Warning");
-		ButtonType yesButton = new ButtonType("Yes", ButtonData.YES);
-		ButtonType noButton = new ButtonType("No", ButtonData.NO);
-		messageBox.getButtonTypes().setAll(yesButton, noButton);
-		
-		messageBox.setContentText("Delete '" + name + "'?");
-		
-		// Code to center dialog within parent.
-		Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
-	    Stage ps = (Stage) btnGeneral.getScene().getWindow();
-
-		ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
-			double stageWidth = newValue.doubleValue();
-			stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
-		};
-		ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
-			double stageHeight = newValue.doubleValue();
-			stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
-		};
-
-		stage.widthProperty().addListener(widthListener);
-		stage.heightProperty().addListener(heightListener);
-
-		// Once the window is visible, remove the listeners
-		stage.setOnShown(e2 -> {
-			stage.widthProperty().removeListener(widthListener);
-			stage.heightProperty().removeListener(heightListener);
-		});
-		
-		messageBox.showAndWait().ifPresent(type -> {
-			if (type.getButtonData() == ButtonData.YES) {
-//				System.out.println("mf " + mf);
-				tblMimeFilter.getItems().remove(mf);
-				mimeNames.remove(mf.getName());
-			} else if (type == ButtonType.NO) {
-				return;
-			}
-		});
+		tblMimeFilter.getItems().remove(found);
+		mimeNames.remove(found);
 		
 		txtMimeName.setText("");
 		txtMimeFilter.setText("");
@@ -503,57 +508,62 @@ public class FileController implements Initializable, DialogInterface {
 		}
 		
 		int n = 0;
+		int found = -1;
 		for (String f : filterNames) {
 			if (f.equals(name) == true) {
+				found = n;
 				break;
 			}
 			n++;
 		}
 		
-		if (n >= filterNames.size())
+		if (found == -1 || found >= filterNames.size())
 			return;
 		
-		FileFilter ff = tblFileFilter.getItems().get(n);
+//		FileFilter ff = tblFileFilter.getItems().get(n);
+//		
+//		Alert messageBox = new Alert(Alert.AlertType.CONFIRMATION);
+//		messageBox.setTitle("Warning");
+//		ButtonType yesButton = new ButtonType("Yes", ButtonData.YES);
+//		ButtonType noButton = new ButtonType("No", ButtonData.NO);
+//		messageBox.getButtonTypes().setAll(yesButton, noButton);
+//		
+//		messageBox.setContentText("Delete '" + name + "'?");
+//		
+//		// Code to center dialog within parent.
+//		Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
+//	    Stage ps = (Stage) btnGeneral.getScene().getWindow();
+//
+//		ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
+//			double stageWidth = newValue.doubleValue();
+//			stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
+//		};
+//		ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
+//			double stageHeight = newValue.doubleValue();
+//			stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
+//		};
+//
+//		stage.widthProperty().addListener(widthListener);
+//		stage.heightProperty().addListener(heightListener);
+//
+//		// Once the window is visible, remove the listeners
+//		stage.setOnShown(e2 -> {
+//			stage.widthProperty().removeListener(widthListener);
+//			stage.heightProperty().removeListener(heightListener);
+//		});
+//		
+//		messageBox.showAndWait().ifPresent(type -> {
+//			if (type.getButtonData() == ButtonData.YES) {
+////				System.out.println("ff " + ff);
+//				tblFileFilter.getItems().remove(ff);
+//				filterNames.remove(ff.getName());
+//			} else if (type == ButtonType.NO) {
+//				return;
+//			}
+//		});
 		
-		Alert messageBox = new Alert(Alert.AlertType.CONFIRMATION);
-		messageBox.setTitle("Warning");
-		ButtonType yesButton = new ButtonType("Yes", ButtonData.YES);
-		ButtonType noButton = new ButtonType("No", ButtonData.NO);
-		messageBox.getButtonTypes().setAll(yesButton, noButton);
-		
-		messageBox.setContentText("Delete '" + name + "'?");
-		
-		// Code to center dialog within parent.
-		Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
-	    Stage ps = (Stage) btnGeneral.getScene().getWindow();
-
-		ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
-			double stageWidth = newValue.doubleValue();
-			stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
-		};
-		ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
-			double stageHeight = newValue.doubleValue();
-			stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
-		};
-
-		stage.widthProperty().addListener(widthListener);
-		stage.heightProperty().addListener(heightListener);
-
-		// Once the window is visible, remove the listeners
-		stage.setOnShown(e2 -> {
-			stage.widthProperty().removeListener(widthListener);
-			stage.heightProperty().removeListener(heightListener);
-		});
-		
-		messageBox.showAndWait().ifPresent(type -> {
-			if (type.getButtonData() == ButtonData.YES) {
-//				System.out.println("ff " + ff);
-				tblFileFilter.getItems().remove(ff);
-				filterNames.remove(ff.getName());
-			} else if (type == ButtonType.NO) {
-				return;
-			}
-		});
+		tblFileFilter.getItems().remove(found);
+		filterNames.remove(found);
 		
 		txtFilterName.setText("");
 		txtFilterFilter.setText("");

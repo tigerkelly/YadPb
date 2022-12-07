@@ -286,19 +286,24 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <Label prefWidth="110.0" text="Timeout Secs:">
+                  <Label prefWidth="110.0" text="Plug:">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtTimeoutSecs" prefWidth="75.0">
+                  <TextField fx:id="txtPlug" prefWidth="100.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                      <tooltip>
-                        <Tooltip text="Set the dialog timeout in seconds." />
+                        <Tooltip text="Run dialog in plug mode for swallow as a notebook tab." />
                      </tooltip>
                   </TextField>
+                  <ComboBox fx:id="cbPlugs" onAction="#doPlugs" prefWidth="100.0" style="-fx-font-size: 14px;">
+                     <tooltip>
+                        <Tooltip text="Select Plug number by name." />
+                     </tooltip>
+                  </ComboBox>
                   <Label text="TabNum:">
                      <font>
                         <Font size="14.0" />
@@ -340,17 +345,17 @@
             </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <children>
-                  <Label prefWidth="110.0" text="Plug:">
+                  <Label prefWidth="110.0" text="Timeout Secs:">
                      <font>
                         <Font size="14.0" />
                      </font>
                   </Label>
-                  <TextField fx:id="txtPlug" prefWidth="100.0">
+                  <TextField fx:id="txtTimeoutSecs" prefWidth="75.0">
                      <font>
                         <Font size="14.0" />
                      </font>
                      <tooltip>
-                        <Tooltip text="Run dialog in plug mode for swallow as a notebook tab." />
+                        <Tooltip text="Set the dialog timeout in seconds." />
                      </tooltip>
                   </TextField>
                   <Label text="Image Path:">

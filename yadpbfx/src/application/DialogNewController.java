@@ -11,12 +11,13 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.stage.Stage;
 import tbl.DialogType;
 
-public class DialogNewController implements Initializable {
+public class DialogNewController implements Initializable, DialogInterface {
 
     @FXML
     private ResourceBundle resources;
@@ -35,6 +36,9 @@ public class DialogNewController implements Initializable {
 
     @FXML
     private TextField txtDialogName;
+    
+    @FXML
+    private Label lblScreenTitle;
     
     private YadGlobal yg = YadGlobal.getInstance();
     private DialogType dt = null;
@@ -110,6 +114,21 @@ public class DialogNewController implements Initializable {
 	
 	public DialogType getDialog() {
 		return dt;
+	}
+
+	@Override
+	public void updateDialog() {
+		
+	}
+
+	@Override
+	public void saveDialog() {
+		
+	}
+
+	@Override
+	public void setData(String data) {
+		lblScreenTitle.setText("Dialog for " + data);
 	}
 
 }

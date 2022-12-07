@@ -505,59 +505,64 @@ public class FormController implements Initializable, DialogInterface {
 			return;
 		
 		int n = 0;
+		int found = -1;
 		for (String f : fieldNames) {
 			if (f.equals(txt) == true) {
+				found = n;
 				break;
 			}
 			n++;
 		}
 		
-		if (n >= fieldNames.size())
+		if (found == -1 || found >= fieldNames.size())
 			return;
 		
-		TextType tt = tblButtons.getItems().get(n);
+//		TextType tt = tblButtons.getItems().get(n);
+//		
+//		Alert messageBox = new Alert(Alert.AlertType.CONFIRMATION);
+//		Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
+//		stage.hide();
+//		
+//		messageBox.setTitle("Warning");
+//		ButtonType yesButton = new ButtonType("Yes", ButtonData.YES);
+//		ButtonType noButton = new ButtonType("No", ButtonData.NO);
+//		messageBox.getButtonTypes().setAll(yesButton, noButton);
+//		
+//		messageBox.setContentText("Delete '" + txt + "'?");
+//		
+//		// Code to center dialog within parent.
+//		Stage ps = (Stage) aPane.getScene().getWindow();
+//
+//		ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
+//			double stageWidth = newValue.doubleValue();
+//			stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
+//		};
+//		ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
+//			double stageHeight = newValue.doubleValue();
+//			stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
+//		};
+//
+//		stage.widthProperty().addListener(widthListener);
+//		stage.heightProperty().addListener(heightListener);
+//
+//		// Once the window is visible, remove the listeners
+//		stage.setOnShown(e2 -> {
+//			stage.widthProperty().removeListener(widthListener);
+//			stage.heightProperty().removeListener(heightListener);
+//		});
+//		
+//		messageBox.showAndWait().ifPresent(type -> {
+//			if (type.getButtonData() == ButtonData.YES) {
+////				System.out.println("tt " + tt);
+//				tblButtons.getItems().remove(tt);
+//				fieldNames.remove(tt.getText());
+//			} else if (type == ButtonType.NO) {
+//				return;
+//			}
+//		});
 		
-		Alert messageBox = new Alert(Alert.AlertType.CONFIRMATION);
-		Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
-		stage.hide();
-		
-		messageBox.setTitle("Warning");
-		ButtonType yesButton = new ButtonType("Yes", ButtonData.YES);
-		ButtonType noButton = new ButtonType("No", ButtonData.NO);
-		messageBox.getButtonTypes().setAll(yesButton, noButton);
-		
-		messageBox.setContentText("Delete '" + txt + "'?");
-		
-		// Code to center dialog within parent.
-		Stage ps = (Stage) aPane.getScene().getWindow();
-
-		ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
-			double stageWidth = newValue.doubleValue();
-			stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
-		};
-		ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
-			double stageHeight = newValue.doubleValue();
-			stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
-		};
-
-		stage.widthProperty().addListener(widthListener);
-		stage.heightProperty().addListener(heightListener);
-
-		// Once the window is visible, remove the listeners
-		stage.setOnShown(e2 -> {
-			stage.widthProperty().removeListener(widthListener);
-			stage.heightProperty().removeListener(heightListener);
-		});
-		
-		messageBox.showAndWait().ifPresent(type -> {
-			if (type.getButtonData() == ButtonData.YES) {
-//				System.out.println("tt " + tt);
-				tblButtons.getItems().remove(tt);
-				fieldNames.remove(tt.getText());
-			} else if (type == ButtonType.NO) {
-				return;
-			}
-		});
+		tblButtons.getItems().remove(found);
+		fieldNames.remove(found);
 		
 		txtButtonText.setText("");
 		cbButtonType.getSelectionModel().select(defaultType);
@@ -787,6 +792,7 @@ public class FormController implements Initializable, DialogInterface {
 					lbl = "HORZ";
 				
 				tblButtons.getItems().add(new TextType(lbl, typ, icn, tip, val));
+				fieldNames.add(lbl);
 			}
 		}
     }

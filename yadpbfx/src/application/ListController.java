@@ -288,59 +288,21 @@ public class ListController implements Initializable, DialogInterface {
  		}
 
  		int n = 0;
+ 		int found = -1;
  		for (String f : columnNames) {
  			if (f.equals(txt)) {
+ 				found = n;
  				break;
  			}
  			n++;
  		}
 
- 		if (n >= columnNames.size())
+ 		if (found == -1 || found >= columnNames.size())
  			return;
-
- 		ColumnType ct = tblColumns.getItems().get(n);
-
- 		Alert messageBox = new Alert(Alert.AlertType.CONFIRMATION);
- 		Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
-		stage.hide();
-		
- 		messageBox.setTitle("Warning");
- 		ButtonType yesButton = new ButtonType("Yes", ButtonData.YES);
- 		ButtonType noButton = new ButtonType("No", ButtonData.NO);
- 		messageBox.getButtonTypes().setAll(yesButton, noButton);
-
- 		messageBox.setContentText("Delete '" + txt + "'?");
  		
- 	// Code to center dialog within parent.
-		Stage ps = (Stage) btnAddOnTop.getScene().getWindow();
-
-		ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
-			double stageWidth = newValue.doubleValue();
-			stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
-		};
-		ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
-			double stageHeight = newValue.doubleValue();
-			stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
-		};
-
-		stage.widthProperty().addListener(widthListener);
-		stage.heightProperty().addListener(heightListener);
-
-		// Once the window is visible, remove the listeners
-		stage.setOnShown(e2 -> {
-			stage.widthProperty().removeListener(widthListener);
-			stage.heightProperty().removeListener(heightListener);
-		});
-
- 		messageBox.showAndWait().ifPresent(type -> {
- 			if (type.getButtonData() == ButtonData.YES) {
-// 				System.out.println("ct " + ct);
- 				tblColumns.getItems().remove(ct);
- 				columnNames.remove(ct.getText());
- 			} else if (type == ButtonType.NO) {
- 				return;
- 			}
- 		});
+ 		tblColumns.getItems().remove(found);
+		columnNames.remove(found);
+ 		
 
  		txtColumnName.setText("");
  		cbColumnType.getSelectionModel().select(8);
@@ -620,12 +582,15 @@ public class ListController implements Initializable, DialogInterface {
 
 		if (columns != null) {
 			tblColumns.getItems().clear();
+			columnNames.clear();
 
 			String[] cols = columns.split(",");
 
 			for (String c : cols) {
 				String[] a = c.split(":");
 				tblColumns.getItems().add(new ColumnType(a[0], a[1]));
+				
+				columnNames.add(a[0]);
 			}
 		}
 

@@ -19,6 +19,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
@@ -42,6 +43,9 @@ public class PanedController implements Initializable, DialogInterface {
 
     @FXML
     private TextField txtKey;
+    
+    @FXML
+    private TextField txtTabnum;
 
     @FXML
     private TextField txtSplitter;
@@ -51,6 +55,11 @@ public class PanedController implements Initializable, DialogInterface {
     @FXML
     void doGeneral(ActionEvent event) {
     	yg.showGeneral(btnGeneral);
+    }
+    
+    @FXML
+    void onKey(KeyEvent event) {
+    	yg.iniUpdate("key", txtKey.getText());
     }
 
     @FXML
@@ -77,12 +86,14 @@ public class PanedController implements Initializable, DialogInterface {
 			ObservableList<Node> lst = fpLinkedDialogs.getChildren();
 			
 			String keyNum = yg.currIni.getString(yg.currDialog, "key");
-			if (keyNum == null || keyNum.isEmpty() == true) {
+			String tabNum = txtTabnum.getText();
+//			System.out.println(keyNum + ", " + tabNum);
+			if (keyNum == null || keyNum.isEmpty() == true || tabNum == null || tabNum.isEmpty() == true) {
 				Alert messageBox = new Alert(Alert.AlertType.ERROR);
 				Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
 				stage.hide();
 
-				messageBox.setContentText("The 'Key' field if blank.");
+				messageBox.setContentText("The 'Key' or 'Tab Num' field is blank.");
 				
 				// Code to center dialog within parent.
 				Stage ps = (Stage) aPane.getScene().getWindow();
@@ -113,7 +124,7 @@ public class PanedController implements Initializable, DialogInterface {
 			for (Node n : lst) {
 				Label lbl = (Label)n;
 				
-				if (lbl.getText().equals(dialog) == true) {
+				if (lbl.getText().startsWith(dialog) == true) {
 					found = true;
 					break;
 				}
@@ -121,13 +132,14 @@ public class PanedController implements Initializable, DialogInterface {
 			
 			if (found == false) {
 				// May want to sort the list.
-				Label lbl = new Label(dialog);
+				Label lbl = new Label(dialog + " " + tabNum);
 				lbl.setStyle("-fx-border-color: black;");
 				lbl.setAlignment(Pos.CENTER);
 				lbl.setPrefWidth(135.0);
 				fpLinkedDialogs.getChildren().add(lbl);
 				
 				yg.currIni.addValuePair(dialog + "-General", "plug", keyNum);
+				yg.currIni.addValuePair(dialog + "-General", "tabnum", tabNum);
 			}
 		});
 		
@@ -138,12 +150,13 @@ public class PanedController implements Initializable, DialogInterface {
 			ObservableList<Node> lst = fpLinkedDialogs.getChildren();
 			
 			String keyNum = yg.currIni.getString(yg.currDialog, "key");
-			if (keyNum == null || keyNum.isEmpty() == true) {
+			String tabNum = txtTabnum.getText();
+			if (keyNum == null || keyNum.isEmpty() == true || tabNum == null || tabNum.isEmpty() == true) {
 				Alert messageBox = new Alert(Alert.AlertType.ERROR);
 				Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
 				stage.hide();
 
-				messageBox.setContentText("The 'Key' field if blank.");
+				messageBox.setContentText("The 'Key' or 'Tab Num' field is blank.");
 				
 				// Code to center dialog within parent.
 				Stage ps = (Stage) aPane.getScene().getWindow();
@@ -175,7 +188,7 @@ public class PanedController implements Initializable, DialogInterface {
 			for (Node n : lst) {
 				Label lbl = (Label)n;
 				
-				if (lbl.getText().equals(dialog) == true) {
+				if (lbl.getText().startsWith(dialog) == true) {
 					found = idx;
 					break;
 				}
@@ -187,6 +200,7 @@ public class PanedController implements Initializable, DialogInterface {
 				lst.remove(found);
 				
 				yg.currIni.removeValuePair(dialog + "-General", "plug");
+				yg.currIni.removeValuePair(dialog + "-General", "tabnum");
 			}
 		});
 		
@@ -253,11 +267,12 @@ public class PanedController implements Initializable, DialogInterface {
     			continue;
     		
     		String plug = yg.currIni.getString(s + "-General", "plug");
+    		String tabnum = yg.currIni.getString(s + "-General", "tabnum");
     		if (plug == null || plug.isEmpty() == true)
     			continue;
     		
     		if (plug.equals(keyNum) == true) {
-    			Label lbl = new Label(s.split("-")[0]);
+    			Label lbl = new Label(s.split("-")[0] + " " + tabnum);
 				lbl.setStyle("-fx-border-color: black;");
 				lbl.setAlignment(Pos.CENTER);
 				lbl.setPrefWidth(135.0);

@@ -42,6 +42,7 @@
 	fixed = false
 	splash = false
 	nofocus = false
+	tabnum = 1
 
 [Color]
 	type = Color
@@ -114,6 +115,7 @@
 	splash = false
 	nofocus = false
 	plug = 3456
+	tabnum = 1
 
 [File]
 	type = File
@@ -221,6 +223,7 @@
 	type = Notebook
 	tabpos = Left
 	key = 3456
+	tabs = Tab1~document-open~Open a Document.,Tab2~gtk-ok~
 
 [Notebook-General]
 	buttonlayout = End
@@ -247,6 +250,7 @@
 
 [Paned]
 	type = Paned
+	key = 3456
 
 [Paned-General]
 	buttonlayout = End
@@ -309,6 +313,7 @@
 	response = 0
 	hscroll = Auto
 	vscroll = Auto
+	plug = 1
 
 [Scale]
 	type = Scale

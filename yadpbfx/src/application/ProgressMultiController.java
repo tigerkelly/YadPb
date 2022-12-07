@@ -122,35 +122,20 @@ public class ProgressMultiController implements Initializable, DialogInterface {
 			return;
 
 		int n = 0;
+		int found = -1;
 		for (String f : barNames) {
 			if (f.equals(txt)) {
+				found = n;
 				break;
 			}
 			n++;
 		}
 
-		if (n >= barNames.size())
+		if (found == -1 || found >= barNames.size())
 			return;
-
-		ColumnType ct = tblProgressBars.getItems().get(n);
-
-		Alert messageBox = new Alert(Alert.AlertType.CONFIRMATION);
-		messageBox.setTitle("Warning");
-		ButtonType yesButton = new ButtonType("Yes", ButtonData.YES);
-		ButtonType noButton = new ButtonType("No", ButtonData.NO);
-		messageBox.getButtonTypes().setAll(yesButton, noButton);
-
-		messageBox.setContentText("Delete '" + txt + "'?");
-
-		messageBox.showAndWait().ifPresent(type -> {
-			if (type.getButtonData() == ButtonData.YES) {
-//				System.out.println("ct " + ct);
-				tblProgressBars.getItems().remove(ct);
-				barNames.remove(ct.getText());
-			} else if (type == ButtonType.NO) {
-				return;
-			}
-		});
+		
+		tblProgressBars.getItems().remove(found);
+		barNames.remove(found);
 
 		txtProgressName.setText("");
 		cbProgressType.getSelectionModel().select(0);

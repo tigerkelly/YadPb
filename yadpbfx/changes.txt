@@ -1,4 +1,12 @@
 
+2022-12-07
+1.0.7		- Added Tab Num to Notebook screen when linking dialogs to notebook tabs.
+			  Added Tab Num to Paned screen when linking dialogs to paned tabs.
+			  All tables were not deleting the correct item.
+			  Can now select plug number by name in the General settings screen.
+			  Added YAD command line help to Help menu.
+			  Still working on any bugs I find.
+
 2022-12-06
 1.0.6		- Icon screen was selecting file instead of a directory.
 			  Changed 'Info' to 'TextInfo'

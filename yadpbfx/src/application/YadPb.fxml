@@ -55,6 +55,7 @@
                     <items>
                       <MenuItem fx:id="mbtnHelp" mnemonicParsing="false" onAction="#onHelp" style="-fx-font-size: 14px;" text="Help" visible="false" />
                         <MenuItem fx:id="mbtnYadManual" mnemonicParsing="false" onAction="#onYadManual" style="-fx-font-size: 14px;" text="YAD Manual" />
+                        <MenuItem fx:id="mbtnYadCmd" mnemonicParsing="false" onAction="#onYadCmd" style="-fx-font-size: 14px;" text="YAD Cmd Line" />
                         <SeparatorMenuItem mnemonicParsing="false" visible="false" />
                       <MenuItem fx:id="mbtnAbout" mnemonicParsing="false" onAction="#onAbout" style="-fx-font-size: 14px;" text="About" />
                     </items>

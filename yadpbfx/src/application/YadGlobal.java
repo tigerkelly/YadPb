@@ -144,6 +144,21 @@ public class YadGlobal {
 				e.printStackTrace();
 			}
 		}
+		
+		f = new File(System.getProperty("user.home") + File.separator + "YadPb" + File.separator + "mk_yad_cmd.sh");
+		f2 = new File(System.getProperty("user.home") + File.separator + "YadPb" + File.separator + "yad_cmd.txt");
+		
+		if (f.exists() == true && f2.exists() == false) {
+			try {
+				ProcessBuilder pb = new ProcessBuilder(f.getAbsolutePath(), yad.getAbsolutePath());
+				Process process = pb.start();
+				process.waitFor();
+			} catch (IOException e2) {
+				e2.printStackTrace();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
 
 		sceneNav = new SceneNav();
 		
@@ -601,7 +616,6 @@ public class YadGlobal {
 			if (data != null) {
 				((DialogInterface)loader.getController()).setData(data);
 			}
-			
 
 			stage.showAndWait();
 

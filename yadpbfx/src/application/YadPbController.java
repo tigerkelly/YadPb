@@ -166,6 +166,47 @@ public class YadPbController implements Initializable, DialogInterface {
 			e1.printStackTrace();
 		}
     }
+	
+	@FXML
+    void onYadCmd(ActionEvent event) {
+		try {
+		    Stage stage = new Stage();
+		    stage.setTitle("Yad Command line");
+		    
+		    FXMLLoader loader = new FXMLLoader(getClass().getResource("FileViewer.fxml"));
+		    
+		    stage.initModality(Modality.APPLICATION_MODAL);
+
+		    stage.setScene(new Scene(loader.load()));
+		    FileViewerController controller = loader.<FileViewerController>getController();
+		    controller.setFileName("txts/yad_cmd.txt", 1130.0, 900.0, false);
+		    
+		    Stage ps = (Stage) aPane.getScene().getWindow();
+
+			ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
+				double stageWidth = newValue.doubleValue();
+				stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
+			};
+			ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
+				double stageHeight = newValue.doubleValue();
+				stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
+			};
+
+			stage.widthProperty().addListener(widthListener);
+			stage.heightProperty().addListener(heightListener);
+
+			// Once the window is visible, remove the listeners
+			stage.setOnShown(e2 -> {
+				stage.widthProperty().removeListener(widthListener);
+				stage.heightProperty().removeListener(heightListener);
+			});
+			
+		    stage.showAndWait();
+		    
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+    }
 
     @FXML
     void onBackups(ActionEvent event) {
@@ -331,6 +372,13 @@ public class YadPbController implements Initializable, DialogInterface {
 			doNewProject();
 			
 		});
+		MenuItem mPlugs = new MenuItem("Manage Plugs");
+		
+		mPlugs.setOnAction((ActionEvent e) -> {
+			
+			doManagePlugs();
+			
+		});
 
 		MenuItem mCreateScript = new MenuItem("Show Commands");
 		mCreateScript.setOnAction((ActionEvent e) -> {
@@ -418,7 +466,7 @@ public class YadPbController implements Initializable, DialogInterface {
 		
 		SeparatorMenuItem sep = new SeparatorMenuItem();
 
-		cm.getItems().addAll(mProjectTitle, sep, mOpenProject, mNewProject, mCreateScript, mProjectData, mDeleteProject);
+		cm.getItems().addAll(mProjectTitle, sep, mOpenProject, mNewProject, mCreateScript, mPlugs, mProjectData, mDeleteProject);
 		
 		cm.setOnShowing(new EventHandler<WindowEvent>() {
 			public void handle(WindowEvent e) {
@@ -427,10 +475,12 @@ public class YadPbController implements Initializable, DialogInterface {
 					mCreateScript.setDisable(true);
 					mProjectData.setDisable(true);
 					mDeleteProject.setDisable(true);
+					mPlugs.setDisable(true);
 				} else {
 					mCreateScript.setDisable(false);
 					mProjectData.setDisable(false);
 					mDeleteProject.setDisable(false);
+					mPlugs.setDisable(false);
 				}
 			}
 		});
@@ -454,6 +504,8 @@ public class YadPbController implements Initializable, DialogInterface {
 			    stage.setScene(new Scene(loader.load()));
 			    stage.hide();
 			    DialogNewController dnc = loader.getController();
+			    
+			    dnc.setData(yg.currProject);
 			    
 			    // Code to center dialog within parent.
 			    Stage ps = (Stage) lblTitle.getScene().getWindow();
@@ -634,6 +686,34 @@ public class YadPbController implements Initializable, DialogInterface {
 			}
 			
 			ProjectScript ps = new ProjectScript();
+			
+			String type = yg.currIni.getString(yg.currDialog, "type");
+			
+			if (type.equals("Notebook") == true || type.equals("Paned") == true) {
+				String key = yg.currIni.getString(yg.currDialog, "key");
+				if (key != null && key.isEmpty() == false) {
+					// Search for the linked dialogs for this Notebook or Paned dialog.
+					Object[] secs = yg.currIni.getSectionNames();
+				
+					for (Object sec : secs) {
+						String s = (String)sec;
+						if (s.endsWith("-General") == true || s.equals("YadPb-Plugs") == true)
+							continue;
+						
+						if (s.equals(yg.currDialog) == true)
+							continue;
+						
+						String plug = yg.currIni.getString(sec + "-General", "plug");
+						if (plug == null || plug.isEmpty() == true || plug.equals(key) == false)
+							continue;
+						
+						String txt = ps.createDialog(yg.currIni, s);
+						if (txt != null && txt.isEmpty() == false)
+							taData.appendText(txt + "\n\n");
+					}
+				}
+			}
+			
 			String dlg = ps.createDialog(yg.currIni, yg.currDialog);
 			
 //			System.out.println("dlg " + dlg);
@@ -909,6 +989,10 @@ public class YadPbController implements Initializable, DialogInterface {
 	    	lstProjects.getSelectionModel().select(yg.itemProjects.size() - 1);
 	    	loadProject(yg.openPrjName);
 	    }
+	}
+	
+	private void doManagePlugs() {
+		yg.centerScene(lblTitle, "PlugManager.fxml", "Plug Manager", yg.currProject);
 	}
 	
 	private void runDialog(String dlg) {

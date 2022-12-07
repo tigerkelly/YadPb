@@ -14,6 +14,15 @@
    <children>
       <VBox spacing="4.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
+            <HBox alignment="CENTER">
+               <children>
+                  <Label fx:id="lblScreenTitle" text="Label" textFill="#0077ff">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                  </Label>
+               </children>
+            </HBox>
             <HBox alignment="CENTER_LEFT" spacing="4.0">
                <padding>
                   <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />

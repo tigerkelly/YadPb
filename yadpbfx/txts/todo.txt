@@ -1,0 +1,9 @@
+
+Things yet to do.
+
+- When outputing notebook or paned dialogs add the lined dialogs as well. (Partially done)
+- Figure out some way to allow user to create a bash or sh script per project.
+- Add a diff like feature for projects.
+
+Questions
+- Do we need the ability to have multiple projects open at once?

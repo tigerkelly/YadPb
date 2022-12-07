@@ -126,34 +126,20 @@ public class ScaleController implements Initializable, DialogInterface {
 			return;
 
 		int n = 0;
+		int found = -1;
 		for (String f : markNames) {
 			if (f.equals(txt)) {
+				found = n;
 				break;
 			}
 			n++;
 		}
 
-		if (n >= markNames.size())
+		if (found == -1 || found >= markNames.size())
 			return;
-
-		MarkValue mv = tblMarks.getItems().get(n);
-
-		Alert messageBox = new Alert(Alert.AlertType.CONFIRMATION);
-		messageBox.setTitle("Warning");
-		ButtonType yesButton = new ButtonType("Yes", ButtonData.YES);
-		ButtonType noButton = new ButtonType("No", ButtonData.NO);
-		messageBox.getButtonTypes().setAll(yesButton, noButton);
-
-		messageBox.setContentText("Delete '" + txt + "'?");
-
-		messageBox.showAndWait().ifPresent(type -> {
-			if (type.getButtonData() == ButtonData.YES) {
-				tblMarks.getItems().remove(mv);
-				markNames.remove(mv.getText());
-			} else if (type == ButtonType.NO) {
-				return;
-			}
-		});
+		
+		tblMarks.getItems().remove(found);
+		markNames.remove(found);
 
 		txtMarkText.setText("");
 		txtMarkValue.setText("");
@@ -272,6 +258,7 @@ public class ScaleController implements Initializable, DialogInterface {
 
 		if (marks != null) {
 			tblMarks.getItems().clear();
+			markNames.clear();
 
 			String[] cols = marks.split(",");
 
@@ -279,6 +266,7 @@ public class ScaleController implements Initializable, DialogInterface {
 				String[] a = c.split(":");
 
 				tblMarks.getItems().add(new MarkValue(a[0], a[1]));
+				markNames.add(a[0]);
 			}
 		}
 
@@ -305,7 +293,6 @@ public class ScaleController implements Initializable, DialogInterface {
 
 	@Override
 	public void setData(String data) {
-		// TODO Auto-generated method stub
 		
 	}
 

@@ -5,6 +5,7 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
@@ -163,6 +164,9 @@ public class GeneralSettingsController implements Initializable {
 
     @FXML
     private ComboBox<String> cbVScrollPolicy;
+    
+    @FXML
+    private ComboBox<String> cbPlugs;
 
     @FXML
     private Label lblDialog;
@@ -247,6 +251,7 @@ public class GeneralSettingsController implements Initializable {
     
     private YadGlobal yg = YadGlobal.getInstance();
     private java.util.Map<String, Boolean> toggleButtons = new HashMap<String, Boolean>();
+    private java.util.Map<String, String> plugs = new HashMap<String, String>();
     private java.util.List<String> btnNames = new ArrayList<String>();
     private String[] icons = {"help-about", "list-add", "gtk-apply", "gtk-cancel", "gtk-close", "document-clear", "window-close", "gtk-edit", "system-run", "gtk-no", "gtk-ok", "document-open", "document-print", "application-exit", "view-refresh", "list-remove", "document-save", "system-search", "gtk-preferences", "gtk-yes"};
 
@@ -356,6 +361,14 @@ public class GeneralSettingsController implements Initializable {
     void doCancel(ActionEvent event) {
     	Stage stage = (Stage) btnCancel.getScene().getWindow();
         stage.close();
+    }
+    
+    @FXML
+    void doPlugs(ActionEvent event) {
+    	String name = cbPlugs.getSelectionModel().getSelectedItem();
+    	txtPlug.setText(plugs.get(name));
+    	
+    	yg.currIni.addValuePair(yg.currProject, yg.currDialog, txtPlug.getText());
     }
 
     @FXML
@@ -666,22 +679,39 @@ public class GeneralSettingsController implements Initializable {
 		
 		// Default values should be placed in the YadPbController, when creating dialog.
 		
+		buildPlugList();
+		
 		cbTimeoutPosition.getItems().addAll("Top", "Bottom", "Left", "Right");
-//		cbTimeoutPosition.setValue("Top");
 		cbTextAlign.getItems().addAll("Left", "Right", "Center", "Fill");
-//		cbTextAlign.setValue("Left");
 		cbKillSignal.getItems().addAll("SIGTERM", "SIGINT", "SIGUSR1", "SIGUSR2", "SIGKILL", "SIGCHLD");
-//		cbKillSignal.setValue("SIGTERM");
 		cbVScrollPolicy.getItems().addAll("Auto", "Always", "Never");
-//		cbVScrollPolicy.setValue("Auto");
 		cbHScrollPolicy.getItems().addAll("Auto", "Always", "Never");
-//		cbHScrollPolicy.setValue("Auto");
 		cbButtonLayout.getItems().addAll("Spread", "Edge", "Start", "End", "Center");
 		cbButtonLayout.setValue("Start");
 		cbButtonIcon.getItems().addAll(icons);
 		cbButtonIcon.setValue("help-about");
 		
 		loadSettings();
+	}
+	
+	private void buildPlugList() {
+		Object[] keys = yg.currIni.getSectionKeys("YadPb-Plugs");
+		
+		plugs.clear();
+		
+		List<String> lst = new ArrayList<String>();
+		
+		if (keys != null) {
+			for (Object key : keys) {
+				String k = (String)key;
+				String num = yg.currIni.getString("YadPb-Plugs", k);
+				
+				plugs.put(k, num);
+				lst.add(k);
+			}
+		}
+		
+		cbPlugs.getItems().addAll(lst);
 	}
 	
 	private void saveButtons() {

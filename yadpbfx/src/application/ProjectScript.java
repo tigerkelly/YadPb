@@ -1058,7 +1058,7 @@ public class ProjectScript {
 //		System.out.println("In Notebook");
 		
 		lst.add("--notebook");
-		
+//		System.out.println(">> " + lst.toString());
 		
 		String key = ini.getString(sec, "key");
 		String tabs = ini.getString(sec, "tabs");
@@ -1073,8 +1073,7 @@ public class ProjectScript {
 			
 			for (String t : ts) {
 				String[] b = t.split("~");
-				lst.add("--tabnum=" + b[3]);
-				lst.add("--tab=\"" + t + "\"");
+				lst.add("--tab=\"" + b[0] + "\"");
 			}
 		}
 		if (tabpos != null && tabpos.isEmpty() == false)
