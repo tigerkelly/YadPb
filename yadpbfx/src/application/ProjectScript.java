@@ -19,8 +19,7 @@ public class ProjectScript {
 		runFlag = true;
 		
 		String type = ini.getString(dialog, "type");
-		
-		switch (type) {
+		switch(type) {
 		case "Calendar":
 			txt.append( buildCalendar(ini, dialog));
 			break;
@@ -1679,7 +1678,7 @@ public class ProjectScript {
 		s2 = s2.replaceAll("\\!", "\\\\!");
 		
 		if (s2.indexOf(" ") != -1) {
-			r = s1 + "'" + s2 + "'";
+			r = s1 + "\"" + s2 + "\"";
 		} else {
 			r = s1 + s2;
 		}

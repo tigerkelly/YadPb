@@ -12808,3 +12808,6341 @@
 	response = 0
 	hscroll = Auto
 	vscroll = Auto
+
+[[[testproject]]] 2022/12/08 04:46:34
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
+	showweeks = true
+	defaultdate = 2022-12-14
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+	tabnum = 1
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+	expand = true
+	alpha = false
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = false
+	numeric = false
+	entrylabel = Kelly
+	entrytext = Wiles
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	title = Hell World
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+	plug = 3456
+	tabnum = 1
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Form]
+	type = Form
+	sep = |
+	isep = ,
+	complete = Any
+	precision = 3
+	align = Left
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans,MDir~Dir Multiple-MDIR~~~/home /home/kelly
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+	key = 3456
+	tabs = Tab1~document-open~Open a Document.,Tab2~gtk-ok~
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	isep = ,
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+	key = 3456
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 1
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/12/08 06:26:37
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
+	showweeks = true
+	defaultdate = 2022-12-14
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+	tabnum = 1
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+	expand = true
+	alpha = false
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = false
+	numeric = false
+	entrylabel = Kelly
+	entrytext = Wiles
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	title = Hell World
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+	plug = 3456
+	tabnum = 1
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[Form]
+	type = Form
+	sep = |
+	isep = ,
+	complete = Any
+	precision = 3
+	align = Left
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans,MDir~Dir Multiple-MDIR~~~/home /home/kelly
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+	key = 3456
+	tabs = Tab1~document-open~Open a Document.~None,Tab2~gtk-ok~~None
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	isep = ,
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+	key = 3456
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 1
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/12/08 06:29:10
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
+	showweeks = true
+	defaultdate = 2022-12-14
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+	tabnum = 1
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+	expand = true
+	alpha = false
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = false
+	numeric = false
+	entrylabel = Kelly
+	entrytext = Wiles
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	title = Hell World
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+	plug = 3456
+	tabnum = 1
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[Form]
+	type = Form
+	sep = |
+	isep = ,
+	complete = Any
+	precision = 3
+	align = Left
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans,MDir~Dir Multiple-MDIR~~~/home /home/kelly
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+	key = 3456
+	tabs = Tab1~document-open~Open a Document.~Color,Tab2~gtk-ok~Its OK.~Form
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	isep = ,
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+	key = 3456
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 1
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/12/08 06:52:14
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
+	showweeks = true
+	defaultdate = 2022-12-14
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+	tabnum = 1
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+	expand = true
+	alpha = false
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = false
+	numeric = false
+	entrylabel = Kelly
+	entrytext = Wiles
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	title = Hell World
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+	plug = 3456
+	tabnum = 1
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[Form]
+	type = Form
+	sep = |
+	isep = ,
+	complete = Any
+	precision = 3
+	align = Left
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans,MDir~Dir Multiple-MDIR~~~/home /home/kelly
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+	key = 3456
+	tabs = Tab1~document-open~Open a Document.~Color,Tab2~gtk-ok~Its OK.~Form,Tab3~window-close~Show Page.~HTML
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	isep = ,
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+	key = 3456
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 1
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/12/08 07:06:35
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
+	showweeks = true
+	defaultdate = 2022-12-14
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+	tabnum = 1
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+	expand = true
+	alpha = false
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = false
+	numeric = false
+	entrylabel = Kelly
+	entrytext = Wiles
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	title = Hell World
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+	plug = 3456
+	tabnum = 1
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[Form]
+	type = Form
+	sep = |
+	isep = ,
+	complete = Any
+	precision = 3
+	align = Left
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans,MDir~Dir Multiple-MDIR~~~/home /home/kelly
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+	key = 3456
+	tabs = Tab1~document-open~Open a Document.~Color,Tab2~gtk-ok~Its OK.~Form,Tab3~window-close~Show Page.~HTML
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	isep = ,
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+	key = 3456
+	pane1 = Calendar
+	pane2 = Form
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 1
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/12/08 07:07:59
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
+	showweeks = true
+	defaultdate = 2022-12-14
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+	expand = true
+	alpha = false
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 1
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = false
+	numeric = false
+	entrylabel = Kelly
+	entrytext = Wiles
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	title = Hell World
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+	plug = 3456
+	tabnum = 1
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[Form]
+	type = Form
+	sep = |
+	isep = ,
+	complete = Any
+	precision = 3
+	align = Left
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans,MDir~Dir Multiple-MDIR~~~/home /home/kelly
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+	key = 3456
+	tabs = Tab1~document-open~Open a Document.~Color,Tab2~gtk-ok~Its OK.~Form,Tab3~window-close~Show Page.~HTML
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	isep = ,
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+	key = 3456
+	pane1 = Calendar
+	pane2 = Form
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 1
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/12/08 07:29:07
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
+	showweeks = true
+	defaultdate = 2022-12-14
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+	plug = 3456
+	tabnum = 1
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+	expand = true
+	alpha = false
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = false
+	numeric = false
+	entrylabel = Kelly
+	entrytext = Wiles
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	title = Hell World
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+	plug = 3456
+	tabnum = 1
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[Form]
+	type = Form
+	sep = |
+	isep = ,
+	complete = Any
+	precision = 3
+	align = Left
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans,MDir~Dir Multiple-MDIR~~~/home /home/kelly
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+	key = 3456
+	tabs = Tab1~document-open~Open a Document.~Color,Tab2~gtk-ok~Its OK.~Form,Tab3~window-close~Show Page.~HTML
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	isep = ,
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+	key = 3456
+	pane1 = Calendar
+	pane2 = Form
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 1
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/12/08 07:39:12
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
+	showweeks = true
+	defaultdate = 2022-12-14
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+	expand = true
+	alpha = false
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 1
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = false
+	numeric = false
+	entrylabel = Kelly
+	entrytext = Wiles
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	title = Hell World
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+	plug = 3456
+	tabnum = 1
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[Form]
+	type = Form
+	sep = |
+	isep = ,
+	complete = Any
+	precision = 3
+	align = Left
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans,MDir~Dir Multiple-MDIR~~~/home /home/kelly
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+	key = 3456
+	tabs = Tab1~document-open~Open a Document.~Color,Tab2~gtk-ok~Its OK.~Form,Tab3~window-close~Show Page.~HTML
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	isep = ,
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+	key = 3456
+	pane1 = Color
+	pane2 = Form
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 1
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/12/08 07:39:56
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
+	showweeks = true
+	defaultdate = 2022-12-14
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+	expand = true
+	alpha = false
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = false
+	numeric = false
+	entrylabel = Kelly
+	entrytext = Wiles
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	title = Hell World
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+	plug = 3456
+	tabnum = 1
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[Form]
+	type = Form
+	sep = |
+	isep = ,
+	complete = Any
+	precision = 3
+	align = Left
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans,MDir~Dir Multiple-MDIR~~~/home /home/kelly
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+	key = 3456
+	tabs = Tab1~document-open~Open a Document.~Color,Tab2~gtk-ok~Its OK.~Form,Tab3~window-close~Show Page.~HTML
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	isep = ,
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+	key = 3456
+	pane1 = Entry
+	pane2 = Form
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 1
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 1
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/12/08 07:42:37
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
+	showweeks = true
+	defaultdate = 2022-12-14
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+	plug = 3456
+	tabnum = 1
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+	expand = true
+	alpha = false
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = false
+	numeric = false
+	entrylabel = Kelly
+	entrytext = Wiles
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	title = Hell World
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[Form]
+	type = Form
+	sep = |
+	isep = ,
+	complete = Any
+	precision = 3
+	align = Left
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans,MDir~Dir Multiple-MDIR~~~/home /home/kelly
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+	key = 3456
+	tabs = Tab1~document-open~Open a Document.~Color,Tab2~gtk-ok~Its OK.~Form,Tab3~window-close~Show Page.~HTML
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	isep = ,
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+	key = 3456
+	pane1 = Calendar
+	pane2 = Form
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 1
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 1
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/12/08 07:44:02
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
+	showweeks = true
+	defaultdate = 2022-12-14
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+	expand = true
+	alpha = false
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 1
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = false
+	numeric = false
+	entrylabel = Kelly
+	entrytext = Wiles
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	title = Hell World
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[Form]
+	type = Form
+	sep = |
+	isep = ,
+	complete = Any
+	precision = 3
+	align = Left
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans,MDir~Dir Multiple-MDIR~~~/home /home/kelly
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+	key = 3456
+	tabs = Tab1~document-open~Open a Document.~Color,Tab2~gtk-ok~Its OK.~Form,Tab3~window-close~Show Page.~HTML
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	isep = ,
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+	key = 3456
+	pane1 = Color
+	pane2 = Form
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 1
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 1
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/12/08 07:44:47
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
+	showweeks = true
+	defaultdate = 2022-12-14
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+	expand = true
+	alpha = false
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 1
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = false
+	numeric = false
+	entrylabel = Kelly
+	entrytext = Wiles
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	title = Hell World
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[Form]
+	type = Form
+	sep = |
+	isep = ,
+	complete = Any
+	precision = 3
+	align = Left
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans,MDir~Dir Multiple-MDIR~~~/home /home/kelly
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+	key = 3456
+	tabs = Tab1~document-open~Open a Document.~Color,Tab2~gtk-ok~Its OK.~Form,Tab3~window-close~Show Page.~HTML
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	isep = ,
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+	key = 3456
+	pane1 = DnD
+	pane2 = Form
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 1
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 1
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/12/08 07:45:29
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
+	showweeks = true
+	defaultdate = 2022-12-14
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+	plug = 3456
+	tabnum = 1
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+	expand = true
+	alpha = false
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = false
+	numeric = false
+	entrylabel = Kelly
+	entrytext = Wiles
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	title = Hell World
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[Form]
+	type = Form
+	sep = |
+	isep = ,
+	complete = Any
+	precision = 3
+	align = Left
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans,MDir~Dir Multiple-MDIR~~~/home /home/kelly
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+	key = 3456
+	tabs = Tab1~document-open~Open a Document.~Color,Tab2~gtk-ok~Its OK.~Form,Tab3~window-close~Show Page.~HTML
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	isep = ,
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+	key = 3456
+	pane1 = Calendar
+	pane2 = Form
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 1
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 1
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/12/08 07:46:11
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
+	showweeks = true
+	defaultdate = 2022-12-14
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+	expand = true
+	alpha = false
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = false
+	numeric = false
+	entrylabel = Kelly
+	entrytext = Wiles
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	title = Hell World
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[Form]
+	type = Form
+	sep = |
+	isep = ,
+	complete = Any
+	precision = 3
+	align = Left
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans,MDir~Dir Multiple-MDIR~~~/home /home/kelly
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+	key = 3456
+	tabs = Tab1~document-open~Open a Document.~Color,Tab2~gtk-ok~Its OK.~Form,Tab3~window-close~Show Page.~HTML
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	isep = ,
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+	key = 3456
+	pane1 = None
+	pane2 = Form
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 1
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 1
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/12/08 07:51:27
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
+	showweeks = true
+	defaultdate = 2022-12-14
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+	expand = true
+	alpha = false
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 1
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = false
+	numeric = false
+	entrylabel = Kelly
+	entrytext = Wiles
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	title = Hell World
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[Form]
+	type = Form
+	sep = |
+	isep = ,
+	complete = Any
+	precision = 3
+	align = Left
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans,MDir~Dir Multiple-MDIR~~~/home /home/kelly
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 3456
+	tabnum = 2
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+	key = 3456
+	tabs = Tab1~document-open~Open a Document.~Color,Tab2~gtk-ok~Its OK.~Form,Tab3~window-close~Show Page.~HTML
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	isep = ,
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+	key = 3456
+	orient = Vertical
+	pane1 = DnD
+	pane2 = Form
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	plug = 1
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/12/08 07:56:06
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
+	showweeks = true
+	defaultdate = 2022-12-14
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+	expand = true
+	alpha = false
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = false
+	numeric = false
+	entrylabel = Kelly
+	entrytext = Wiles
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	title = Hell World
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Form]
+	type = Form
+	sep = |
+	isep = ,
+	complete = Any
+	precision = 3
+	align = Left
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans,MDir~Dir Multiple-MDIR~~~/home /home/kelly
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+	key = 3456
+	tabs = Tab1~document-open~Open a Document.~Color,Tab2~gtk-ok~Its OK.~Form,Tab3~window-close~Show Page.~HTML
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	isep = ,
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+	key = 3456
+	orient = Horizontal
+	pane1 = None
+	pane2 = None
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/12/08 08:32:17
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
+	showweeks = true
+	defaultdate = 2022-12-14
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+	expand = true
+	alpha = false
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = false
+	numeric = false
+	entrylabel = Kelly
+	entrytext = Wiles
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	title = Hell World
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Form]
+	type = Form
+	sep = |
+	isep = ,
+	complete = Any
+	precision = 3
+	align = Left
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans,MDir~Dir Multiple-MDIR~~~/home /home/kelly
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+	key = 3456
+	tabs = Tab1~document-open~Open a Document.~Color,Tab2~gtk-ok~Its OK.~Form,Tab3~window-close~Show Page.~HTML
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	isep = ,
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+	orient = Horizontal
+	pane1 = None
+	pane2 = None
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/12/08 08:50:02
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
+	showweeks = true
+	defaultdate = 2022-12-14
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+	expand = true
+	alpha = false
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = false
+	numeric = false
+	entrylabel = Kelly
+	entrytext = Wiles
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	title = Hell World
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Form]
+	type = Form
+	sep = |
+	isep = ,
+	complete = Any
+	precision = 3
+	align = Left
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans,MDir~Dir Multiple-MDIR~~~/home /home/kelly
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+	key = 3456
+	tabs = Tab1~document-open~Open a Document.~DnD,Tab2~gtk-ok~Its OK.~Form,Tab3~window-close~Show Page.~HTML
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	isep = ,
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+	orient = Horizontal
+	pane1 = None
+	pane2 = None
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[[[testproject]]] 2022/12/08 09:00:43
+# Created by the YadPb program.
+# For project 'testproject'
+# Description: A test project continaing all dialogs.
+# Created: 2022/10/27 06:53:57
+
+[Calendar]
+	type = Calendar
+	detailfile = /home/kelly/wiles.dd
+	dateformat = %m/%d/%Y
+	showweeks = true
+	defaultdate = 2022-12-14
+
+[Calendar-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	width = 300
+	height = 300
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[Color]
+	type = Color
+	mode = Hex
+	palette = /etc/X11/rgb.txt
+	expand = true
+	alpha = false
+
+[Color-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[DnD]
+	type = DnD
+	exitondrop = 0
+
+[DnD-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Entry]
+	type = Entry
+	precision = 3
+	justify = Left
+	uricolor = Blue
+	completion = false
+	numeric = false
+	entrylabel = Kelly
+	entrytext = Wiles
+
+[Entry-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = false
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	title = Hell World
+	btnlayout = Start
+	centerwindow = false
+	escapeok = false
+	imageontop = false
+	maximized = false
+	selectable = false
+	nomarkup = false
+	enablespell = false
+	alwaysprint = false
+	nobuttons = false
+	expander = false
+	skiptaskbar = false
+	mouse = false
+	undecorated = false
+	noescape = false
+	fullscreen = false
+	closeonfocus = false
+	sticky = false
+	ontop = false
+	fixed = false
+	splash = false
+	nofocus = false
+
+[File]
+	type = File
+
+[File-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Font]
+	type = Font
+	sep = |
+
+[Font-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Form]
+	type = Form
+	sep = |
+	isep = ,
+	complete = Any
+	precision = 3
+	align = Left
+	fields = Richard~Checkbox-CHK~~~TRUE,kelly~Text-TXT~~~,wiles~Button-BTN~filemanager-app~Tooltip for I~,Scale~Scale-SCL~~~50,ReadOnly~Read-Only-RO~~~,HORZ~Horizontal-HZ~~~,Hidden~Hidden-H~~~Field,Font~Font Selector-FN~~~Sans,MDir~Dir Multiple-MDIR~~~/home /home/kelly
+
+[Form-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[HTML]
+	type = HTML
+	mime = text/html
+	useragent = YAD-Webkit
+
+[HTML-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Icons]
+	type = Icons
+	term = xterm -e '%s'
+
+[Icons-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Info]
+	type = TextInfo
+	showuri = true
+	filename = /home/kelly/work/tiger_gl/touch.txt
+
+[Info-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[List]
+	type = List
+	printcolumn = 0
+	searchcolumn = 0
+	precision = 3
+	gridlines = Horizontal
+	ellipsize = None
+	columns = Name:Tooltip-TIP,Last:Text-TXT
+
+[List-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notebook]
+	type = Notebook
+	tabpos = Left
+	key = 3456
+	tabs = Tab1~document-open~Open a Document.~Calendar,Tab2~gtk-ok~Its OK.~Form,Tab3~window-close~Show Page.~HTML
+
+[Notebook-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Notification]
+	type = Notification
+	sep = |
+	isep = ,
+
+[Notification-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Paned]
+	type = Paned
+	orient = Horizontal
+	pane1 = None
+	pane2 = None
+
+[Paned-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Picture]
+	type = Picture
+	increment = 5
+	size = fit
+
+[Picture-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Print]
+	type = Print
+	printtype = Text
+
+[Print-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+	imageontop = true
+
+[Progress]
+	type = Progress
+	righttoleft = false
+
+[Progress-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[ProgressMulti]
+	type = Progress Multi
+
+[ProgressMulti-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto
+
+[Scale]
+	type = Scale
+
+[Scale-General]
+	buttonlayout = End
+	textalign = Fill
+	killparent = SIGTERM
+	timeoutposition = Top
+	response = 0
+	hscroll = Auto
+	vscroll = Auto

@@ -1,53 +1,60 @@
 
+2022-12-08
+1.0.8		- Reworked Notebook and Paned screens. I came to realize that each tab can only have one dialog.
+			  You have to use a Form dialog if you want more entry fields.
+			- Set default value for tab position on Paned screen.
+			- The 'Show Bash' menu item trys to create a bash script with all of the command lines for each dialog.
+			  This is not working right yet.  If you have any ideas let me know.
+	
 2022-12-07
 1.0.7		- Added Tab Num to Notebook screen when linking dialogs to notebook tabs.
-			  Added Tab Num to Paned screen when linking dialogs to paned tabs.
-			  All tables were not deleting the correct item.
-			  Can now select plug number by name in the General settings screen.
-			  Added YAD command line help to Help menu.
-			  Still working on any bugs I find.
+			- Added Tab Num to Paned screen when linking dialogs to paned tabs.
+			- All tables were not deleting the correct item.
+			- Can now select plug number by name in the General settings screen.
+			- Added YAD command line help to Help menu.
+			- Still working on any bugs I find.
 
 2022-12-06
 1.0.6		- Icon screen was selecting file instead of a directory.
-			  Changed 'Info' to 'TextInfo'
-			  Edited cells in the List screen was not saving the changed columns.
-			  List screen column type was showing an invalid type on screen init.
-			  On the Notebook screen add tabnum field in tabs table.
-			  Added code to allow you to link or unlink other dialogs to the Notebook dialog.
-			  Added paned screen which also allows you to link dialogs to the Paned dialog.
-			  Added picture screen.
+			- Changed 'Info' to 'TextInfo'
+			- Edited cells in the List screen was not saving the changed columns.
+			- List screen column type was showing an invalid type on screen init.
+			- On the Notebook screen add tabnum field in tabs table.
+			- Added code to allow you to link or unlink other dialogs to the Notebook dialog.
+			- Added paned screen which also allows you to link dialogs to the Paned dialog.
+			- Added picture screen.
 
 2022-12-04
 1.0.5		- Lots of work on the forms screen and the script generation and still not done :(.
-			  Added HZ for horizontal line.
+			- Added HZ for horizontal line.
 			  
 2022-12-03
 1.0.4		- Lots of work on Forms screen and trying to get command line syntax correct for Forms.
-			  Added syntax help for form fields.
-			  Added Icon and Tooltip fields to the Form screen.
-			  All --item-separator values have been changed to a comma ',' instead of the default of '!'.
-			  Added buton in Settings screen to rebuild icons list.
+			- Added syntax help for form fields.
+			- Added Icon and Tooltip fields to the Form screen.
+			- All --item-separator values have been changed to a comma ',' instead of the default of '!'.
+			- Added buton in Settings screen to rebuild icons list.
 
 2022-12-02
 1.0.3		- Timestamp was wrong, needed to add 1 to month casue it is 0-11 value.
-			  Fixed bug in Backups screen that caused the text to always scroll to the end.
-			  Added text area that will show the command line used to execute a dialog.
-			  Added 'Show Command' checkbox to Settings screen.
-			  Added field for yad executable path in Settings screen.
-			  Program now uses the 'which' program to find the yad executable.
-			  Will not run dialogs if no yad program found or given.
-			  Worked on the Form screen, it was not working correctly.
+			- Fixed bug in Backups screen that caused the text to always scroll to the end.
+			- Added text area that will show the command line used to execute a dialog.
+			- Added 'Show Command' checkbox to Settings screen.
+			- Added field for yad executable path in Settings screen.
+			- Program now uses the 'which' program to find the yad executable.
+			- Will not run dialogs if no yad program found or given.
+			- Worked on the Form screen, it was not working correctly.
 			  
 2022-11-30
 1.0.2		- Added the ability to run a dialog. Output will be in users console.
 
 2022-11-30
 1.0.1		- Many bug fixes.
-			  Increased all ToggleButton widths to allow checkmark without truncating text with ...
-			  Added Detail file creation in the Calendar dialog.
-			  Fixed format of date field in Calendar screen.
-			  Added ability to create a new Date Detail file and corrected date format.
-			  About screen now reads the vdata.txt file for program version.
+			- Increased all ToggleButton widths to allow checkmark without truncating text with ...
+			- Added Detail file creation in the Calendar dialog.
+			- Fixed format of date field in Calendar screen.
+			- Added ability to create a new Date Detail file and corrected date format.
+			- About screen now reads the vdata.txt file for program version.
 
 2022-11-20
 1.0.0 		- First release.

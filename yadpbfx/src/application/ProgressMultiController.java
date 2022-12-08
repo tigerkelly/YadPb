@@ -99,7 +99,7 @@ public class ProgressMultiController implements Initializable, DialogInterface {
 			ButtonType yesButton = new ButtonType("OK", ButtonData.OK_DONE);
 			messageBox.getButtonTypes().setAll(yesButton);
 
-			messageBox.setContentText("The progress bar name '" + txt + "' is already exists.");
+			messageBox.setContentText("The progress bar name '" + txt + "' already exists.");
 
 			messageBox.showAndWait();
 			return;

@@ -198,7 +198,7 @@ public class FileController implements Initializable, DialogInterface {
 			ButtonType yesButton = new ButtonType("OK", ButtonData.OK_DONE);
 			messageBox.getButtonTypes().setAll(yesButton);
 
-			messageBox.setContentText("The field name '" + name + "' is already exists.");
+			messageBox.setContentText("The field name '" + name + "' already exists.");
 			
 			// Code to center dialog within parent.
 			Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
@@ -432,7 +432,7 @@ public class FileController implements Initializable, DialogInterface {
 			ButtonType yesButton = new ButtonType("OK", ButtonData.OK_DONE);
 			messageBox.getButtonTypes().setAll(yesButton);
 
-			messageBox.setContentText("The field name '" + name + "' is already exists.");
+			messageBox.setContentText("The field name '" + name + "' already exists.");
 			
 			// Code to center dialog within parent.
 			Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();

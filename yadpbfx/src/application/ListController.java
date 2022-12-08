@@ -232,7 +232,7 @@ public class ListController implements Initializable, DialogInterface {
  			ButtonType yesButton = new ButtonType("OK", ButtonData.OK_DONE);
  			messageBox.getButtonTypes().setAll(yesButton);
 
- 			messageBox.setContentText("The column name '" + txt + "' is already exists.");
+ 			messageBox.setContentText("The column name '" + txt + "' already exists.");
 
  			messageBox.showAndWait();
  			return;

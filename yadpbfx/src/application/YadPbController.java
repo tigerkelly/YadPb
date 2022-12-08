@@ -392,6 +392,18 @@ public class YadPbController implements Initializable, DialogInterface {
 			
 		});
 		
+		MenuItem mCreateBash = new MenuItem("Show Bash");
+		mCreateBash.setOnAction((ActionEvent e) -> {
+			ProjectBash pb = new ProjectBash(yg.currIni);
+			String dlg = pb.buildBashScript();
+
+			if (dlg != null && dlg.isEmpty() == false) {
+				
+				yg.centerScene(lstProjects, "OpenScript.fxml", "Bash Script for", dlg);
+			}
+			
+		});
+		
 		MenuItem mProjectData = new MenuItem("Project Data");
 		mProjectData.setOnAction((ActionEvent e) -> {
 			String data = yg.currIni.stringFile(null);
@@ -466,7 +478,7 @@ public class YadPbController implements Initializable, DialogInterface {
 		
 		SeparatorMenuItem sep = new SeparatorMenuItem();
 
-		cm.getItems().addAll(mProjectTitle, sep, mOpenProject, mNewProject, mCreateScript, mPlugs, mProjectData, mDeleteProject);
+		cm.getItems().addAll(mProjectTitle, sep, mOpenProject, mNewProject, mCreateScript, mCreateBash, mProjectData, mDeleteProject);
 		
 		cm.setOnShowing(new EventHandler<WindowEvent>() {
 			public void handle(WindowEvent e) {
@@ -476,11 +488,13 @@ public class YadPbController implements Initializable, DialogInterface {
 					mProjectData.setDisable(true);
 					mDeleteProject.setDisable(true);
 					mPlugs.setDisable(true);
+					mCreateBash.setDisable(true);
 				} else {
 					mCreateScript.setDisable(false);
 					mProjectData.setDisable(false);
 					mDeleteProject.setDisable(false);
 					mPlugs.setDisable(false);
+					mCreateBash.setDisable(false);
 				}
 			}
 		});

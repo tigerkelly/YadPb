@@ -299,11 +299,6 @@
                         <Tooltip text="Run dialog in plug mode for swallow as a notebook tab." />
                      </tooltip>
                   </TextField>
-                  <ComboBox fx:id="cbPlugs" onAction="#doPlugs" prefWidth="100.0" style="-fx-font-size: 14px;">
-                     <tooltip>
-                        <Tooltip text="Select Plug number by name." />
-                     </tooltip>
-                  </ComboBox>
                   <Label text="TabNum:">
                      <font>
                         <Font size="14.0" />

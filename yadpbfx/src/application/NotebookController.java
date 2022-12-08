@@ -10,18 +10,11 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonBar.ButtonData;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.ContextMenu;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
@@ -30,7 +23,6 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 import tbl.TabInfo;
 
@@ -64,6 +56,9 @@ public class NotebookController implements Initializable, DialogInterface {
     private ComboBox<String> cbTabPosition;
     
     @FXML
+    private ComboBox<String> cbTabLinked;
+    
+    @FXML
     private ListView<String> lvDialogs;
 
     @FXML
@@ -74,6 +69,9 @@ public class NotebookController implements Initializable, DialogInterface {
 
     @FXML
     private TableColumn<TabInfo, String> colTooltip;
+    
+    @FXML
+    private TableColumn<TabInfo, String> colLinked;
 
     @FXML
     private TableView<TabInfo> tblTabs;
@@ -95,21 +93,14 @@ public class NotebookController implements Initializable, DialogInterface {
 
     @FXML
     private TextField txtTabTooltip;
-    
-    @FXML
-    private FlowPane fpLinkedDialogs;
 
     @FXML
     void doTabAdd(ActionEvent event) {
     	String name = txtTabText.getText();
 		if (name == null || name.length() <= 0) {
-			Alert messageBox = new Alert(Alert.AlertType.CONFIRMATION);
+			Alert messageBox = new Alert(Alert.AlertType.ERROR);
 			Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
 			stage.hide();
-			
-			messageBox.setTitle("Warning");
-			ButtonType yesButton = new ButtonType("OK", ButtonData.OK_DONE);
-			messageBox.getButtonTypes().setAll(yesButton);
 
 			messageBox.setContentText("No name given.");
 			
@@ -140,18 +131,15 @@ public class NotebookController implements Initializable, DialogInterface {
 
 		String icon = cbTabIcon.getSelectionModel().getSelectedItem();
 		String tooltip = txtTabTooltip.getText();
+		String linked = cbTabLinked.getSelectionModel().getSelectedItem();
 //		System.out.println(name);
 
 		if (tabNames.contains(name)) {
-			Alert messageBox = new Alert(Alert.AlertType.CONFIRMATION);
+			Alert messageBox = new Alert(Alert.AlertType.ERROR);
 			Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
 			stage.hide();
-			
-			messageBox.setTitle("Warning");
-			ButtonType yesButton = new ButtonType("OK", ButtonData.OK_DONE);
-			messageBox.getButtonTypes().setAll(yesButton);
 
-			messageBox.setContentText("The tab name '" + name + "' is already exists.");
+			messageBox.setContentText("The tab name '" + name + "' already exists.");
 			
 			// Code to center dialog within parent.
 			Stage ps = (Stage) btnTabAdd.getScene().getWindow();
@@ -178,7 +166,7 @@ public class NotebookController implements Initializable, DialogInterface {
 			return;
 		}
 
-		tblTabs.getItems().add(new TabInfo(name, icon, tooltip));
+		tblTabs.getItems().add(new TabInfo(name, icon, tooltip, linked));
 
 		txtTabText.setText("");
 		cbTabIcon.getSelectionModel().select(0);
@@ -193,12 +181,9 @@ public class NotebookController implements Initializable, DialogInterface {
     	String name = txtTabText.getText();
 
 		if (name == null || name.length() == 0) {
-			Alert messageBox = new Alert(Alert.AlertType.CONFIRMATION);
+			Alert messageBox = new Alert(Alert.AlertType.ERROR);
 			Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
 			stage.hide();
-			messageBox.setTitle("Warning");
-			ButtonType yesButton = new ButtonType("OK", ButtonData.OK_DONE);
-			messageBox.getButtonTypes().setAll(yesButton);
 
 			messageBox.setContentText("No name given.");
 			
@@ -272,6 +257,7 @@ public class NotebookController implements Initializable, DialogInterface {
 
     private YadGlobal yg = YadGlobal.getInstance();
     private java.util.List<String> tabNames = new ArrayList<>();
+    private java.util.List<String> dialogs = new ArrayList<>();
 	private String[] iconTypes = {"None", "help-about", "list-add", "gtk-apply", "gtk-cancel", "gtk-close", "document-clear", "window-close", "gtk-edit", "system-run", "gtk-no", "gtk-ok", "document-open", "document-print", "application-exit", "view-refresh", "list-remove", "document-save", "system-search", "gtk-preferences", "gtk-yes"};
 
 
@@ -289,6 +275,11 @@ public class NotebookController implements Initializable, DialogInterface {
 
     	cbTabIcon.getItems().addAll(iconTypes);
 		cbTabIcon.getSelectionModel().select(0);
+		
+		buildDialogsList();
+		
+		cbTabLinked.getItems().addAll(dialogs);
+		cbTabLinked.getSelectionModel().select(0);
 
 		tblTabs.getSelectionModel().selectedItemProperty().addListener((obs, oldVal, newVal) -> {
 		    if (newVal != null) {
@@ -296,162 +287,14 @@ public class NotebookController implements Initializable, DialogInterface {
 		        txtTabText.setText(newVal.getText());
 		        cbTabIcon.getSelectionModel().select(newVal.getIcon());
 		        txtTabTooltip.setText(newVal.getTooltip());
+		        cbTabLinked.getSelectionModel().select(newVal.getLinked());
 		    }
 		});
-		
-//		lvDialogs.getSelectionModel().selectedItemProperty().addListener(new ChangeListener<String>() {
-//			@Override
-//			public void changed(ObservableValue<? extends String> ov, String oldVal, String newVal) {
-////				System.out.println("new " + newVal + " old " + oldVal);
-//				if (newVal != null && newVal.equals(yg.currProject) == false) {
-//					yg.currIni = yg.prjList.get(newVal);
-//					yg.currBackupIni = yg.prjBackupList.get(newVal);
-//					yg.currProject = newVal;
-//				}
-//			}
-//		});
-		
-		ContextMenu cm = new ContextMenu();
-		
-		MenuItem mMenuTitle = new MenuItem("Notebook Menu");
-		mMenuTitle.setDisable(true);
-		
-		MenuItem mLinkDialog = new MenuItem("Link Dialog");
-		mLinkDialog.setOnAction((ActionEvent e) -> {
-			String d = lvDialogs.getSelectionModel().getSelectedItem();
-			String dialog = d.split("-")[0];
-			ObservableList<Node> lst = fpLinkedDialogs.getChildren();
-			
-			String keyNum = yg.currIni.getString(yg.currDialog, "key");
-			String tabNum = txtTabnum.getText();
-			if (keyNum == null || keyNum.isEmpty() == true || tabNum == null || tabNum.isEmpty() == true) {
-				Alert messageBox = new Alert(Alert.AlertType.ERROR);
-				Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
-				stage.hide();
-
-				messageBox.setContentText("The 'Key' or 'Tab Num' field is blank.");
-				
-				// Code to center dialog within parent.
-				Stage ps = (Stage) btnTabAdd.getScene().getWindow();
-
-				ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
-					double stageWidth = newValue.doubleValue();
-					stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
-				};
-				ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
-					double stageHeight = newValue.doubleValue();
-					stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
-				};
-
-				stage.widthProperty().addListener(widthListener);
-				stage.heightProperty().addListener(heightListener);
-
-				// Once the window is visible, remove the listeners
-				stage.setOnShown(e2 -> {
-					stage.widthProperty().removeListener(widthListener);
-					stage.heightProperty().removeListener(heightListener);
-				});
-
-				messageBox.showAndWait();
-				return;
-			}
-			
-			boolean found = false;
-			for (Node n : lst) {
-				Label lbl = (Label)n;
-				
-				if (lbl.getText().startsWith(dialog) == true) {
-					found = true;
-					break;
-				}
-			}
-			
-			if (found == false) {
-				// May want to sort the list.
-				Label lbl = new Label(dialog + " " + tabNum);
-				lbl.setStyle("-fx-border-color: black;");
-				lbl.setAlignment(Pos.CENTER);
-				lbl.setPrefWidth(135.0);
-				fpLinkedDialogs.getChildren().add(lbl);
-				
-				yg.currIni.addValuePair(dialog + "-General", "plug", keyNum);
-				yg.currIni.addValuePair(dialog + "-General", "tabnum", tabNum);
-			}
-		});
-		
-		MenuItem mUnlinkDialog = new MenuItem("Unlink Dialog");
-		mUnlinkDialog.setOnAction((ActionEvent e) -> {
-			String d = lvDialogs.getSelectionModel().getSelectedItem();
-			String dialog = d.split("-")[0];
-			ObservableList<Node> lst = fpLinkedDialogs.getChildren();
-			
-			String keyNum = yg.currIni.getString(yg.currDialog, "key");
-			String tabNum = txtTabnum.getText();
-			if (keyNum == null || keyNum.isEmpty() == true || tabNum == null || tabNum.isEmpty() == true) {
-				Alert messageBox = new Alert(Alert.AlertType.ERROR);
-				Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
-				stage.hide();
-
-				messageBox.setContentText("The 'Key' or 'Tab Num' field is blank.");
-				
-				// Code to center dialog within parent.
-				Stage ps = (Stage) btnTabAdd.getScene().getWindow();
-
-				ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
-					double stageWidth = newValue.doubleValue();
-					stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
-				};
-				ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
-					double stageHeight = newValue.doubleValue();
-					stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
-				};
-
-				stage.widthProperty().addListener(widthListener);
-				stage.heightProperty().addListener(heightListener);
-
-				// Once the window is visible, remove the listeners
-				stage.setOnShown(e2 -> {
-					stage.widthProperty().removeListener(widthListener);
-					stage.heightProperty().removeListener(heightListener);
-				});
-
-				messageBox.showAndWait();
-				return;
-			}
-		
-			int found = -1;
-			int idx = 0;
-			for (Node n : lst) {
-				Label lbl = (Label)n;
-				
-//				System.out.println(lbl.getText() + ", " + dialog);
-				
-				if (lbl.getText().startsWith(dialog) == true) {
-					found = idx;
-					break;
-				}
-				
-				idx++;
-			}
-			
-			if (found != -1) {
-				lst.remove(found);
-				
-				yg.currIni.removeValuePair(dialog + "-General", "plug");
-				yg.currIni.removeValuePair(dialog + "-General", "tabnum");
-			}
-		});
-		
-		SeparatorMenuItem sep = new SeparatorMenuItem();
-		SeparatorMenuItem sep2 = new SeparatorMenuItem();
-		
-		cm.getItems().addAll(mMenuTitle, sep, mLinkDialog, sep2, mUnlinkDialog);
-		
-		lvDialogs.setContextMenu(cm);
 
 		colText.setCellValueFactory(new PropertyValueFactory<TabInfo, String>("text"));
 		colIcon.setCellValueFactory(new PropertyValueFactory<TabInfo, String>("icon"));
 		colTooltip.setCellValueFactory(new PropertyValueFactory<TabInfo, String>("tooltip"));
+		colLinked.setCellValueFactory(new PropertyValueFactory<TabInfo, String>("linked"));
 
 		colText.setCellFactory(TextFieldTableCell.forTableColumn());
 		colText.setOnEditCommit((TableColumn.CellEditEvent<TabInfo, String> t) -> {
@@ -472,13 +315,22 @@ public class NotebookController implements Initializable, DialogInterface {
 	        t.getTableView().getItems().get(t.getTablePosition().getRow()).setTooltip(t.getNewValue());
 	        saveTabs();
 	    });
+		
+		colLinked.setCellFactory(ComboBoxTableCell.forTableColumn(FXCollections.observableArrayList(dialogs)));
+		colLinked.setOnEditCommit((TableColumn.CellEditEvent<TabInfo, String> t) -> {
+	        t.getTableView().getItems().get(t.getTablePosition().getRow()).setLinked(t.getNewValue());
+//	        String oldVal = t.getOldValue();
+//	        yg.currIni.removeValuePair(oldVal + "-General", "plug");
+//	        yg.currIni.removeValuePair(oldVal + "-General", "tabnum");
+//	        int row = t.getTablePosition().getRow();
+	        saveTabs();
+	    });
 	}
     
-    private void loadDialogs() {
-    	if (lvDialogs == null)
-    		return;
+    private void buildDialogsList() {
+    	dialogs.clear();
     	
-    	lvDialogs.getItems().clear();
+    	dialogs.add("None");
     	
     	Object[] secs = yg.currIni.getSectionNames();
     	
@@ -489,39 +341,7 @@ public class NotebookController implements Initializable, DialogInterface {
     		if (s.equals(yg.currDialog) == true)
     			continue;
     		
-    		lvDialogs.getItems().add(s.split("-")[0]);
-    	}
-    }
-    
-    private void linkedDialogs() {
-    	if (fpLinkedDialogs.getChildren() != null)
-    		fpLinkedDialogs.getChildren().clear();
-    	
-    	String keyNum = yg.currIni.getString(yg.currDialog, "key");
-    	
-    	if (keyNum == null || keyNum.isEmpty() == true)
-    		return;
-    	
-    	Object[] secs = yg.currIni.getSectionNames();
-    	
-    	for (Object sec : secs) {
-    		String s = (String)sec;
-    		
-    		if (s.equals(yg.currDialog) == true)
-    			continue;
-    		
-    		String plug = yg.currIni.getString(s + "-General", "plug");
-    		String tabNum = yg.currIni.getString(s + "-General", "tabnum");
-    		if (plug == null || plug.isEmpty() == true)
-    			continue;
-    		
-    		if (plug.equals(keyNum) == true) {
-    			Label lbl = new Label(s.split("-")[0] + " " + tabNum);
-				lbl.setStyle("-fx-border-color: black;");
-				lbl.setAlignment(Pos.CENTER);
-				lbl.setPrefWidth(135.0);
-				fpLinkedDialogs.getChildren().add(lbl);
-    		}
+    		dialogs.add(s.split("-")[0]);
     	}
     }
 
@@ -533,6 +353,7 @@ public class NotebookController implements Initializable, DialogInterface {
     		String txt = ti.getText();
 			String icn = ti.getIcon();
 			String tip = ti.getTooltip();
+			String lnk = ti.getLinked();
 			
     		if (tabs == null) {
     			tabs = txt;
@@ -541,7 +362,7 @@ public class NotebookController implements Initializable, DialogInterface {
     			else
     				tabs += "~" + icn;
 
-    			tabs += "~" + tip;
+    			tabs += "~" + tip + "~" + lnk;
     		} else {
     			tabs += "," + txt;
     			if (icn.equals("None"))
@@ -549,12 +370,11 @@ public class NotebookController implements Initializable, DialogInterface {
     			else
     				tabs += "~" + icn;
 
-    			tabs += "~" + tip;
+    			tabs += "~" + tip + "~" + lnk;
     		}
     	}
 
     	if (tabs != null) {
-//    		System.out.println("tabs " + tabs);
     		yg.iniUpdate("tabs", tabs);
     	}
     }
@@ -570,12 +390,12 @@ public class NotebookController implements Initializable, DialogInterface {
 			String[] a = tabs.split(",");
 
 			for (String s : a) {
-				String[] b = s.split("~");
+				String[] b = s.split("~", -1);
 
-				if (b.length == 3)
-					tblTabs.getItems().add(new TabInfo(b[0], b[1], b[2]));
+				if (b.length == 4)
+					tblTabs.getItems().add(new TabInfo(b[0], b[1], b[2], b[3]));
 				else
-					tblTabs.getItems().add(new TabInfo(b[0], b[1], ""));
+					tblTabs.getItems().add(new TabInfo(b[0], b[1], "", null));
 
 				tabNames.add(b[0]);
 			}
@@ -583,6 +403,7 @@ public class NotebookController implements Initializable, DialogInterface {
 			txtTabText.setText("");
 			cbTabIcon.getSelectionModel().select(0);
 			txtTabTooltip.setText("");
+			cbTabLinked.getSelectionModel().select(0);
 		}
 
 		String key = yg.currIni.getString(yg.currDialog, "key");
@@ -598,9 +419,6 @@ public class NotebookController implements Initializable, DialogInterface {
 			txtTabBorders.setText(tabborders);
 		if (activetab != null)
 			txtActiveTab.setText(activetab);
-		
-		loadDialogs();
-		linkedDialogs();
 	}
 
 	@Override

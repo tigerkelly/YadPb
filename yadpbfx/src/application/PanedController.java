@@ -1,27 +1,19 @@
 package application;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import javafx.beans.value.ChangeListener;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.Label;
-import javafx.scene.control.ListView;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.SeparatorMenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
 public class PanedController implements Initializable, DialogInterface {
@@ -34,12 +26,12 @@ public class PanedController implements Initializable, DialogInterface {
 
     @FXML
     private ComboBox<String> cbOrient;
-
+    
     @FXML
-    private FlowPane fpLinkedDialogs;
-
+    private ComboBox<String> cbPane1;
+    
     @FXML
-    private ListView<String> lvDialogs;
+    private ComboBox<String> cbPane2;
 
     @FXML
     private TextField txtKey;
@@ -51,6 +43,7 @@ public class PanedController implements Initializable, DialogInterface {
     private TextField txtSplitter;
     
     private YadGlobal yg = YadGlobal.getInstance();
+    private java.util.List<String> dialogs = new ArrayList<>();
 
     @FXML
     void doGeneral(ActionEvent event) {
@@ -61,10 +54,104 @@ public class PanedController implements Initializable, DialogInterface {
     void onKey(KeyEvent event) {
     	yg.iniUpdate("key", txtKey.getText());
     }
-
+    
     @FXML
     void doOrient(ActionEvent event) {
     	yg.iniUpdate("orient", cbOrient.getValue().toString());
+    }
+
+    @FXML
+    void doPane1(ActionEvent event) {
+//    	String oldVal = yg.currIni.getString(yg.currDialog, "pane1");
+    	String keyNum = yg.currIni.getString(yg.currDialog, "key");
+//    	String dialog = cbPane1.getValue().toString();
+    	
+    	if (keyNum == null || keyNum.isEmpty() == true) {
+    		Alert messageBox = new Alert(Alert.AlertType.INFORMATION);
+            Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
+            stage.hide();
+
+            messageBox.setContentText("Be sure and set the 'Key' field.");
+
+            // Code to center dialog within parent.
+            Stage ps = (Stage) aPane.getScene().getWindow();
+
+            ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
+                double stageWidth = newValue.doubleValue();
+                stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
+            };
+            ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
+                double stageHeight = newValue.doubleValue();
+                stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
+            };
+
+            stage.widthProperty().addListener(widthListener);
+            stage.heightProperty().addListener(heightListener);
+
+            // Once the window is visible, remove the listeners
+            stage.setOnShown(e2 -> {
+                stage.widthProperty().removeListener(widthListener);
+                stage.heightProperty().removeListener(heightListener);
+            });
+
+            messageBox.showAndWait();
+    	}
+    		
+//    	if (oldVal != null && oldVal.equals("None") == false) {
+//    		yg.currIni.removeValuePair(oldVal + "-General", "plug");
+//    		yg.currIni.removeValuePair(oldVal + "-General", "tabnum");
+//    	}
+    	yg.iniUpdate("pane1", cbPane1.getValue().toString());
+//    	
+//    	yg.currIni.addValuePair(dialog + "-General", "plug", keyNum);
+//    	yg.currIni.addValuePair(dialog + "-General", "tabnum", "1");
+    }
+    
+    @FXML
+    void doPane2(ActionEvent event) {
+//    	String oldVal = yg.currIni.getString(yg.currDialog, "pane2");
+    	String keyNum = yg.currIni.getString(yg.currDialog, "key");
+//    	String dialog = cbPane1.getValue().toString();
+    	
+    	if (keyNum == null || keyNum.isEmpty() == true) {
+    		Alert messageBox = new Alert(Alert.AlertType.ERROR);
+            Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
+            stage.hide();
+
+            messageBox.setContentText("Be sure and set the 'Key' field.");
+
+            // Code to center dialog within parent.
+            Stage ps = (Stage) aPane.getScene().getWindow();
+
+            ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
+                double stageWidth = newValue.doubleValue();
+                stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
+            };
+            ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
+                double stageHeight = newValue.doubleValue();
+                stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
+            };
+
+            stage.widthProperty().addListener(widthListener);
+            stage.heightProperty().addListener(heightListener);
+
+            // Once the window is visible, remove the listeners
+            stage.setOnShown(e2 -> {
+                stage.widthProperty().removeListener(widthListener);
+                stage.heightProperty().removeListener(heightListener);
+            });
+
+            messageBox.showAndWait();
+    	}
+    		
+//    	if (oldVal != null && oldVal.equals("None") == false) {
+//    		yg.currIni.removeValuePair(oldVal + "-General", "plug");
+//    		yg.currIni.removeValuePair(oldVal + "-General", "tabnum");
+//    	}
+    	yg.iniUpdate("pane2", cbPane1.getValue().toString());
+//    	
+//    	yg.currIni.addValuePair(dialog + "-General", "plug", keyNum);
+//    	yg.currIni.addValuePair(dialog + "-General", "tabnum", "1");
     }
 
     @FXML
@@ -74,167 +161,18 @@ public class PanedController implements Initializable, DialogInterface {
     
     @Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
-    	ContextMenu cm = new ContextMenu();
+    	cbOrient.getItems().addAll("Horizontal", "Vertical");
 		
-		MenuItem mMenuTitle = new MenuItem("Paned Menu");
-		mMenuTitle.setDisable(true);
-		
-		MenuItem mLinkDialog = new MenuItem("Link Dialog");
-		mLinkDialog.setOnAction((ActionEvent e) -> {
-			String d = lvDialogs.getSelectionModel().getSelectedItem();
-			String dialog = d.split("-")[0];
-			ObservableList<Node> lst = fpLinkedDialogs.getChildren();
-			
-			String keyNum = yg.currIni.getString(yg.currDialog, "key");
-			String tabNum = txtTabnum.getText();
-//			System.out.println(keyNum + ", " + tabNum);
-			if (keyNum == null || keyNum.isEmpty() == true || tabNum == null || tabNum.isEmpty() == true) {
-				Alert messageBox = new Alert(Alert.AlertType.ERROR);
-				Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
-				stage.hide();
-
-				messageBox.setContentText("The 'Key' or 'Tab Num' field is blank.");
-				
-				// Code to center dialog within parent.
-				Stage ps = (Stage) aPane.getScene().getWindow();
-
-				ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
-					double stageWidth = newValue.doubleValue();
-					stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
-				};
-				ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
-					double stageHeight = newValue.doubleValue();
-					stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
-				};
-
-				stage.widthProperty().addListener(widthListener);
-				stage.heightProperty().addListener(heightListener);
-
-				// Once the window is visible, remove the listeners
-				stage.setOnShown(e2 -> {
-					stage.widthProperty().removeListener(widthListener);
-					stage.heightProperty().removeListener(heightListener);
-				});
-
-				messageBox.showAndWait();
-				return;
-			}
-			
-			boolean found = false;
-			for (Node n : lst) {
-				Label lbl = (Label)n;
-				
-				if (lbl.getText().startsWith(dialog) == true) {
-					found = true;
-					break;
-				}
-			}
-			
-			if (found == false) {
-				// May want to sort the list.
-				Label lbl = new Label(dialog + " " + tabNum);
-				lbl.setStyle("-fx-border-color: black;");
-				lbl.setAlignment(Pos.CENTER);
-				lbl.setPrefWidth(135.0);
-				fpLinkedDialogs.getChildren().add(lbl);
-				
-				yg.currIni.addValuePair(dialog + "-General", "plug", keyNum);
-				yg.currIni.addValuePair(dialog + "-General", "tabnum", tabNum);
-			}
-		});
-		
-		MenuItem mUnlinkDialog = new MenuItem("Unlink Dialog");
-		mUnlinkDialog.setOnAction((ActionEvent e) -> {
-			String d = lvDialogs.getSelectionModel().getSelectedItem();
-			String dialog = d.split("-")[0];
-			ObservableList<Node> lst = fpLinkedDialogs.getChildren();
-			
-			String keyNum = yg.currIni.getString(yg.currDialog, "key");
-			String tabNum = txtTabnum.getText();
-			if (keyNum == null || keyNum.isEmpty() == true || tabNum == null || tabNum.isEmpty() == true) {
-				Alert messageBox = new Alert(Alert.AlertType.ERROR);
-				Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
-				stage.hide();
-
-				messageBox.setContentText("The 'Key' or 'Tab Num' field is blank.");
-				
-				// Code to center dialog within parent.
-				Stage ps = (Stage) aPane.getScene().getWindow();
-
-				ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
-					double stageWidth = newValue.doubleValue();
-					stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
-				};
-				ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
-					double stageHeight = newValue.doubleValue();
-					stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
-				};
-
-				stage.widthProperty().addListener(widthListener);
-				stage.heightProperty().addListener(heightListener);
-
-				// Once the window is visible, remove the listeners
-				stage.setOnShown(e2 -> {
-					stage.widthProperty().removeListener(widthListener);
-					stage.heightProperty().removeListener(heightListener);
-				});
-
-				messageBox.showAndWait();
-				return;
-			}
-		
-			int found = -1;
-			int idx = 0;
-			for (Node n : lst) {
-				Label lbl = (Label)n;
-				
-				if (lbl.getText().startsWith(dialog) == true) {
-					found = idx;
-					break;
-				}
-				
-				idx++;
-			}
-			
-			if (found != -1) {
-				lst.remove(found);
-				
-				yg.currIni.removeValuePair(dialog + "-General", "plug");
-				yg.currIni.removeValuePair(dialog + "-General", "tabnum");
-			}
-		});
-		
-		SeparatorMenuItem sep = new SeparatorMenuItem();
-		SeparatorMenuItem sep2 = new SeparatorMenuItem();
-		
-		cm.getItems().addAll(mMenuTitle, sep, mLinkDialog, sep2, mUnlinkDialog);
-		
-		lvDialogs.setContextMenu(cm);
-	}
-
-	@Override
-	public void updateDialog() {
-		
-		String key = yg.currIni.getString(yg.currDialog, "key");
-		String orient = yg.currIni.getString(yg.currDialog, "orient");
-		String splitter = yg.currIni.getString(yg.currDialog, "splitter");
-		
-		if (key != null)
-			txtKey.setText(key);
-		if (splitter != null)
-			txtSplitter.setText(splitter);
-		if (orient != null)
-			cbOrient.getSelectionModel().select(orient);
-		
-		loadDialogs();
-		linkedDialogs();
-	}
-	
-	private void loadDialogs() {
-    	if (lvDialogs == null)
-    		return;
+    	buildDialogsList();
     	
-    	lvDialogs.getItems().clear();
+    	cbPane1.getItems().addAll(dialogs);
+		cbPane2.getItems().addAll(dialogs);
+	}
+    
+    private void buildDialogsList() {
+    	dialogs.clear();
+    	
+    	dialogs.add("None");
     	
     	Object[] secs = yg.currIni.getSectionNames();
     	
@@ -245,41 +183,30 @@ public class PanedController implements Initializable, DialogInterface {
     		if (s.equals(yg.currDialog) == true)
     			continue;
     		
-    		lvDialogs.getItems().add(s.split("-")[0]);
+    		dialogs.add(s.split("-")[0]);
     	}
     }
-    
-    private void linkedDialogs() {
-    	if (fpLinkedDialogs.getChildren() != null)
-    		fpLinkedDialogs.getChildren().clear();
-    	
-    	String keyNum = yg.currIni.getString(yg.currDialog, "key");
-    	
-    	if (keyNum == null || keyNum.isEmpty() == true)
-    		return;
-    	
-    	Object[] secs = yg.currIni.getSectionNames();
-    	
-    	for (Object sec : secs) {
-    		String s = (String)sec;
-    		
-    		if (s.equals(yg.currDialog) == true)
-    			continue;
-    		
-    		String plug = yg.currIni.getString(s + "-General", "plug");
-    		String tabnum = yg.currIni.getString(s + "-General", "tabnum");
-    		if (plug == null || plug.isEmpty() == true)
-    			continue;
-    		
-    		if (plug.equals(keyNum) == true) {
-    			Label lbl = new Label(s.split("-")[0] + " " + tabnum);
-				lbl.setStyle("-fx-border-color: black;");
-				lbl.setAlignment(Pos.CENTER);
-				lbl.setPrefWidth(135.0);
-				fpLinkedDialogs.getChildren().add(lbl);
-    		}
-    	}
-    }
+
+	@Override
+	public void updateDialog() {
+		
+		String key = yg.currIni.getString(yg.currDialog, "key");
+		String orient = yg.currIni.getString(yg.currDialog, "orient");
+		String splitter = yg.currIni.getString(yg.currDialog, "splitter");
+		String pane1 = yg.currIni.getString(yg.currDialog, "pane1");
+		String pane2 = yg.currIni.getString(yg.currDialog, "pane2");
+		
+		if (key != null)
+			txtKey.setText(key);
+		if (splitter != null)
+			txtSplitter.setText(splitter);
+		if (orient != null)
+			cbOrient.getSelectionModel().select(orient);
+		if (pane1 != null)
+			cbPane1.getSelectionModel().select(pane1);
+		if (pane2 != null)
+			cbPane2.getSelectionModel().select(pane2);
+	}
 
 	@Override
 	public void saveDialog() {

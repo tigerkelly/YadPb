@@ -1,4 +1,4 @@
 Manifest-Version: 1.0
-Class-Path: inifile8-2.0.16.jar
+Class-Path: inifile8-2.0.16.jar commons-lang3-3.1.jar commons-text-1.10.0.jar
 Main-Class: application.Main
 

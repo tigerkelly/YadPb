@@ -42,7 +42,6 @@
 	fixed = false
 	splash = false
 	nofocus = false
-	tabnum = 1
 
 [Color]
 	type = Color
@@ -114,8 +113,6 @@
 	fixed = false
 	splash = false
 	nofocus = false
-	plug = 3456
-	tabnum = 1
 
 [File]
 	type = File
@@ -223,7 +220,7 @@
 	type = Notebook
 	tabpos = Left
 	key = 3456
-	tabs = Tab1~document-open~Open a Document.,Tab2~gtk-ok~
+	tabs = Tab1~document-open~Open a Document.~Calendar,Tab2~gtk-ok~Its OK.~Form,Tab3~window-close~Show Page.~HTML
 
 [Notebook-General]
 	buttonlayout = End
@@ -250,7 +247,9 @@
 
 [Paned]
 	type = Paned
-	key = 3456
+	orient = Horizontal
+	pane1 = Entry
+	pane2 = None
 
 [Paned-General]
 	buttonlayout = End
@@ -313,7 +312,6 @@
 	response = 0
 	hscroll = Auto
 	vscroll = Auto
-	plug = 1
 
 [Scale]
 	type = Scale
