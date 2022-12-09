@@ -315,6 +315,7 @@
 
 [Scale]
 	type = Scale
+	marks = mark1:10,Mark2:90
 
 [Scale-General]
 	buttonlayout = End

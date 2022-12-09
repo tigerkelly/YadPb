@@ -1,3 +1,22 @@
+/*
+ * This file is part of YadPb.
+ *
+ * YadPb is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * YadPb is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with YadPb. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright (C) 2022-2023, Kelly Wiles <rkwiles@twc.com>
+ */
+
 package application;
 
 import java.io.BufferedWriter;
@@ -358,6 +377,7 @@ public class YadPbController implements Initializable, DialogInterface {
 		ContextMenu cm = new ContextMenu();
 		
 		MenuItem mProjectTitle = new MenuItem("Project Menu");
+		mProjectTitle.setStyle("-fx-font-weight: bold;");
 		mProjectTitle.setDisable(true);
 		
 		MenuItem mOpenProject = new MenuItem("Open Project");
@@ -383,7 +403,7 @@ public class YadPbController implements Initializable, DialogInterface {
 		MenuItem mCreateScript = new MenuItem("Show Commands");
 		mCreateScript.setOnAction((ActionEvent e) -> {
 			ProjectScript ps = new ProjectScript();
-			String dlg = ps.createAllDialogs(yg.currIni);
+			String dlg = ps.createAllDialogs(yg.currIni, true);
 
 			if (dlg != null && dlg.isEmpty() == false) {
 				
@@ -392,10 +412,10 @@ public class YadPbController implements Initializable, DialogInterface {
 			
 		});
 		
-		MenuItem mCreateBash = new MenuItem("Show Bash");
+		MenuItem mCreateBash = new MenuItem("Bash Arrays");
 		mCreateBash.setOnAction((ActionEvent e) -> {
 			ProjectBash pb = new ProjectBash(yg.currIni);
-			String dlg = pb.buildBashScript();
+			String dlg = pb.buildBashArrays();
 
 			if (dlg != null && dlg.isEmpty() == false) {
 				
@@ -503,6 +523,7 @@ public class YadPbController implements Initializable, DialogInterface {
 
 		ContextMenu cm2 = new ContextMenu();
 		MenuItem mDialogTitle = new MenuItem("Dialog Menu");
+		mDialogTitle.setStyle("-fx-font-weight: bold;");
 		mDialogTitle.setDisable(true);
 		
 		MenuItem mNewDialog = new MenuItem("New Dialog");
@@ -664,14 +685,10 @@ public class YadPbController implements Initializable, DialogInterface {
 		mDialogScript.setOnAction((ActionEvent e) -> {
 			
 			if (yg.yad == null) {
-				Alert messageBox = new Alert(Alert.AlertType.INFORMATION);
+				Alert messageBox = new Alert(Alert.AlertType.ERROR);
 				
 				Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
 				stage.hide();
-				
-				messageBox.setTitle("Warning");
-//				ButtonType type = new ButtonType("Ok", ButtonData.OK_DONE);
-//				messageBox.getDialogPane().getButtonTypes().add(type);
 
 				messageBox.setContentText("Use the Settings screen to add yad executable.\nIt was not found during startup.");
 				
@@ -721,14 +738,60 @@ public class YadPbController implements Initializable, DialogInterface {
 						if (plug == null || plug.isEmpty() == true || plug.equals(key) == false)
 							continue;
 						
-						String txt = ps.createDialog(yg.currIni, s);
+						String txt = ps.createDialog(yg.currIni, s, false);
 						if (txt != null && txt.isEmpty() == false)
 							taData.appendText(txt + "\n\n");
 					}
 				}
 			}
 			
-			String dlg = ps.createDialog(yg.currIni, yg.currDialog);
+			String dlg = ps.createDialog(yg.currIni, yg.currDialog, true);
+			
+//			System.out.println("dlg " + dlg);
+			
+			if (dlg != null && dlg.isEmpty() == false)
+				taData.appendText(dlg + "\n\n");
+			
+		});
+		
+		MenuItem mDialogArray = new MenuItem("Bash Array");
+		mDialogArray.setOnAction((ActionEvent e) -> {
+			
+			if (yg.yad == null) {
+				Alert messageBox = new Alert(Alert.AlertType.ERROR);
+				
+				Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
+				stage.hide();
+
+				messageBox.setContentText("Use the Settings screen to add yad executable.\nIt was not found during startup.");
+				
+				// Code to center dialog within parent.
+				Stage ps = (Stage) lblTitle.getScene().getWindow();
+
+				ChangeListener<Number> widthListener = (observable, oldValue, newValue) -> {
+					double stageWidth = newValue.doubleValue();
+					stage.setX(ps.getX() + ps.getWidth() / 2 - stageWidth / 2);
+				};
+				ChangeListener<Number> heightListener = (observable, oldValue, newValue) -> {
+					double stageHeight = newValue.doubleValue();
+					stage.setY(ps.getY() + ps.getHeight() / 2 - stageHeight / 2);
+				};
+
+				stage.widthProperty().addListener(widthListener);
+				stage.heightProperty().addListener(heightListener);
+
+				// Once the window is visible, remove the listeners
+				stage.setOnShown(e2 -> {
+					stage.widthProperty().removeListener(widthListener);
+					stage.heightProperty().removeListener(heightListener);
+				});
+				messageBox.showAndWait();
+				return;
+			}
+			
+			ProjectBash pb = new ProjectBash(yg.currIni);
+			
+			String dlg = pb.buildBashArray(yg.currDialog);
 			
 //			System.out.println("dlg " + dlg);
 			
@@ -777,7 +840,7 @@ public class YadPbController implements Initializable, DialogInterface {
 			}
 			
 			ProjectScript ps = new ProjectScript();
-			String dlg = ps.createDialog(yg.currIni, yg.currDialog);
+			String dlg = ps.createDialog(yg.currIni, yg.currDialog, false);
 			
 //			System.out.println("dlg " + dlg);
 			
@@ -791,7 +854,7 @@ public class YadPbController implements Initializable, DialogInterface {
 		SeparatorMenuItem sep3 = new SeparatorMenuItem();
 		SeparatorMenuItem sep4 = new SeparatorMenuItem();
 		
-		cm2.getItems().addAll(mDialogTitle, sep2, mNewDialog, mDeleteDialog, sep3, mDialogScript, sep4, mRunDialog);
+		cm2.getItems().addAll(mDialogTitle, sep2, mNewDialog, mDeleteDialog, sep3, mDialogScript, mDialogArray, sep4, mRunDialog);
 		
 		cm2.setOnShowing(new EventHandler<WindowEvent>() {
 			public void handle(WindowEvent e) {
@@ -802,10 +865,14 @@ public class YadPbController implements Initializable, DialogInterface {
 						mDeleteDialog.setDisable(true);
 					mNewDialog.setDisable(false);
 					mRunDialog.setDisable(false);
+					mDialogScript.setDisable(false);
+					mDialogArray.setDisable(false);
 				} else {
 					mNewDialog.setDisable(true);
 					mDeleteDialog.setDisable(true);
 					mRunDialog.setDisable(true);
+					mDialogScript.setDisable(true);
+					mDialogArray.setDisable(true);
 				}
 			}
 		});

@@ -1,3 +1,22 @@
+/*
+ * This file is part of YadPb.
+ *
+ * YadPb is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * YadPb is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with YadPb. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright (C) 2022-2023, Kelly Wiles <rkwiles@twc.com>
+ */
+
 package application;
 
 import java.net.URL;
@@ -9,11 +28,9 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.control.ButtonBar.ButtonData;
 import javafx.stage.Stage;
 import tbl.DialogType;
 
@@ -60,17 +77,28 @@ public class DialogNewController implements Initializable, DialogInterface {
 
     @FXML
     void doSave(ActionEvent event) {
+		String dialogName = txtDialogName.getText();
 		
-		if (yg.currIni.sectionExists(txtDialogName.getText())) {
-			Alert messageBox = new Alert(Alert.AlertType.CONFIRMATION);
+		// Remove all white spaces from name;
+		String[] t = dialogName.split("\\s+");
+		String tt = null;
+		if (t.length > 1) {
+			for (String s : t) {
+				if (tt == null)
+					tt = s;
+				else
+					tt += s;
+			}
+		}
+		if (tt != null)
+			dialogName = tt;
+		
+		if (yg.currIni.sectionExists(dialogName)) {
+			Alert messageBox = new Alert(Alert.AlertType.ERROR);
 			Stage stage = (Stage)messageBox.dialogPaneProperty().get().getScene().getWindow();
 			stage.hide();
-			
-			messageBox.setTitle("Warning");
-			ButtonType yesButton = new ButtonType("OK", ButtonData.OK_DONE);
-			messageBox.getButtonTypes().setAll(yesButton);
 
-			messageBox.setContentText("The field name '" + txtDialogName.getText() + "' is already exists.");
+			messageBox.setContentText("The field name '" + dialogName + "' is already exists.");
 			
 			// Code to center dialog within parent.
 			Stage ps = (Stage) btnSave.getScene().getWindow();
@@ -97,7 +125,7 @@ public class DialogNewController implements Initializable, DialogInterface {
 			return;
 		}
 		
-		dt = new DialogType(txtDialogName.getText(), (String)cbDialogType.getSelectionModel().getSelectedItem());
+		dt = new DialogType(dialogName, (String)cbDialogType.getSelectionModel().getSelectedItem());
 		
 		Stage stage = (Stage) btnCancel.getScene().getWindow();
         stage.close();

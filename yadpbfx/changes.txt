@@ -1,4 +1,14 @@
 
+2022-12-09
+1.0.9		- Changed menu item 'Show Bash' to 'Bash Arrays'. This now outputs Bash arrays instead of functions of each dialog.
+			- Added 'Bash Array' to dialog menu.
+			- Removed all spaces from dialog names, to help with Bash array names.
+			- Set default dialog General --center to true.
+			- Dialog menu was showing options available when they should not have been.
+			- Made menu titles uses bold font.
+			- Added tooltips to Settings screen.
+			- Added tooltips to Backup screen.
+			
 2022-12-08
 1.0.8		- Reworked Notebook and Paned screens. I came to realize that each tab can only have one dialog.
 			  You have to use a Form dialog if you want more entry fields.

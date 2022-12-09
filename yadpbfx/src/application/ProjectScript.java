@@ -1,3 +1,22 @@
+/*
+ * This file is part of YadPb.
+ *
+ * YadPb is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * YadPb is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with YadPb. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright (C) 2022-2023, Kelly Wiles <rkwiles@twc.com>
+ */
+
 package application;
 
 import java.util.ArrayList;
@@ -9,14 +28,16 @@ public class ProjectScript {
 	
 	 private String yad = null;
 	 private boolean runFlag = false;
+	 private boolean addYad = false;
 	 private YadGlobal yg = YadGlobal.getInstance();
 	
-	 public String createDialog(IniFile ini, String dialog) {
+	 public String createDialog(IniFile ini, String dialog, boolean addYad) {
 		StringBuilder txt = new StringBuilder();
 		
 		yad = yg.yad.getAbsolutePath();
 		
 		runFlag = true;
+		this.addYad = addYad;
 		
 		String type = ini.getString(dialog, "type");
 		switch(type) {
@@ -84,12 +105,13 @@ public class ProjectScript {
 		return txt.toString();
 	}
 
-	 public String createAllDialogs(IniFile ini) {
+	 public String createAllDialogs(IniFile ini, boolean addYad) {
 		StringBuilder txt = new StringBuilder();
 		
 		yad = yg.yad.getAbsolutePath();
 		
 		runFlag = false;
+		this.addYad = addYad;
 		
 		Object[] secs = ini.getSectionNames();
 		
@@ -198,8 +220,10 @@ public class ProjectScript {
 		
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
-		else
-			txt.append(yad + " ");
+		else {
+			if (addYad == true)
+				txt.append(yad + " ");
+		}
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -252,8 +276,10 @@ public class ProjectScript {
 		
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
-		else
-			txt.append(yad + " ");
+		else {
+			if (addYad == true)
+				txt.append(yad + " ");
+		}
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -294,8 +320,10 @@ public class ProjectScript {
 		
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
-		else
-			txt.append(yad + " ");
+		else {
+			if (addYad == true)
+				txt.append(yad + " ");
+		}
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -356,8 +384,10 @@ public class ProjectScript {
 		
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
-		else
-			txt.append(yad + " ");
+		else {
+			if (addYad == true)
+				txt.append(yad + " ");
+		}
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -416,8 +446,10 @@ public class ProjectScript {
 		
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
-		else
-			txt.append(yad + " ");
+		else {
+			if (addYad == true)
+				txt.append(yad + " ");
+		}
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -463,8 +495,10 @@ public class ProjectScript {
 		
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
-		else
-			txt.append(yad + " ");
+		else {
+			if (addYad == true)
+				txt.append(yad + " ");
+		}
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -699,8 +733,10 @@ public class ProjectScript {
 		
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
-		else
-			txt.append(yad + " ");
+		else {
+			if (addYad == true)
+				txt.append(yad + " ");
+		}
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -753,8 +789,10 @@ public class ProjectScript {
 		
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
-		else
-			txt.append(yad + " ");
+		else {
+			if (addYad == true)
+				txt.append(yad + " ");
+		}
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -816,8 +854,10 @@ public class ProjectScript {
 		
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
-		else
-			txt.append(yad + " ");
+		else {
+			if (addYad == true)
+				txt.append(yad + " ");
+		}
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -891,8 +931,10 @@ public class ProjectScript {
 		
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
-		else
-			txt.append(yad + " ");
+		else {
+			if (addYad == true)
+				txt.append(yad + " ");
+		}
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -1032,8 +1074,10 @@ public class ProjectScript {
 		
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
-		else
-			txt.append(yad + " ");
+		else {
+			if (addYad == true)
+				txt.append(yad + " ");
+		}
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -1084,8 +1128,10 @@ public class ProjectScript {
 		
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
-		else
-			txt.append(yad + " ");
+		else {
+			if (addYad == true)
+				txt.append(yad + " ");
+		}
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -1141,8 +1187,10 @@ public class ProjectScript {
 		
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
-		else
-			txt.append(yad + " ");
+		else {
+			if (addYad == true)
+				txt.append(yad + " ");
+		}
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -1180,8 +1228,10 @@ public class ProjectScript {
 			
 			if (runFlag == false)
 				txt.append("# Dialog '" + sec + "'\n" + yad);
-			else
-				txt.append(yad + " ");
+			else {
+				if (addYad == true)
+					txt.append(yad + " ");
+			}
 			
 			for (String s : lst) {
 				txt.append(s + " ");
@@ -1219,8 +1269,10 @@ public class ProjectScript {
 			
 			if (runFlag == false)
 				txt.append("# Dialog '" + sec + "'\n" + yad);
-			else
-				txt.append(yad + " ");
+			else {
+				if (addYad == true)
+					txt.append(yad + " ");
+			}
 			
 			for (String s : lst) {
 				txt.append(s + " ");
@@ -1264,8 +1316,10 @@ public class ProjectScript {
 		
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
-		else
-			txt.append(yad + " ");
+		else {
+			if (addYad == true)
+				txt.append(yad + " ");
+		}
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -1333,8 +1387,10 @@ public class ProjectScript {
 		
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
-		else
-			txt.append(yad + " ");
+		else {
+			if (addYad == true)
+				txt.append(yad + " ");
+		}
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -1388,8 +1444,10 @@ public class ProjectScript {
 		
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
-		else
-			txt.append(yad + " ");
+		else {
+			if (addYad == true)
+				txt.append(yad + " ");
+		}
 		
 		for (String s : lst) {
 			txt.append(s + " ");
@@ -1465,8 +1523,10 @@ public class ProjectScript {
 		
 		if (runFlag == false)
 			txt.append("# Dialog '" + sec + "'\n" + yad);
-		else
-			txt.append(yad + " ");
+		else {
+			if (addYad == true)
+				txt.append(yad + " ");
+		}
 		
 		for (String s : lst) {
 			txt.append(s + " ");

@@ -1,11 +1,25 @@
+/*
+ * This file is part of YadPb.
+ *
+ * YadPb is free software; you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation; either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * YadPb is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with YadPb. If not, see <http://www.gnu.org/licenses/>.
+ *
+ * Copyright (C) 2022-2023, Kelly Wiles <rkwiles@twc.com>
+ */
+
 package application;
 
-
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.commons.text.StringTokenizer;
-import org.apache.commons.text.matcher.StringMatcherFactory;
+import java.util.Calendar;
 
 import com.rkw.IniFile;
 
@@ -20,102 +34,54 @@ public class ProjectBash {
 		ps = new ProjectScript();
 	}
 	
-	public String buildBashScript() {
+	public String buildBashArray(String dialog) {
 		StringBuilder txt = new StringBuilder();
-		Map<String, String> linked = new HashMap<String, String>();
+		
+		if (ini.sectionExists(dialog) == false)
+			return null;
+
+		String dlg = ps.createDialog(ini, dialog, false);
+		
+		txt.append("arr_" + dialog + "=(\n");
+		
+		String[] tokens = dlg.split("--");
+		for (String token : tokens) {
+			if (token != null && token.isEmpty() == false)
+				txt.append("\t--" + token + "\n");
+		}
+		
+		txt.append(")\n\n");
+		
+		return txt.toString();
+	}
+	
+	public String buildBashArrays() {
+		StringBuilder txt = new StringBuilder();
 		
 		Object[] secs = ini.getSectionNames();
-		
-		// Find all Notebook and Paned dialogs.
-		for (Object sec : secs) {
-			String type = ini.getString(sec, "type");
-			if (type != null && (type.equals("Notebook") == true || type.equals("Paned") == true)) {
-				String key = ini.getString(sec, "key");
-				linked.put(key, null);
-			}
-		}
-		
-		// Update each linked dialog with either Notebook or Paned dialog
-		for (Object sec : secs) {
-//			String type = ini.getString(sec, "type");
-			String plug = ini.getString(sec + "-General", "plug");
-			
-			if (plug != null && plug.isEmpty() == false) {
-//				String v = linked.get(key);
-			}
-		}
 		
 		for (Object sec : secs) {
 			String s = (String)sec;
 			if (s.endsWith("-General") == true)
 				continue;
 			
-			String plug = ini.getString(sec + "-General", "plug");
-			String type = ini.getString(sec, "type");
+			String dlg = ps.createDialog(ini, s, false);
 			
-			if (plug != null && plug.isEmpty() == false &&
-					(type.equals("Notebook") == false && type.equals("Paned") == false)) {
-				continue;
-				
-			}
-			String dlg = ps.createDialog(ini, s);
+			txt.append("arr_" + s + "=(\n");
 			
-			txt.append("func_" + s + "() {\n\t");
-			
-			StringTokenizer st = new StringTokenizer(dlg);
-			st.setDelimiterMatcher(StringMatcherFactory.INSTANCE.spaceMatcher());
-			st.setQuoteMatcher(StringMatcherFactory.INSTANCE.doubleQuoteMatcher());
-			String[] tokens = st.getTokenArray();
-			int len = 0;
-			boolean firstTime = true;
-			for (int i = 0; i < st.size(); i++ ) {
-				if (firstTime == true) {
-					firstTime = false;
-					txt.append(tokens[i]);
-				} else {
-					txt.append(" " + tokens[i]);
-				}
-				
-				len += tokens[i].length();
-				
-				if (len >= 70) {
-					len = 0;
-					if ((i + 1) < tokens.length)
-						txt.append(" \\\n\t");
-				}
+			String[] tokens = dlg.split("--");
+			for (String token : tokens) {
+				if (token != null && token.isEmpty() == false)
+					txt.append("\t--" + token + "\n");
 			}
 			
-//			Matcher m = Pattern.compile("\"([^\"]*)\"|(\\S+)").matcher(dlg);
-			
-//			Matcher m = Pattern.compile("([^\"]\\S*|\".+?\")\\s*").matcher(dlg);
-			
-//			int len = 0;
-//			String xx = null;
-//			while (m.find()) {
-//				String t = null;
-//				if (m.group(1) != null)
-//					t = m.group(1);
-//				else
-//					t = m.group(2);
-////				System.out.println(t);
-//				if (xx == null)
-//					xx = t;
-//				else
-//					xx += " " + t;
-//				
-//				len += t.length();
-//				
-//				if (len >= 70) {
-//					len = 0;
-//					xx += " \\\n\t";
-//				}
-//			}
-//			
-//			txt.append(xx);
-			
-			txt.append("\n}\n\n");
+			txt.append(")\n\n");
 		}
 		
-		return "#!/usr/bin/bash\n#\n\n" + txt.toString();
+		Calendar c = Calendar.getInstance();
+		String d = String.format("%d-%02d-%02d %02d:%02d:%02d",
+				c.get(Calendar.YEAR), c.get(Calendar.MONTH) + 1, c.get(Calendar.DAY_OF_MONTH),
+				c.get(Calendar.HOUR), c.get(Calendar.MINUTE), c.get(Calendar.SECOND));
+		return "#!/usr/bin/bash\n# Created: " + d + "\n# To use a bash array use the following\n# yad \"${arr_Calendar[@]}\"\n\n" + txt.toString();
 	}
 }

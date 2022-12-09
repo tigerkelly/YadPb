@@ -26,6 +26,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Enter project directory." />
+                     </tooltip>
                   </TextField>
                   <Button fx:id="btnWorkDir" mnemonicParsing="false" onAction="#doWorkDir" text="^">
                      <font>
@@ -48,6 +51,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Enter the compliete path to the YAD program." />
+                     </tooltip>
                   </TextField>
                   <Button fx:id="btnYad" mnemonicParsing="false" onAction="#doYad" text="^">
                      <font>
@@ -100,6 +106,9 @@
                      <font>
                         <Font size="14.0" />
                      </font>
+                     <tooltip>
+                        <Tooltip text="Rebuild Icon list based on your system." />
+                     </tooltip>
                   </Button>
                </children>
                <padding>
