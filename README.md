@@ -3,6 +3,18 @@
 
 This is a GUI frontend for the YAD program.  Allow you to create a project(s) to keep your YAD dailogs.
 
+*Features:*
+
+- A GUI to build YAD dialogs with.
+- Each field has a tooltip to help you understand what each option is for.
+- Unlimited number of projects.
+- Unlimited number of dialogs per project.
+- Keep all dialogs in a single place for a project.
+- Generate Bash arrays for a dialog, this allows easier Bash script creation and better read ability.
+- Backups are kept for each saved project.  So that you can go back to a previous change in the project.
+- Create new projects from backed up projects.
+- Give each dialog a unique name.
+
 I used the version of YAD that comes with Ubuntu
 
 Once a project has been created the use can start be adding different dialogs to the project.
@@ -20,7 +32,7 @@ tutorials online to help with this.
 Linux tiger 5.15.0-56-generic #62-Ubuntu SMP Tue Nov 22 19:54:14 UTC 2022 x86\_64 x86\_64 x86\_64 GNU/Linux
 Ubuntu 22.04.1 LTS
 
-I used the version of YAD that came with this versioni of OS. YAD 0.40.0
+I used the version of YAD that came with this version of OS. YAD 0.40.0
 
 I created this with Java 18 and JavaFX 19 on a Ubuntu system.
 
@@ -40,7 +52,7 @@ The directory YabPb if the home directory of the YadPb program.  Copy this direc
 
     cp -r YadPb ~/
 
-Also copy the yadpb script in the bin directory to you bin directory.
+Also copy the yadpb script in the bin directory to you bin directory.  Use this script to start YadPb.
 
 The directory yadpbfx is the source code to the YadPb program.
 
