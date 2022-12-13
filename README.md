@@ -1,7 +1,7 @@
 # YadPb
   *(YAD Project Builder)*  
 
-`#0077ff` If you are interested in Raspberry Pi then check out my [Etsy shop](https://www.etsy.com/shop/TigerLuckyCreations?ref=shop_sugg_market)
+If you are interested in Raspberry Pi then check out my [Etsy shop](https://www.etsy.com/shop/TigerLuckyCreations?ref=shop_sugg_market)
 
 This is a GUI frontend for the YAD program.  Allow you to create a project(s) to keep your YAD dailogs.
 
